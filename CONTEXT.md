@@ -3,16 +3,16 @@
 Last touched: 2026-07-11
 
 ## Completed
-- Project scaffolded, identity docs written, repo `mostlytricks/constellation` created (public) + pushed.
-- **`analyze` skill built end-to-end:** `extract.py` (deterministic facts → JSON) + SKILL.md (agent interprets → PATTERNS.md), venv + python-pptx, synthetic fixture (`fixtures/make_fixture.py`, 6 slides with a deliberate 3× archetype + Korean UTF-8 check), smoke loop green, worked example committed at `library/analysis/orion-sample/`.
+- **`analyze` skill built end-to-end:** `extract.py` (deterministic facts → JSON) + SKILL.md (agent interprets → PATTERNS.md); smoke loop green on the synthetic orion-sample fixture (3× archetype found, Korean UTF-8 verified); worked example committed.
+- **`ideate` skill built:** pure elicitation skill (strawman-first, five themes, named arcs, per-slide **roles** — the upstream half of the deck-spec seam); worked example `library/ideas/constellation-intro/IDEA.md` (doubles as the future demo deck's brief).
 
 ## Current State
-- Runs locally: smoke loop in CLAUDE.md **Test** passes; Korean text survives the dump (UTF-8, verified in-file).
-- Privacy wall in `.gitignore`: real decks + their analysis never committed; only the synthetic orion-sample output is whitelisted.
-- Skills remaining: `ideate`, `templatize`, `compose` — all unbuilt. Deck-spec seam still undefined (OPEN in CLAUDE.md).
-- Known extractor gap: theme-inherited fonts/colors reported as `(inherit)` — master/theme XML not read yet (OPEN in orion-sample PATTERNS.md).
+- 2 of 4 skills exist (`analyze`, `ideate`); `templatize` + `compose` unbuilt. Deck-spec seam half-defined: idea-side roles named in ideate's SKILL.md; pattern-side archetype schema waits on real-deck evidence.
+- Smoke loop in CLAUDE.md **Test** passes. Privacy wall: real decks + their analysis git-ignored; only synthetic orion-sample output whitelisted.
+- Extractor gap: theme-inherited fonts/colors show as `(inherit)` — master/theme XML unread (OPEN in orion-sample PATTERNS.md).
+- No real `.pptx` on this machine (checked fixtures/Downloads/Desktop/Documents) — real decks presumably live on the work machine.
 
 ## Next Step
-- Run `analyze` on a **real deck** (user supplies 1–2 `.pptx` fixtures) — the real test of stage-2 interpretation, and the evidence that defines the deck-spec schema before `templatize` is built.
+- Run `analyze` on a **real deck** the user supplies (drop into `fixtures/` — git-ignored). That evidence fixes the archetype schema and unblocks `templatize`.
 
 ---
