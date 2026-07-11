@@ -1,0 +1,29 @@
+{
+  "theme": "meridian",
+  "version": 1,
+  "source": "meridian-pitch visual grammar (synthetic consultant fixture)",
+  "tokens": {
+    "colors": {
+      "navy": "0B2340",
+      "ink": "3B4652",
+      "gold": "C9A227",
+      "paper": "FFFFFF",
+      "panel": "F2F4F7",
+      "mute": "8A94A0"
+    },
+    "bullet_char": "▪",
+    "text_styles": {
+      "kicker":         { "size_pt": 11, "bold": true,  "color": "gold",  "font": "Arial", "caps": true },
+      "headline":       { "size_pt": 24, "bold": true,  "color": "navy",  "font": "Georgia" },
+      "body":           { "size_pt": 14, "bold": false, "color": "ink",   "font": "Arial" },
+      "source":         { "size_pt": 9,  "bold": false, "color": "mute",  "font": "Arial", "italic": true },
+      "footer":         { "size_pt": 8,  "bold": false, "color": "mute",  "font": "Arial" },
+      "divider-number": { "size_pt": 60, "bold": true,  "color": "gold",  "font": "Georgia" },
+      "divider-title":  { "size_pt": 32, "bold": false, "color": "paper", "font": "Georgia" },
+      "table-header":   { "size_pt": 12, "bold": true,  "color": "paper", "font": "Arial" },
+      "table-label":    { "size_pt": 12, "bold": true,  "color": "ink",   "font": "Arial" },
+      "table-body":     { "size_pt": 12, "bold": false, "color": "ink",   "font": "Arial" }
+    }
+  },
+  "open": []
+}

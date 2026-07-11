@@ -38,12 +38,20 @@ question. Never ask what's already been said; never plausibly fill what wasn't.
    | `data` | a chart/table carries the message |
    | `quote` | borrowed authority / testimonial |
    | `demo` | screenshot / live-demo anchor |
-   | `closing` | ask + takeaway bookend |
+   | `summary` | up-front executive summary — the whole case on one slide |
+   | `exhibit` | a table/chart carries the message (evidence-earned name for `data`) |
+   | `ask` | the direct request — funding, decision, headcount |
+   | `closing` | takeaway bookend |
 
 4. **Read back** the outline in one screen; get confirmation or corrections.
 
 5. **Write** `library/ideas/<slug>/IDEA.md` (shape below). Unresolved items stay
    as visible `OPEN:` lines.
+
+6. **Offer the storyline pass.** For a pitch that has to *land* (stakes, a
+   skeptical room), suggest running the `storyline` skill next — it upgrades
+   the outline's messages into action titles, sets a mood curve on the arc,
+   and verifies flow with a ghost-deck read-back, in this same file.
 
 ## Named arcs (strawman menu)
 

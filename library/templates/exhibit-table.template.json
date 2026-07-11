@@ -1,0 +1,26 @@
+{
+  "template": "exhibit-table",
+  "version": 1,
+  "source": "meridian-pitch, archetype B (slide 7)",
+  "roles": ["exhibit"],
+  "aspect": 1.778,
+  "boxes": [
+    { "box": "kicker",  "x_pct": 4.5,  "y_pct": 6.0,  "w_pct": 90.8, "h_pct": 4.0,
+      "text_style": "kicker" },
+    { "box": "headline", "x_pct": 4.5, "y_pct": 10.7, "w_pct": 90.8, "h_pct": 12.0,
+      "text_style": "headline" },
+    { "box": "rule", "x_pct": 4.5, "y_pct": 23.3, "w_pct": 9.0, "h_pct": 0.4,
+      "fill": "gold" },
+    { "box": "exhibit", "x_pct": 4.5, "y_pct": 29.3, "w_pct": 90.8, "h_pct": 32.0,
+      "content": "table", "text_style": "table-body", "label_style": "table-label",
+      "header": { "text_style": "table-header", "fill": "navy" },
+      "banding": ["paper", "panel"] },
+    { "box": "source", "x_pct": 4.5, "y_pct": 88.7, "w_pct": 90.8, "h_pct": 3.3,
+      "text_style": "source" },
+    { "box": "footer", "x_pct": 4.5, "y_pct": 94.7, "w_pct": 45.0, "h_pct": 3.3,
+      "text_style": "footer" },
+    { "box": "page-no", "x_pct": 92.3, "y_pct": 94.7, "w_pct": 3.4, "h_pct": 3.3,
+      "text_style": "footer", "align": "right" }
+  ],
+  "open": []
+}

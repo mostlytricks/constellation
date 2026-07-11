@@ -1,0 +1,1978 @@
+{
+  "deck": {
+    "file": "meridian-pitch.pptx",
+    "slide_w_emu": 12191695,
+    "slide_h_emu": 6858000,
+    "aspect": 1.778,
+    "slide_count": 11
+  },
+  "layouts": {
+    "master_1": [
+      "Title Slide",
+      "Title and Content",
+      "Section Header",
+      "Two Content",
+      "Comparison",
+      "Title Only",
+      "Blank",
+      "Content with Caption",
+      "Picture with Caption",
+      "Title and Vertical Text",
+      "Vertical Title and Text"
+    ]
+  },
+  "themes": {
+    "master_1": {
+      "theme_name": "Meridian",
+      "color_scheme": {
+        "name": "Meridian",
+        "colors": {
+          "dk1": "000000",
+          "lt1": "FFFFFF",
+          "dk2": "0B2340",
+          "lt2": "F2F4F7",
+          "accent1": "C9A227",
+          "accent2": "0B2340",
+          "accent3": "9BBB59",
+          "accent4": "8064A2",
+          "accent5": "4BACC6",
+          "accent6": "F79646",
+          "hlink": "0000FF",
+          "folHlink": "800080"
+        }
+      },
+      "font_scheme": {
+        "name": "Meridian",
+        "major": {
+          "latin": "Georgia"
+        },
+        "minor": {
+          "latin": "Arial"
+        }
+      },
+      "color_map": {
+        "bg1": "lt1",
+        "tx1": "dk1",
+        "bg2": "lt2",
+        "tx2": "dk2",
+        "accent1": "accent1",
+        "accent2": "accent2",
+        "accent3": "accent3",
+        "accent4": "accent4",
+        "accent5": "accent5",
+        "accent6": "accent6",
+        "hlink": "hlink",
+        "folHlink": "folHlink"
+      },
+      "master_text_styles": {
+        "titleStyle": {
+          "lvl1": {
+            "size_pt": 44.0,
+            "color": "scheme:tx1",
+            "font": "+mj-lt"
+          }
+        },
+        "bodyStyle": {
+          "lvl1": {
+            "size_pt": 32.0,
+            "color": "scheme:tx1",
+            "font": "+mn-lt"
+          },
+          "lvl2": {
+            "size_pt": 28.0,
+            "color": "scheme:tx1",
+            "font": "+mn-lt"
+          },
+          "lvl3": {
+            "size_pt": 24.0,
+            "color": "scheme:tx1",
+            "font": "+mn-lt"
+          }
+        },
+        "otherStyle": {
+          "lvl1": {
+            "size_pt": 18.0,
+            "color": "scheme:tx1",
+            "font": "+mn-lt"
+          },
+          "lvl2": {
+            "size_pt": 18.0,
+            "color": "scheme:tx1",
+            "font": "+mn-lt"
+          },
+          "lvl3": {
+            "size_pt": 18.0,
+            "color": "scheme:tx1",
+            "font": "+mn-lt"
+          }
+        }
+      }
+    }
+  },
+  "slides": [
+    {
+      "n": 1,
+      "layout": "Blank",
+      "shape_count": 5,
+      "shapes": [
+        {
+          "name": "Rectangle 1",
+          "type": "AUTO_SHAPE (1)",
+          "x_pct": 0.0,
+          "y_pct": 0.0,
+          "w_pct": 100.0,
+          "h_pct": 100.0,
+          "text_len": 0,
+          "text_preview": "",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {},
+            "sizes_pt": {},
+            "colors": {},
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "SOLID (1)",
+            "rgb": "0B2340"
+          }
+        },
+        {
+          "name": "Rectangle 2",
+          "type": "AUTO_SHAPE (1)",
+          "x_pct": 4.5,
+          "y_pct": 42.0,
+          "w_pct": 9.0,
+          "h_pct": 0.4,
+          "text_len": 0,
+          "text_preview": "",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {},
+            "sizes_pt": {},
+            "colors": {},
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "SOLID (1)",
+            "rgb": "C9A227"
+          }
+        },
+        {
+          "name": "TextBox 3",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 44.0,
+          "w_pct": 90.8,
+          "h_pct": 12.0,
+          "text_len": 16,
+          "text_preview": "PROJECT MERIDIAN",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Georgia": 1
+            },
+            "sizes_pt": {
+              "40": 1
+            },
+            "colors": {
+              "FFFFFF": 1
+            },
+            "bold_runs": 1
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "TextBox 4",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 56.7,
+          "w_pct": 90.8,
+          "h_pct": 6.7,
+          "text_len": 49,
+          "text_preview": "Series B Growth Financing — Investor Presentation",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Arial": 1
+            },
+            "sizes_pt": {
+              "16": 1
+            },
+            "colors": {
+              "F2F4F7": 1
+            },
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "TextBox 5",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 90.7,
+          "w_pct": 90.8,
+          "h_pct": 4.0,
+          "text_len": 76,
+          "text_preview": "MERIDIAN ADVISORY PARTNERS  ·  STRICTLY PRIVATE & CONFIDENTIAL  ·  JUNE 2026",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Arial": 1
+            },
+            "sizes_pt": {
+              "10": 1
+            },
+            "colors": {
+              "C9A227": 1
+            },
+            "bold_runs": 1
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "layout": "Blank",
+      "shape_count": 7,
+      "shapes": [
+        {
+          "name": "TextBox 1",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 6.0,
+          "w_pct": 90.8,
+          "h_pct": 4.0,
+          "text_len": 17,
+          "text_preview": "EXECUTIVE SUMMARY",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Arial": 1
+            },
+            "sizes_pt": {
+              "11": 1
+            },
+            "colors": {
+              "C9A227": 1
+            },
+            "bold_runs": 1
+          },
+          "bullet_census": {
+            "none": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "TextBox 2",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 10.7,
+          "w_pct": 90.8,
+          "h_pct": 12.0,
+          "text_len": 64,
+          "text_preview": "Meridian is raising $40M to scale a proven unit-economics engine",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Georgia": 1
+            },
+            "sizes_pt": {
+              "24": 1
+            },
+            "colors": {
+              "0B2340": 1
+            },
+            "bold_runs": 1
+          },
+          "bullet_census": {
+            "none": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "Rectangle 3",
+          "type": "AUTO_SHAPE (1)",
+          "x_pct": 4.5,
+          "y_pct": 23.3,
+          "w_pct": 9.0,
+          "h_pct": 0.4,
+          "text_len": 0,
+          "text_preview": "",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {},
+            "sizes_pt": {},
+            "colors": {},
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "SOLID (1)",
+            "rgb": "C9A227"
+          }
+        },
+        {
+          "name": "TextBox 4",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 88.7,
+          "w_pct": 90.8,
+          "h_pct": 3.3,
+          "text_len": 57,
+          "text_preview": "Source: Company information. Illustrative synthetic data.",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Arial": 1
+            },
+            "sizes_pt": {
+              "9": 1
+            },
+            "colors": {
+              "8A94A0": 1
+            },
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "TextBox 5",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 28.0,
+          "w_pct": 90.8,
+          "h_pct": 57.3,
+          "text_len": 394,
+          "text_preview": "Revenue grew from $18M to $41M in two years while gross margin expanded 580bps —",
+          "para_count": 4,
+          "font_census": {
+            "fonts": {
+              "Arial": 4
+            },
+            "sizes_pt": {
+              "15": 4
+            },
+            "colors": {
+              "3B4652": 4
+            },
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "autonum:arabicPeriod": 4
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "TextBox 6",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 94.7,
+          "w_pct": 45.0,
+          "h_pct": 3.3,
+          "text_len": 60,
+          "text_preview": "Meridian Advisory Partners — Strictly Private & Confidential",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Arial": 1
+            },
+            "sizes_pt": {
+              "8": 1
+            },
+            "colors": {
+              "8A94A0": 1
+            },
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "TextBox 7",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 92.3,
+          "y_pct": 94.7,
+          "w_pct": 3.4,
+          "h_pct": 3.3,
+          "text_len": 1,
+          "text_preview": "2",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Arial": 1
+            },
+            "sizes_pt": {
+              "8": 1
+            },
+            "colors": {
+              "8A94A0": 1
+            },
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "layout": "Blank",
+      "shape_count": 4,
+      "shapes": [
+        {
+          "name": "Rectangle 1",
+          "type": "AUTO_SHAPE (1)",
+          "x_pct": 0.0,
+          "y_pct": 0.0,
+          "w_pct": 100.0,
+          "h_pct": 100.0,
+          "text_len": 0,
+          "text_preview": "",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {},
+            "sizes_pt": {},
+            "colors": {},
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "SOLID (1)",
+            "rgb": "0B2340"
+          }
+        },
+        {
+          "name": "TextBox 2",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 32.0,
+          "w_pct": 22.5,
+          "h_pct": 14.7,
+          "text_len": 2,
+          "text_preview": "01",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Georgia": 1
+            },
+            "sizes_pt": {
+              "60": 1
+            },
+            "colors": {
+              "C9A227": 1
+            },
+            "bold_runs": 1
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "Rectangle 3",
+          "type": "AUTO_SHAPE (1)",
+          "x_pct": 4.5,
+          "y_pct": 47.3,
+          "w_pct": 9.0,
+          "h_pct": 0.4,
+          "text_len": 0,
+          "text_preview": "",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {},
+            "sizes_pt": {},
+            "colors": {},
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "SOLID (1)",
+            "rgb": "C9A227"
+          }
+        },
+        {
+          "name": "TextBox 4",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 50.0,
+          "w_pct": 60.0,
+          "h_pct": 10.7,
+          "text_len": 14,
+          "text_preview": "Market Context",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Georgia": 1
+            },
+            "sizes_pt": {
+              "32": 1
+            },
+            "colors": {
+              "FFFFFF": 1
+            },
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "layout": "Blank",
+      "shape_count": 7,
+      "shapes": [
+        {
+          "name": "TextBox 1",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 6.0,
+          "w_pct": 90.8,
+          "h_pct": 4.0,
+          "text_len": 14,
+          "text_preview": "MARKET CONTEXT",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Arial": 1
+            },
+            "sizes_pt": {
+              "11": 1
+            },
+            "colors": {
+              "C9A227": 1
+            },
+            "bold_runs": 1
+          },
+          "bullet_census": {
+            "none": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "TextBox 2",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 10.7,
+          "w_pct": 90.8,
+          "h_pct": 12.0,
+          "text_len": 59,
+          "text_preview": "An $18B market growing 12% annually, still under-penetrated",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Georgia": 1
+            },
+            "sizes_pt": {
+              "24": 1
+            },
+            "colors": {
+              "0B2340": 1
+            },
+            "bold_runs": 1
+          },
+          "bullet_census": {
+            "none": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "Rectangle 3",
+          "type": "AUTO_SHAPE (1)",
+          "x_pct": 4.5,
+          "y_pct": 23.3,
+          "w_pct": 9.0,
+          "h_pct": 0.4,
+          "text_len": 0,
+          "text_preview": "",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {},
+            "sizes_pt": {},
+            "colors": {},
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "SOLID (1)",
+            "rgb": "C9A227"
+          }
+        },
+        {
+          "name": "TextBox 4",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 88.7,
+          "w_pct": 90.8,
+          "h_pct": 3.3,
+          "text_len": 63,
+          "text_preview": "Source: Meridian analysis of industry reports, 2026. Synthetic.",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Arial": 1
+            },
+            "sizes_pt": {
+              "9": 1
+            },
+            "colors": {
+              "8A94A0": 1
+            },
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "TextBox 5",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 28.0,
+          "w_pct": 90.8,
+          "h_pct": 57.3,
+          "text_len": 408,
+          "text_preview": "Core segment TAM of $18.4B, expanding at a 12.1% CAGR through 2030.\nMid-market p",
+          "para_count": 4,
+          "font_census": {
+            "fonts": {
+              "Arial": 4
+            },
+            "sizes_pt": {
+              "14": 4
+            },
+            "colors": {
+              "3B4652": 4
+            },
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "char:▪": 4
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "TextBox 6",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 94.7,
+          "w_pct": 45.0,
+          "h_pct": 3.3,
+          "text_len": 60,
+          "text_preview": "Meridian Advisory Partners — Strictly Private & Confidential",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Arial": 1
+            },
+            "sizes_pt": {
+              "8": 1
+            },
+            "colors": {
+              "8A94A0": 1
+            },
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "TextBox 7",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 92.3,
+          "y_pct": 94.7,
+          "w_pct": 3.4,
+          "h_pct": 3.3,
+          "text_len": 1,
+          "text_preview": "4",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Arial": 1
+            },
+            "sizes_pt": {
+              "8": 1
+            },
+            "colors": {
+              "8A94A0": 1
+            },
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "layout": "Blank",
+      "shape_count": 7,
+      "shapes": [
+        {
+          "name": "TextBox 1",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 6.0,
+          "w_pct": 90.8,
+          "h_pct": 4.0,
+          "text_len": 21,
+          "text_preview": "COMPETITIVE LANDSCAPE",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Arial": 1
+            },
+            "sizes_pt": {
+              "11": 1
+            },
+            "colors": {
+              "C9A227": 1
+            },
+            "bold_runs": 1
+          },
+          "bullet_census": {
+            "none": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "TextBox 2",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 10.7,
+          "w_pct": 90.8,
+          "h_pct": 12.0,
+          "text_len": 59,
+          "text_preview": "Incumbents optimize for scale; Meridian wins on integration",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Georgia": 1
+            },
+            "sizes_pt": {
+              "24": 1
+            },
+            "colors": {
+              "0B2340": 1
+            },
+            "bold_runs": 1
+          },
+          "bullet_census": {
+            "none": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "Rectangle 3",
+          "type": "AUTO_SHAPE (1)",
+          "x_pct": 4.5,
+          "y_pct": 23.3,
+          "w_pct": 9.0,
+          "h_pct": 0.4,
+          "text_len": 0,
+          "text_preview": "",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {},
+            "sizes_pt": {},
+            "colors": {},
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "SOLID (1)",
+            "rgb": "C9A227"
+          }
+        },
+        {
+          "name": "TextBox 4",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 88.7,
+          "w_pct": 90.8,
+          "h_pct": 3.3,
+          "text_len": 53,
+          "text_preview": "Source: Meridian analysis; public filings. Synthetic.",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Arial": 1
+            },
+            "sizes_pt": {
+              "9": 1
+            },
+            "colors": {
+              "8A94A0": 1
+            },
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "TextBox 5",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 28.0,
+          "w_pct": 90.8,
+          "h_pct": 57.3,
+          "text_len": 350,
+          "text_preview": "Two scaled incumbents hold 47% share but carry 15-year-old architectures — integ",
+          "para_count": 4,
+          "font_census": {
+            "fonts": {
+              "Arial": 4
+            },
+            "sizes_pt": {
+              "14": 4
+            },
+            "colors": {
+              "3B4652": 4
+            },
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "char:▪": 4
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "TextBox 6",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 94.7,
+          "w_pct": 45.0,
+          "h_pct": 3.3,
+          "text_len": 60,
+          "text_preview": "Meridian Advisory Partners — Strictly Private & Confidential",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Arial": 1
+            },
+            "sizes_pt": {
+              "8": 1
+            },
+            "colors": {
+              "8A94A0": 1
+            },
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "TextBox 7",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 92.3,
+          "y_pct": 94.7,
+          "w_pct": 3.4,
+          "h_pct": 3.3,
+          "text_len": 1,
+          "text_preview": "5",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Arial": 1
+            },
+            "sizes_pt": {
+              "8": 1
+            },
+            "colors": {
+              "8A94A0": 1
+            },
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "layout": "Blank",
+      "shape_count": 4,
+      "shapes": [
+        {
+          "name": "Rectangle 1",
+          "type": "AUTO_SHAPE (1)",
+          "x_pct": 0.0,
+          "y_pct": 0.0,
+          "w_pct": 100.0,
+          "h_pct": 100.0,
+          "text_len": 0,
+          "text_preview": "",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {},
+            "sizes_pt": {},
+            "colors": {},
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "SOLID (1)",
+            "rgb": "0B2340"
+          }
+        },
+        {
+          "name": "TextBox 2",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 32.0,
+          "w_pct": 22.5,
+          "h_pct": 14.7,
+          "text_len": 2,
+          "text_preview": "02",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Georgia": 1
+            },
+            "sizes_pt": {
+              "60": 1
+            },
+            "colors": {
+              "C9A227": 1
+            },
+            "bold_runs": 1
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "Rectangle 3",
+          "type": "AUTO_SHAPE (1)",
+          "x_pct": 4.5,
+          "y_pct": 47.3,
+          "w_pct": 9.0,
+          "h_pct": 0.4,
+          "text_len": 0,
+          "text_preview": "",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {},
+            "sizes_pt": {},
+            "colors": {},
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "SOLID (1)",
+            "rgb": "C9A227"
+          }
+        },
+        {
+          "name": "TextBox 4",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 50.0,
+          "w_pct": 60.0,
+          "h_pct": 10.7,
+          "text_len": 21,
+          "text_preview": "Financial Performance",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Georgia": 1
+            },
+            "sizes_pt": {
+              "32": 1
+            },
+            "colors": {
+              "FFFFFF": 1
+            },
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        }
+      ]
+    },
+    {
+      "n": 7,
+      "layout": "Blank",
+      "shape_count": 7,
+      "shapes": [
+        {
+          "name": "TextBox 1",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 6.0,
+          "w_pct": 90.8,
+          "h_pct": 4.0,
+          "text_len": 21,
+          "text_preview": "FINANCIAL PERFORMANCE",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Arial": 1
+            },
+            "sizes_pt": {
+              "11": 1
+            },
+            "colors": {
+              "C9A227": 1
+            },
+            "bold_runs": 1
+          },
+          "bullet_census": {
+            "none": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "TextBox 2",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 10.7,
+          "w_pct": 90.8,
+          "h_pct": 12.0,
+          "text_len": 60,
+          "text_preview": "Revenue triples by FY28 with EBITDA turning positive in FY27",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Georgia": 1
+            },
+            "sizes_pt": {
+              "24": 1
+            },
+            "colors": {
+              "0B2340": 1
+            },
+            "bold_runs": 1
+          },
+          "bullet_census": {
+            "none": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "Rectangle 3",
+          "type": "AUTO_SHAPE (1)",
+          "x_pct": 4.5,
+          "y_pct": 23.3,
+          "w_pct": 9.0,
+          "h_pct": 0.4,
+          "text_len": 0,
+          "text_preview": "",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {},
+            "sizes_pt": {},
+            "colors": {},
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "SOLID (1)",
+            "rgb": "C9A227"
+          }
+        },
+        {
+          "name": "TextBox 4",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 88.7,
+          "w_pct": 90.8,
+          "h_pct": 3.3,
+          "text_len": 70,
+          "text_preview": "Source: Company model, June 2026. A = actual, E = estimate. Synthetic.",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Arial": 1
+            },
+            "sizes_pt": {
+              "9": 1
+            },
+            "colors": {
+              "8A94A0": 1
+            },
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "Table 5",
+          "type": "TABLE (19)",
+          "x_pct": 4.5,
+          "y_pct": 29.3,
+          "w_pct": 90.8,
+          "h_pct": 32.0,
+          "table": {
+            "rows": 4,
+            "cols": 6
+          }
+        },
+        {
+          "name": "TextBox 6",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 94.7,
+          "w_pct": 45.0,
+          "h_pct": 3.3,
+          "text_len": 60,
+          "text_preview": "Meridian Advisory Partners — Strictly Private & Confidential",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Arial": 1
+            },
+            "sizes_pt": {
+              "8": 1
+            },
+            "colors": {
+              "8A94A0": 1
+            },
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "TextBox 7",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 92.3,
+          "y_pct": 94.7,
+          "w_pct": 3.4,
+          "h_pct": 3.3,
+          "text_len": 1,
+          "text_preview": "7",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Arial": 1
+            },
+            "sizes_pt": {
+              "8": 1
+            },
+            "colors": {
+              "8A94A0": 1
+            },
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        }
+      ]
+    },
+    {
+      "n": 8,
+      "layout": "Blank",
+      "shape_count": 7,
+      "shapes": [
+        {
+          "name": "TextBox 1",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 6.0,
+          "w_pct": 90.8,
+          "h_pct": 4.0,
+          "text_len": 18,
+          "text_preview": "REVENUE TRAJECTORY",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Arial": 1
+            },
+            "sizes_pt": {
+              "11": 1
+            },
+            "colors": {
+              "C9A227": 1
+            },
+            "bold_runs": 1
+          },
+          "bullet_census": {
+            "none": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "TextBox 2",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 10.7,
+          "w_pct": 90.8,
+          "h_pct": 12.0,
+          "text_len": 43,
+          "text_preview": "Compounding growth: a 48% CAGR through FY28",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Georgia": 1
+            },
+            "sizes_pt": {
+              "24": 1
+            },
+            "colors": {
+              "0B2340": 1
+            },
+            "bold_runs": 1
+          },
+          "bullet_census": {
+            "none": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "Rectangle 3",
+          "type": "AUTO_SHAPE (1)",
+          "x_pct": 4.5,
+          "y_pct": 23.3,
+          "w_pct": 9.0,
+          "h_pct": 0.4,
+          "text_len": 0,
+          "text_preview": "",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {},
+            "sizes_pt": {},
+            "colors": {},
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "SOLID (1)",
+            "rgb": "C9A227"
+          }
+        },
+        {
+          "name": "TextBox 4",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 88.7,
+          "w_pct": 90.8,
+          "h_pct": 3.3,
+          "text_len": 44,
+          "text_preview": "Source: Company model, June 2026. Synthetic.",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Arial": 1
+            },
+            "sizes_pt": {
+              "9": 1
+            },
+            "colors": {
+              "8A94A0": 1
+            },
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "Chart 5",
+          "type": "CHART (3)",
+          "x_pct": 6.8,
+          "y_pct": 28.0,
+          "w_pct": 86.3,
+          "h_pct": 57.3,
+          "chart": {
+            "type": "COLUMN_CLUSTERED (51)"
+          }
+        },
+        {
+          "name": "TextBox 6",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 94.7,
+          "w_pct": 45.0,
+          "h_pct": 3.3,
+          "text_len": 60,
+          "text_preview": "Meridian Advisory Partners — Strictly Private & Confidential",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Arial": 1
+            },
+            "sizes_pt": {
+              "8": 1
+            },
+            "colors": {
+              "8A94A0": 1
+            },
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "TextBox 7",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 92.3,
+          "y_pct": 94.7,
+          "w_pct": 3.4,
+          "h_pct": 3.3,
+          "text_len": 1,
+          "text_preview": "8",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Arial": 1
+            },
+            "sizes_pt": {
+              "8": 1
+            },
+            "colors": {
+              "8A94A0": 1
+            },
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        }
+      ]
+    },
+    {
+      "n": 9,
+      "layout": "Blank",
+      "shape_count": 4,
+      "shapes": [
+        {
+          "name": "Rectangle 1",
+          "type": "AUTO_SHAPE (1)",
+          "x_pct": 0.0,
+          "y_pct": 0.0,
+          "w_pct": 100.0,
+          "h_pct": 100.0,
+          "text_len": 0,
+          "text_preview": "",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {},
+            "sizes_pt": {},
+            "colors": {},
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "SOLID (1)",
+            "rgb": "0B2340"
+          }
+        },
+        {
+          "name": "TextBox 2",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 32.0,
+          "w_pct": 22.5,
+          "h_pct": 14.7,
+          "text_len": 2,
+          "text_preview": "03",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Georgia": 1
+            },
+            "sizes_pt": {
+              "60": 1
+            },
+            "colors": {
+              "C9A227": 1
+            },
+            "bold_runs": 1
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "Rectangle 3",
+          "type": "AUTO_SHAPE (1)",
+          "x_pct": 4.5,
+          "y_pct": 47.3,
+          "w_pct": 9.0,
+          "h_pct": 0.4,
+          "text_len": 0,
+          "text_preview": "",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {},
+            "sizes_pt": {},
+            "colors": {},
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "SOLID (1)",
+            "rgb": "C9A227"
+          }
+        },
+        {
+          "name": "TextBox 4",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 50.0,
+          "w_pct": 60.0,
+          "h_pct": 10.7,
+          "text_len": 7,
+          "text_preview": "The Ask",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Georgia": 1
+            },
+            "sizes_pt": {
+              "32": 1
+            },
+            "colors": {
+              "FFFFFF": 1
+            },
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        }
+      ]
+    },
+    {
+      "n": 10,
+      "layout": "Blank",
+      "shape_count": 8,
+      "shapes": [
+        {
+          "name": "TextBox 1",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 6.0,
+          "w_pct": 90.8,
+          "h_pct": 4.0,
+          "text_len": 7,
+          "text_preview": "THE ASK",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Arial": 1
+            },
+            "sizes_pt": {
+              "11": 1
+            },
+            "colors": {
+              "C9A227": 1
+            },
+            "bold_runs": 1
+          },
+          "bullet_census": {
+            "none": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "TextBox 2",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 10.7,
+          "w_pct": 90.8,
+          "h_pct": 12.0,
+          "text_len": 41,
+          "text_preview": "$40M Series B to fund three growth levers",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Georgia": 1
+            },
+            "sizes_pt": {
+              "24": 1
+            },
+            "colors": {
+              "0B2340": 1
+            },
+            "bold_runs": 1
+          },
+          "bullet_census": {
+            "none": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "Rectangle 3",
+          "type": "AUTO_SHAPE (1)",
+          "x_pct": 4.5,
+          "y_pct": 23.3,
+          "w_pct": 9.0,
+          "h_pct": 0.4,
+          "text_len": 0,
+          "text_preview": "",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {},
+            "sizes_pt": {},
+            "colors": {},
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "SOLID (1)",
+            "rgb": "C9A227"
+          }
+        },
+        {
+          "name": "TextBox 4",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 88.7,
+          "w_pct": 90.8,
+          "h_pct": 3.3,
+          "text_len": 39,
+          "text_preview": "Source: Company information. Synthetic.",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Arial": 1
+            },
+            "sizes_pt": {
+              "9": 1
+            },
+            "colors": {
+              "8A94A0": 1
+            },
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "TextBox 5",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 28.0,
+          "w_pct": 90.8,
+          "h_pct": 34.7,
+          "text_len": 267,
+          "text_preview": "Go-to-market: double the mid-market sales pods that already return 1.4x on fully",
+          "para_count": 3,
+          "font_census": {
+            "fonts": {
+              "Arial": 3
+            },
+            "sizes_pt": {
+              "14": 3
+            },
+            "colors": {
+              "3B4652": 3
+            },
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "char:▪": 3
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "Rectangle 6",
+          "type": "AUTO_SHAPE (1)",
+          "x_pct": 4.5,
+          "y_pct": 66.7,
+          "w_pct": 90.8,
+          "h_pct": 17.3,
+          "text_len": 85,
+          "text_preview": "Use of funds — 55% go-to-market  ·  30% product & engineering  ·  15% working ca",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Arial": 1
+            },
+            "sizes_pt": {
+              "13": 1
+            },
+            "colors": {
+              "0B2340": 1
+            },
+            "bold_runs": 1
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "SOLID (1)",
+            "rgb": "F2F4F7"
+          }
+        },
+        {
+          "name": "TextBox 7",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 94.7,
+          "w_pct": 45.0,
+          "h_pct": 3.3,
+          "text_len": 60,
+          "text_preview": "Meridian Advisory Partners — Strictly Private & Confidential",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Arial": 1
+            },
+            "sizes_pt": {
+              "8": 1
+            },
+            "colors": {
+              "8A94A0": 1
+            },
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "TextBox 8",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 92.3,
+          "y_pct": 94.7,
+          "w_pct": 3.4,
+          "h_pct": 3.3,
+          "text_len": 2,
+          "text_preview": "10",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Arial": 1
+            },
+            "sizes_pt": {
+              "8": 1
+            },
+            "colors": {
+              "8A94A0": 1
+            },
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        }
+      ]
+    },
+    {
+      "n": 11,
+      "layout": "Title Slide",
+      "shape_count": 3,
+      "shapes": [
+        {
+          "name": "Title 1",
+          "type": "PLACEHOLDER (14)",
+          "x_pct": 5.6,
+          "y_pct": 31.1,
+          "w_pct": 63.8,
+          "h_pct": 21.4,
+          "placeholder": {
+            "idx": 0,
+            "type": "CENTER_TITLE (3)"
+          },
+          "text_len": 9,
+          "text_preview": "Thank you",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "(inherit)": 1
+            },
+            "sizes_pt": {
+              "(inherit)": 1
+            },
+            "colors": {
+              "(inherit)": 1
+            },
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "None"
+          }
+        },
+        {
+          "name": "Subtitle 2",
+          "type": "PLACEHOLDER (14)",
+          "x_pct": 11.3,
+          "y_pct": 56.7,
+          "w_pct": 52.5,
+          "h_pct": 25.6,
+          "placeholder": {
+            "idx": 1,
+            "type": "SUBTITLE (4)"
+          },
+          "text_len": 67,
+          "text_preview": "James Park  ·  Managing Director  ·  jpark@meridianadvisory.example",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "(inherit)": 1
+            },
+            "sizes_pt": {
+              "(inherit)": 1
+            },
+            "colors": {
+              "(inherit)": 1
+            },
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "None"
+          }
+        },
+        {
+          "name": "TextBox 3",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 4.5,
+          "y_pct": 92.0,
+          "w_pct": 90.8,
+          "h_pct": 5.3,
+          "text_len": 137,
+          "text_preview": "This presentation is illustrative synthetic material generated for software test",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Arial": 1
+            },
+            "sizes_pt": {
+              "7.5": 1
+            },
+            "colors": {
+              "8A94A0": 1
+            },
+            "bold_runs": 0
+          },
+          "bullet_census": {
+            "(inherit)": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        }
+      ]
+    }
+  ],
+  "aggregates": {
+    "layout_usage": {
+      "Blank": 10,
+      "Title Slide": 1
+    },
+    "shape_type_census": {
+      "AUTO_SHAPE (1)": 15,
+      "TEXT_BOX (17)": 44,
+      "TABLE (19)": 1,
+      "CHART (3)": 1,
+      "PLACEHOLDER (14)": 2
+    },
+    "font_census": {
+      "Georgia": 13,
+      "Arial": 43,
+      "(inherit)": 2
+    },
+    "size_census_pt": {
+      "40": 1,
+      "16": 1,
+      "10": 1,
+      "11": 6,
+      "24": 6,
+      "9": 6,
+      "15": 4,
+      "8": 12,
+      "60": 3,
+      "32": 3,
+      "14": 11,
+      "13": 1,
+      "(inherit)": 2,
+      "7.5": 1
+    },
+    "color_census": {
+      "FFFFFF": 4,
+      "F2F4F7": 1,
+      "C9A227": 10,
+      "0B2340": 7,
+      "8A94A0": 19,
+      "3B4652": 15,
+      "(inherit)": 2
+    },
+    "bullet_census": {
+      "(inherit)": 45,
+      "none": 12,
+      "autonum:arabicPeriod": 4,
+      "char:▪": 11
+    },
+    "shape_count_histogram": {
+      "3": 1,
+      "4": 3,
+      "5": 1,
+      "7": 5,
+      "8": 1
+    }
+  }
+}

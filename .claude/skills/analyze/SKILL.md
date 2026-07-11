@@ -18,7 +18,7 @@ Two stages with a hard boundary, never blurred:
   -o "library/analysis/<deck-name>/structure.json"
 ```
 
-The dump gives you: slide size/aspect, the layout vocabulary per master, per-slide shapes with geometry (as % of slide — comparable across deck sizes), placeholder roles, text stats, per-run font/size/color censuses, and deck-wide aggregates.
+The dump gives you: slide size/aspect, the layout vocabulary per master, per-master **theme facts** (color scheme, font scheme, color map, master text-style defaults — what `(inherit)` resolves to), per-slide shapes with geometry (as % of slide — comparable across deck sizes), placeholder roles, text stats, per-run font/size/color censuses, per-paragraph bullet censuses, and deck-wide aggregates.
 
 ## Stage 2 — interpret
 
@@ -32,7 +32,7 @@ Write `library/analysis/<deck-name>/PATTERNS.md` with these sections:
 Rules:
 - Facts come from the dump only; cite slide numbers (`slides 3, 5, 9`). Never claim a pattern you can't point at.
 - Unknowns and ambiguities become `OPEN:` lines, never plausible filler.
-- `(inherit)` counts mean theme-resolved values the extractor can't see — report them as inherited, don't invent the resolved value.
+- `(inherit)` counts mean values unstated at the run/paragraph — resolve them against the dump's `themes` section (scheme colors via the color map, `+mj-lt`/`+mn-lt` via the font scheme, sizes via `master_text_styles`), citing the chain. If the chain itself is incomplete (e.g. layout-level overrides, which the dump doesn't walk), say so as an `OPEN:` — don't invent the resolved value.
 - Korean text: preserve as-is (dump is UTF-8, `ensure_ascii=False`).
 
 ## Privacy wall (this repo is public)

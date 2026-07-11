@@ -19,7 +19,8 @@ Docs are grouped by **subject domain**, not by doc-type. A domain folder holds w
 ```
 .gravity/
   GRAVITY.md          # the protocol card — how to work these docs (versioned copy, never hand-edit)
-  deck-spec/ SPEC.md  # the seam — deck-spec × template × theme JSON shapes (v0), enforced by compose/build.py
+  deck-spec/ SPEC.md     # the seam — deck-spec × template × theme JSON shapes (v1), enforced by compose/build.py
+  deck-spec/ PLAN.v1.md  # the v0→v1 slice (intent + verification record)
 ```
 
 ## What to read before a change (router)
@@ -39,18 +40,19 @@ A **domain** is a durable subject area an agent will repeatedly navigate and cha
 
 ## The Pipeline (the shape of the project)
 
-A deck is stars arranged into a picture: components are stars, patterns are the lines between them, the design theme is the sky. Four capabilities, each a Claude Code skill:
+A deck is stars arranged into a picture: components are stars, patterns are the lines between them, the design theme is the sky — and the storyline is the picture the constellation draws. Five capabilities, each a Claude Code skill:
 
 1. **ideate** — build/refine the presentation idea (narrative, audience, message arc).
-2. **analyze** — read an existing/given `.pptx`, extract its component patterns (layouts, recurring slide shapes, visual grammar).
-3. **templatize** — generalize extracted patterns into reusable templates + maintain the design guide (type, color tokens, spacing).
-4. **compose** — combine idea × pattern × theme → generate the final `.pptx`.
+2. **storyline** — pressure-test one pitch's narrative: action titles, stakes + skeptic, mood curve, ghost-deck flow check (interview; upgrades the brief in place).
+3. **analyze** — read an existing/given `.pptx`, extract its component patterns (layouts, recurring slide shapes, visual grammar).
+4. **templatize** — generalize extracted patterns into reusable templates + maintain the design guide (type, color tokens, spacing).
+5. **compose** — combine idea × pattern × theme → generate the final `.pptx`.
 
 ## Stack
 
 - **Skills:** Claude Code skills (`.claude/skills/<name>/SKILL.md`) — markdown instructions + helper scripts.
 - **Language / runtime:** Python 3.12 for pptx read/write helpers.
-- **Key dependency:** `python-pptx` — confirmed for v0 generation (`compose/build.py`) and structural extraction. OPEN: master/theme XML (inherited fonts/colors) and real bullet formatting still need raw OOXML (zip + lxml) at some point.
+- **Key dependency:** `python-pptx` — confirmed for generation (`compose/build.py`: text, fills, tables, charts, real `buChar` bullets) and structural extraction; `extract.py` additionally parses raw OOXML (via python-pptx's bundled `lxml`) for theme/master facts and bullet facts. Remaining fidelity OPENs live in `.gravity/deck-spec/SPEC.md` (numbered lists, pictures).
 - **Datastore:** none — templates and design guides are files in this repo.
 
 ## Run
@@ -65,15 +67,21 @@ Skills are invoked from Claude Code sessions, not run standalone.
 ## Test
 
 ```bash
-# smoke loop 1: synthetic fixture → extractor → structural dump
+# smoke loop 1: synthetic fixtures → extractor → structural dumps
 .venv/Scripts/python fixtures/make_fixture.py
 .venv/Scripts/python .claude/skills/analyze/extract.py fixtures/orion-sample.pptx \
   -o library/analysis/orion-sample/structure.json
+.venv/Scripts/python fixtures/make_meridian_fixture.py
+.venv/Scripts/python .claude/skills/analyze/extract.py fixtures/meridian-pitch.pptx \
+  -o library/analysis/meridian-pitch/structure.json
 
-# smoke loop 2: deck-spec → rendered deck (round-read verified by the script)
+# smoke loop 2: deck-specs → rendered decks (round-read verified by the script)
 .venv/Scripts/python .claude/skills/compose/build.py \
   library/decks/constellation-intro/deck-spec.json \
   -o library/decks/constellation-intro/constellation-intro.pptx
+.venv/Scripts/python .claude/skills/compose/build.py \
+  library/decks/meridian-demo/deck-spec.json \
+  -o library/decks/meridian-demo/meridian-demo.pptx
 ```
 
 No test framework yet — the honest gate is the two smoke loops (loop 2 exits
@@ -98,7 +106,7 @@ output** — geometry and censuses must match the templates/theme exactly.
 
 - `.claude/skills/` — the four skills (the product).
 - `library/` — extracted patterns, templates, design guides, composed decks (the output shelf).
-- Seam: the **deck-spec** — the intermediate representation between analyze/templatize and compose. Defined at `.gravity/deck-spec/SPEC.md` (**v0, provisional** — schema fixed from synthetic evidence only; real-deck analysis is expected to revise it, bumping `spec_version`). Enforced by `compose/build.py`, which refuses unresolvable specs.
+- Seam: the **deck-spec** — the intermediate representation between analyze/templatize and compose. Defined at `.gravity/deck-spec/SPEC.md` (**v1, provisional** — schema fixed from synthetic evidence only; real-deck analysis is expected to revise it, bumping `spec_version`). Enforced by `compose/build.py`, which refuses unresolvable specs.
 
 ## Git
 

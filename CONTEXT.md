@@ -3,16 +3,14 @@
 Last touched: 2026-07-11
 
 ## Completed
-- **`ideate` skill built** (earlier today): pure elicitation, strawman-first, per-slide roles; worked example `library/ideas/constellation-intro/IDEA.md`.
-- **`.gravity/` adopted (v1.8):** protocol card embedded, `DECK-SPEC.md` → `.gravity/deck-spec/SPEC.md` via `git mv` (Gate line added; references in both SKILL.mds + build.py fixed), root CLAUDE.md now carries the Doc Map + router table. `check.py consistency` 0 fails (MISSION/PLAN absent by choice), `check.py spec` OK, smoke loop still green. **Uncommitted — staged for review.**
-- **Pipeline completed — all 4 skills exist.** `templatize` (patterns → text-free template JSONs + theme tokens; orion worked example) and `compose` (agent writes deck-spec, `build.py` renders + verifies) shipped. The **deck-spec seam is defined v0** at `.claude/skills/DECK-SPEC.md`, enforced by `build.py` (refuses unmarked stretches, unfilled text boxes, dead references — negative-tested). Worked example: **constellation-intro composes itself** from its own brief (9 slides, round-read green; full circle proven by re-running `extract.py` on the output — geometry/censuses match the templates exactly).
+- **v0.2.0 cut** — the evidence-and-fidelity release: theme-sighted extraction, the meridian consultant fixture + template family, breaking deck-spec v1 (tables/charts/style keys/real bullets), and the `storyline` skill (fifth star: stakes → skeptic → action titles → mood curve → ghost-deck read-back). Gate green at cut. Release commit `f6416db` pushed on `claude/constellation-gravity-release-i64nqq`; see `CHANGELOG.md [0.2.0]`.
+- **Tag `v0.2.0` NOT on remote** — the remote session's token can only push `claude/*` branches (403 on tag refs). Recreate + push from the local machine: `git tag -a v0.2.0 -m "v0.2.0" f6416db && git push origin v0.2.0` (after fetching; ideally after the branch merges to `main`).
 
 ## Current State
-- Machine complete, evidence synthetic. All templates/theme derive from the orion-sample fixture; deck-spec v0 is explicitly provisional (`spec_version` bumps when real evidence revises it). Both smoke loops in CLAUDE.md **Test** green.
-- Known fidelity gaps (OPEN in DECK-SPEC/theme): theme-inherited fonts/colors unread (master XML), bullets are literal `• ` prefixes, no picture/table/chart box kinds yet.
-- Privacy wall extended: rendered `.pptx` under `library/decks/` git-ignored; deck-spec.json committed as source.
+- **Five skills** (ideate · storyline · analyze · templatize · compose); seam at **v1** (provisional — synthetic evidence only). Three template families, two themes, machine green end-to-end. Branch unmerged into `main` — open the PR when ready.
+- Remaining OPENs (SPEC) all wait on real-deck evidence: numbered-list content kind, `picture` box kind, layout-level style walking, multi-master. Small shelf item: title-grammar census in `analyze` stage 2.
 
 ## Next Step
-- Run `analyze` on a **real deck** (drop into `fixtures/` — git-ignored; they live on the work machine). Real evidence fixes the archetype schema, revises deck-spec v0→v1, and replaces the synthetic templates with earned ones.
+- On the local machine: merge the branch, push the `v0.2.0` tag (command above), then drop a **real deck** into `fixtures/` and run `analyze` — that evidence decides v1→v2 and replaces synthetic templates with earned ones.
 
 ---

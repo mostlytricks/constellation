@@ -24,7 +24,7 @@ From the deck-wide censuses:
 - **Heading:** 32 pt, bold, accent `2E5CFF` — exactly 3 runs, one per archetype-A slide (slides 3–5).
 - **Body:** 18 pt, `333333` — 9 runs, three bullets per archetype-A slide.
 - **Accent color role:** `2E5CFF` appears as heading text (3×) *and* as the footer bar fill (slides 3–5) — one color, two jobs: emphasis + wayfinding.
-- **Theme-inherited:** 8 runs `(inherit)` — all on the placeholder slides (1, 2, 6), resolved by the master, invisible to the extractor.
+- **Theme-inherited:** 8 runs `(inherit)` — all on the placeholder slides (1, 2, 6). The dump's `themes` section resolves them: titles inherit `titleStyle` lvl1 (44 pt, `scheme:tx1` → `dk1` `000000`, `+mj-lt` → Calibri), body placeholders inherit `bodyStyle` (32/28/24 pt by level, same color/font chain).
 
 ## Grid
 
@@ -42,4 +42,5 @@ Recurring positions (archetype A, exact across slides 3–5):
 
 ## OPEN
 
-- OPEN: theme-resolved fonts/colors (the 8 `(inherit)` runs) are invisible to the extractor — resolving them needs the master/theme XML, which `extract.py` doesn't read yet. Decide whether `templatize` needs true resolved values or can treat "inherit from theme" as part of the template.
+- ~~OPEN: theme-resolved fonts/colors invisible to the extractor~~ — closed: `extract.py` now dumps the per-master `themes` section (color/font scheme, color map, master text styles), so `(inherit)` runs resolve from the dump (see Visual grammar above). Still open for `templatize`: whether templates should bake resolved values or keep "inherit from theme" as a token.
+- OPEN: all 23 paragraphs report bullet `(inherit)` because the fixture writes literal `• ` prefixes (no `buChar`) — matching the compose-side bullet gap in `.gravity/deck-spec/SPEC.md` OPEN. A real deck with true bullet XML is the first interesting test of `bullet_census`.

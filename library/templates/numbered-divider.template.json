@@ -1,0 +1,18 @@
+{
+  "template": "numbered-divider",
+  "version": 0,
+  "source": "meridian-pitch, archetype C (slides 3, 6, 9)",
+  "roles": ["section"],
+  "aspect": 1.778,
+  "boxes": [
+    { "box": "bg", "x_pct": 0.0, "y_pct": 0.0, "w_pct": 100.0, "h_pct": 100.0,
+      "fill": "navy" },
+    { "box": "number", "x_pct": 4.5, "y_pct": 32.0, "w_pct": 22.5, "h_pct": 14.7,
+      "text_style": "divider-number" },
+    { "box": "rule", "x_pct": 4.5, "y_pct": 47.3, "w_pct": 9.0, "h_pct": 0.4,
+      "fill": "gold" },
+    { "box": "title", "x_pct": 4.5, "y_pct": 50.0, "w_pct": 60.0, "h_pct": 10.7,
+      "text_style": "divider-title" }
+  ],
+  "open": []
+}

@@ -1,0 +1,26 @@
+{
+  "template": "kicker-headline-content",
+  "version": 1,
+  "source": "meridian-pitch, archetype A (slides 2, 4, 5; panel variant slide 10)",
+  "roles": ["content", "summary", "ask"],
+  "aspect": 1.778,
+  "boxes": [
+    { "box": "kicker",  "x_pct": 4.5,  "y_pct": 6.0,  "w_pct": 90.8, "h_pct": 4.0,
+      "text_style": "kicker" },
+    { "box": "headline", "x_pct": 4.5, "y_pct": 10.7, "w_pct": 90.8, "h_pct": 12.0,
+      "text_style": "headline" },
+    { "box": "rule", "x_pct": 4.5, "y_pct": 23.3, "w_pct": 9.0, "h_pct": 0.4,
+      "fill": "gold" },
+    { "box": "body", "x_pct": 4.5, "y_pct": 28.0, "w_pct": 90.8, "h_pct": 57.3,
+      "text_style": "body", "content": "bullets" },
+    { "box": "source", "x_pct": 4.5, "y_pct": 88.7, "w_pct": 90.8, "h_pct": 3.3,
+      "text_style": "source" },
+    { "box": "footer", "x_pct": 4.5, "y_pct": 94.7, "w_pct": 45.0, "h_pct": 3.3,
+      "text_style": "footer" },
+    { "box": "page-no", "x_pct": 92.3, "y_pct": 94.7, "w_pct": 3.4, "h_pct": 3.3,
+      "text_style": "footer", "align": "right" }
+  ],
+  "open": [
+    "OPEN: slide-10 variant adds a 'panel' highlight box (y 66.7, h 17.3, fill panel) over a shortened body — 1x evidence, not templated; recurs → mint a variant template."
+  ]
+}
