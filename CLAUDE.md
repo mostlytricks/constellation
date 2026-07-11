@@ -6,10 +6,36 @@ Agent skill set for presentation building — analyze existing decks into compon
 
 ---
 
-## Docs in this project
+> **gravity: v1.8** · _the version of the workspace gravity system this project adopted (root `VERSION` / `CHANGELOG.md`). Bump when you re-sync to a newer skeleton; `/triage` flags drift._
 
-- **CONTEXT.md** — start here: current state + the single next step. *Now.*
-- **CLAUDE.md** (this file) — stable identity: stack, run/test, entry points, gotchas. *How.*
+> **Docs live in `.gravity/`.** This `CLAUDE.md` (identity, *how*) and `CONTEXT.md` (*now*) stay at the project root and auto-load. Everything else — contracts and any future *why* / *what-next* docs — is organized **by subject domain** under `.gravity/`. See the **Doc Map** below. One concern, one home — link, don't restate.
+
+> **Protocol card: read `.gravity/GRAVITY.md` before touching `.gravity/` docs.** It embeds the project-side gravity protocol so this repo is self-describing even when opened without the workspace. It's a versioned copy — never hand-edit; re-copy from the workspace on a gravity upgrade.
+
+## Doc Map (`.gravity/`)
+
+Docs are grouped by **subject domain**, not by doc-type. A domain folder holds whichever of three kinds it needs — `ARCHITECTURE.html` (human deep-dive), `SPEC.md` (agent contract), `PLAN.*.md` (what/next) — named by *kind* because the folder already names the subject. **Recognized only when present** — no MISSION/ARCHITECTURE/IMPLEMENTATION_PLAN exist yet; CONTEXT.md carries the arc until one earns its keep.
+
+```
+.gravity/
+  GRAVITY.md          # the protocol card — how to work these docs (versioned copy, never hand-edit)
+  deck-spec/ SPEC.md  # the seam — deck-spec × template × theme JSON shapes (v0), enforced by compose/build.py
+```
+
+## What to read before a change (router)
+
+| If you're changing… | Read first | Human reference |
+|---|---|---|
+| deck-spec / template / theme JSON shapes, fill semantics, role→template matching, build.py validation rules | `.gravity/deck-spec/SPEC.md` | — |
+| a skill's procedure (ideate / analyze / templatize / compose) | `.claude/skills/<skill>/SKILL.md` (+ the seam SPEC if it touches the shapes) | — |
+
+## Adding a domain (start here for a new feature)
+
+A **domain** is a durable subject area an agent will repeatedly navigate and change — not every feature is one. Mint a `.gravity/<domain>/` folder only when the feature has its own *gravity*; otherwise it's a slice under an existing domain. (`/new-domain constellation <domain>` does the wiring.)
+
+**Gate — is it a domain?** It earns a folder when it has its own *principle* and most of: rules an agent must respect (`SPEC.md`), a "how it's built" beyond a file map (`ARCHITECTURE.html`), a multi-step arc (`PLAN.*.md`). If not, it's a `PLAN.*.md` slice under an existing domain.
+
+**Wire the indexes** when minting: the Doc Map above + the router table row (once it has a SPEC). MISSION/IMPLEMENTATION_PLAN rows apply only when those docs exist.
 
 ## The Pipeline (the shape of the project)
 
@@ -72,7 +98,7 @@ output** — geometry and censuses must match the templates/theme exactly.
 
 - `.claude/skills/` — the four skills (the product).
 - `library/` — extracted patterns, templates, design guides, composed decks (the output shelf).
-- Seam: the **deck-spec** — the intermediate representation between analyze/templatize and compose. Defined at `.claude/skills/DECK-SPEC.md` (**v0, provisional** — schema fixed from synthetic evidence only; real-deck analysis is expected to revise it, bumping `spec_version`). Enforced by `compose/build.py`, which refuses unresolvable specs.
+- Seam: the **deck-spec** — the intermediate representation between analyze/templatize and compose. Defined at `.gravity/deck-spec/SPEC.md` (**v0, provisional** — schema fixed from synthetic evidence only; real-deck analysis is expected to revise it, bumping `spec_version`). Enforced by `compose/build.py`, which refuses unresolvable specs.
 
 ## Git
 

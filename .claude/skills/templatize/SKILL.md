@@ -7,8 +7,8 @@ description: Generalize an analyzed deck's slide archetypes into reusable text-f
 
 Input: `library/analysis/<deck>/PATTERNS.md` + `structure.json` (from `analyze`).
 Output: `library/templates/<slug>.template.json` per archetype +
-`library/themes/<name>.theme.json` — shapes defined in `../DECK-SPEC.md` (read it
-first; it is the contract, this file is only the procedure).
+`library/themes/<name>.theme.json` — shapes defined in `.gravity/deck-spec/SPEC.md`
+(read it first; it is the contract, this file is only the procedure).
 
 ## Procedure
 

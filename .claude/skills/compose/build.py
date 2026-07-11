@@ -7,7 +7,7 @@ before this script runs -- the script only validates and draws. It is
 also the seam's enforcement: a spec whose template/theme/box/token
 references don't resolve is refused with every error listed.
 
-Shapes are defined in ../DECK-SPEC.md (spec_version 0).
+Shapes are defined in .gravity/deck-spec/SPEC.md (spec_version 0).
 
 Usage:
     python build.py <deck-spec.json> [-o out.pptx]

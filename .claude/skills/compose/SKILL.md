@@ -12,7 +12,7 @@ Two stages with a hard boundary, mirror of `analyze`'s:
 2. **Render (script — deterministic).** `build.py` validates every reference
    and draws the file. It refuses what doesn't resolve; it never improvises.
 
-Read `../DECK-SPEC.md` first — it is the contract; this file is the procedure.
+Read `.gravity/deck-spec/SPEC.md` first — it is the contract; this file is the procedure.
 
 ## Prerequisites
 

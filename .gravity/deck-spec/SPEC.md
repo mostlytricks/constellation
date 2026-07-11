@@ -110,10 +110,14 @@ The design guide as tokens. One per visual identity.
 
 ## Enforcement
 
+**Gate:** `.venv/Scripts/python .claude/skills/compose/build.py library/decks/constellation-intro/deck-spec.json` — exits non-zero on any violation.
+
 `build.py` (the compose skill's renderer) is the validator: it refuses a spec
-whose template/theme/box/token references don't resolve, and errors on a
-text-accepting box with no fill. There is no separate schema checker — if
-`build.py` builds it, it's a valid v0 spec.
+whose template/theme/box/token references don't resolve, an unmarked role
+stretch, and a text-accepting box with no fill — every error listed at once.
+There is no separate schema checker — if `build.py` builds it, it's a valid
+v0 spec. (The wall here is the Gate itself — no lint/test-tag walls exist
+yet, there is no test framework; see root CLAUDE.md **Test**.)
 
 ## OPEN
 
