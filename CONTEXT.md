@@ -3,17 +3,14 @@
 Last touched: 2026-07-11
 
 ## Completed
-- **Second evidence base + meridian family**: consultant-pitch fixture (`fixtures/make_meridian_fixture.py`) run through the full pipeline — second analyze worked example, `kicker-headline-content` + `numbered-divider` templates, `meridian` theme, verification deck.
-- **deck-spec v0→v1 shipped** (this session; slice: `.gravity/deck-spec/PLAN.v1.md`): `build.py` renders `table` + `chart` box kinds, `right` align, `caps`/`italic` style keys, and real `buChar` bullets (`tokens.bullet_char`); v0 specs refused with a naming error. The meridian exhibit archetype is now templated (`exhibit-table`, `exhibit-chart`) and exercised by two new meridian-demo slides. Negative tests (v0 spec, ragged table, short chart series) all refused; full circle geometry-exact with `char:▪` bullets and both graphic frames round-tripping.
-
-- **`storyline` skill shipped** (this session): the mood-and-flow interviewer for single pitches — stakes, skeptic's seat, action-title pass, mood curve, ghost-deck read-back; upgrades IDEA.md in place. ideate/compose wired (handoff + honor-the-mood rule, new `summary`/`exhibit`/`ask` roles); worked example `library/ideas/meridian-pitch/IDEA.md`.
+- **v0.2.0 cut** — the evidence-and-fidelity release: theme-sighted extraction, the meridian consultant fixture + template family, breaking deck-spec v1 (tables/charts/style keys/real bullets), and the `storyline` skill (fifth star: stakes → skeptic → action titles → mood curve → ghost-deck read-back). Gate green at cut. Release commit `f6416db` pushed on `claude/constellation-gravity-release-i64nqq`; see `CHANGELOG.md [0.2.0]`.
+- **Tag `v0.2.0` NOT on remote** — the remote session's token can only push `claude/*` branches (403 on tag refs). Recreate + push from the local machine: `git tag -a v0.2.0 -m "v0.2.0" f6416db && git push origin v0.2.0` (after fetching; ideally after the branch merges to `main`).
 
 ## Current State
-- **Five skills** (ideate · storyline · analyze · templatize · compose); seam at **v1** (still provisional — synthetic evidence only: orion + meridian). Three template families, two themes, all committed deck-specs on v1, machine green end-to-end.
-- Every fidelity gap the synthetic evidence could close is closed. Remaining OPENs (SPEC): numbered-list content kind (`buAutoNum`, meridian slide 2), `picture` box kind, layout-level style walking in `extract.py` — all waiting on real-deck evidence.
-- Real decks are on the **office machine** — blocked until the user is there.
+- **Five skills** (ideate · storyline · analyze · templatize · compose); seam at **v1** (provisional — synthetic evidence only). Three template families, two themes, machine green end-to-end. Branch unmerged into `main` — open the PR when ready.
+- Remaining OPENs (SPEC) all wait on real-deck evidence: numbered-list content kind, `picture` box kind, layout-level style walking, multi-master. Small shelf item: title-grammar census in `analyze` stage 2.
 
 ## Next Step
-- Run `analyze` on a **real deck** (drop into `fixtures/` on the office machine — git-ignored). That evidence decides v1→v2 (pictures, numbered lists, multi-master) and replaces synthetic templates with earned ones.
+- On the local machine: merge the branch, push the `v0.2.0` tag (command above), then drop a **real deck** into `fixtures/` and run `analyze` — that evidence decides v1→v2 and replaces synthetic templates with earned ones.
 
 ---
