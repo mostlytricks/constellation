@@ -1,0 +1,21 @@
+{
+  "theme": "orion",
+  "version": 0,
+  "source": "orion-sample visual grammar (library/analysis/orion-sample/PATTERNS.md)",
+  "tokens": {
+    "colors": {
+      "accent": "2E5CFF",
+      "text": "333333"
+    },
+    "text_styles": {
+      "heading": { "size_pt": 32, "bold": true, "color": "accent" },
+      "body": { "size_pt": 18, "bold": false, "color": "text" },
+      "display": { "size_pt": 40, "bold": true, "color": "text" },
+      "subtitle": { "size_pt": 20, "bold": false, "color": "accent" }
+    }
+  },
+  "open": [
+    "OPEN: display/subtitle styles are provisional — the source deck inherited them from its theme, which extract.py does not read yet.",
+    "OPEN: no font names — every census run was (inherit); renderer default applies until master/theme XML is readable."
+  ]
+}

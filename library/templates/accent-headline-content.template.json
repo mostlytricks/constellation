@@ -1,0 +1,35 @@
+{
+  "template": "accent-headline-content",
+  "version": 0,
+  "source": "orion-sample, archetype A (slides 3-5)",
+  "roles": ["content"],
+  "aspect": 1.333,
+  "boxes": [
+    {
+      "box": "title",
+      "x_pct": 5.0,
+      "y_pct": 5.3,
+      "w_pct": 90.0,
+      "h_pct": 12.0,
+      "text_style": "heading"
+    },
+    {
+      "box": "body",
+      "x_pct": 8.0,
+      "y_pct": 21.3,
+      "w_pct": 84.0,
+      "h_pct": 60.0,
+      "text_style": "body",
+      "content": "bullets"
+    },
+    {
+      "box": "accent-bar",
+      "x_pct": 5.0,
+      "y_pct": 92.0,
+      "w_pct": 90.0,
+      "h_pct": 2.0,
+      "fill": "accent"
+    }
+  ],
+  "open": []
+}

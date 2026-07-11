@@ -1,0 +1,30 @@
+{
+  "template": "title-bookend",
+  "version": 0,
+  "source": "orion-sample, archetype B (slides 1, 6)",
+  "roles": ["title", "closing"],
+  "aspect": 1.333,
+  "boxes": [
+    {
+      "box": "title",
+      "x_pct": 7.5,
+      "y_pct": 31.1,
+      "w_pct": 85.0,
+      "h_pct": 21.4,
+      "text_style": "display",
+      "align": "center"
+    },
+    {
+      "box": "subtitle",
+      "x_pct": 15.0,
+      "y_pct": 56.7,
+      "w_pct": 70.0,
+      "h_pct": 25.6,
+      "text_style": "subtitle",
+      "align": "center"
+    }
+  ],
+  "open": [
+    "OPEN: source styling was entirely theme-inherited (Title Slide placeholders) — the display/subtitle text_styles are provisional theme tokens, not extracted values."
+  ]
+}
