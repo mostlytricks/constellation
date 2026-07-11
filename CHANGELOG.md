@@ -9,6 +9,12 @@ file are the source of truth, never this file.
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-07-11
+
+The evidence-and-fidelity release: the extractor learns to see themes and
+bullets, a consultant-grade second fixture drives the template family and the
+breaking v1 seam, and the pipeline gains its fifth skill.
+
 ### Changed
 
 - **deck-spec v0→v1** (breaking; slice: `.gravity/deck-spec/PLAN.v1.md`) —
@@ -93,5 +99,6 @@ synthetic evidence base.
 - **`.gravity/` doc system (gravity v1.8)** — protocol card, deck-spec domain,
   root-CLAUDE.md router.
 
-[Unreleased]: https://github.com/mostlytricks/constellation/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/mostlytricks/constellation/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/mostlytricks/constellation/releases/tag/v0.2.0
 [0.1.0]: https://github.com/mostlytricks/constellation/releases/tag/v0.1.0
