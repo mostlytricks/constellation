@@ -1,0 +1,28 @@
+{
+  "theme": "meridian",
+  "version": 0,
+  "source": "meridian-pitch visual grammar (synthetic consultant fixture)",
+  "tokens": {
+    "colors": {
+      "navy": "0B2340",
+      "ink": "3B4652",
+      "gold": "C9A227",
+      "paper": "FFFFFF",
+      "panel": "F2F4F7",
+      "mute": "8A94A0"
+    },
+    "text_styles": {
+      "kicker":         { "size_pt": 11, "bold": true,  "color": "gold",  "font": "Arial" },
+      "headline":       { "size_pt": 24, "bold": true,  "color": "navy",  "font": "Georgia" },
+      "body":           { "size_pt": 14, "bold": false, "color": "ink",   "font": "Arial" },
+      "source":         { "size_pt": 9,  "bold": false, "color": "mute",  "font": "Arial" },
+      "footer":         { "size_pt": 8,  "bold": false, "color": "mute",  "font": "Arial" },
+      "divider-number": { "size_pt": 60, "bold": true,  "color": "gold",  "font": "Georgia" },
+      "divider-title":  { "size_pt": 32, "bold": false, "color": "paper", "font": "Georgia" }
+    }
+  },
+  "open": [
+    "OPEN: evidence shows kickers ALL CAPS and sources italic — v0 text_styles has no caps/italic keys; composer uppercases kicker fills manually, italics are lost.",
+    "OPEN: evidence bullets are real buChar '▪' with hanging indent — build.py renders literal '• ' prefixes (deck-spec SPEC OPEN)."
+  ]
+}

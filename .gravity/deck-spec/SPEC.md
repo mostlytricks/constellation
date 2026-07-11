@@ -121,8 +121,14 @@ yet, there is no test framework; see root CLAUDE.md **Test**.)
 
 ## OPEN
 
-- OPEN: v0 schema derives from one synthetic deck; real-deck evidence
-  (multi-master decks, pictures, tables, charts) will force new box kinds.
+- OPEN: v0 schema derives from synthetic decks; real-deck evidence
+  (multi-master decks, pictures) may force further box kinds. **Concrete
+  evidence exists for `table` and `chart`:** the meridian-pitch fixture's
+  exhibit archetype (slides 7–8, `library/analysis/meridian-pitch/PATTERNS.md`)
+  recurs 2× but cannot be templated — v1's first candidates.
+- OPEN: v0 style/box keys can't carry three observed facts (meridian-pitch):
+  right `align` (page numbers), `caps` (kickers), `italic` (source lines) —
+  composers approximate (center / uppercase by hand / drop italics).
 - OPEN: bullets **render** as literal `• ` prefixes (python-pptx has no direct
   bullet API) — writing real `buChar`/`buAutoNum` XML in `build.py` is a later
   fidelity pass. The **read** side is closed: `extract.py` dumps per-paragraph

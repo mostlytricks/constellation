@@ -1,0 +1,64 @@
+{
+  "spec_version": 0,
+  "deck": {
+    "title": "Meridian family — template verification",
+    "aspect": 1.778,
+    "theme": "meridian",
+    "language": "en"
+  },
+  "slides": [
+    {
+      "n": 1,
+      "role": "section",
+      "template": "numbered-divider",
+      "fill": {
+        "number": "01",
+        "title": "The Meridian Template Family"
+      }
+    },
+    {
+      "n": 2,
+      "role": "content",
+      "template": "kicker-headline-content",
+      "fill": {
+        "kicker": "TEMPLATE VERIFICATION",
+        "headline": "Two templates generalized from the consultant fixture, proven by this build",
+        "body": [
+          "kicker-headline-content: the workhorse — kicker, action headline, gold rule, bullet body, source, footer pair.",
+          "numbered-divider: full-bleed navy, oversized gold number, rule, section title.",
+          "Every box binds to meridian theme tokens — geometry from the template, appearance from the theme.",
+          "OPEN: the exhibit archetype (table/chart) awaits deck-spec v1 box kinds."
+        ],
+        "source": "Source: library/analysis/meridian-pitch/PATTERNS.md (synthetic evidence).",
+        "footer": "Meridian Advisory Partners — Strictly Private & Confidential",
+        "page-no": "2"
+      }
+    },
+    {
+      "n": 3,
+      "role": "section",
+      "template": "numbered-divider",
+      "fill": {
+        "number": "02",
+        "title": "Roles Earned by Evidence"
+      }
+    },
+    {
+      "n": 4,
+      "role": "summary",
+      "template": "kicker-headline-content",
+      "fill": {
+        "kicker": "SUMMARY",
+        "headline": "The family composes without a single stretch",
+        "body": [
+          "Roles content, summary, and ask were all observed in the source deck — no stretch flags needed here.",
+          "The gate (build.py) validated every template, theme token, and fill reference in this spec.",
+          "Full circle: extract.py re-run on this output must match both templates' geometry exactly."
+        ],
+        "source": "Source: this deck-spec — the templatize skill's step-5 verification.",
+        "footer": "Meridian Advisory Partners — Strictly Private & Confidential",
+        "page-no": "4"
+      }
+    }
+  ]
+}

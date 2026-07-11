@@ -20,12 +20,28 @@ file are the source of truth, never this file.
   (`char:`/`autonum:`/`none`/`(inherit)`) per text shape plus a deck-wide
   aggregate. The write side (real `buChar` in `build.py`) stays OPEN.
 
+- **Second fixture: meridian-pitch** — a synthetic consultant-mood financial
+  pitch (`fixtures/make_meridian_fixture.py`, 11 slides, 16:9, all content
+  fictional) exercising a rewritten theme (custom scheme colors,
+  Georgia/Arial), real `buChar`/`buAutoNum` bullet XML, theme-inherited
+  placeholders, a table, and a chart. Committed as the second `analyze`
+  worked example (`library/analysis/meridian-pitch/`).
+- **Meridian template family** — `kicker-headline-content` +
+  `numbered-divider` templates and the `meridian` theme, generalized from the
+  fixture per the `templatize` skill; proven by the committed
+  `library/decks/meridian-demo/` verification spec (green build, zero
+  stretches, full-circle geometry-exact).
+
 ### Changed
 
 - `analyze` SKILL stage-2 rule: `(inherit)` values are now resolved against
   the dump's `themes` section, citing the chain; only an incomplete chain
   stays `OPEN:`. Worked example (`orion-sample` structure + PATTERNS)
   regenerated accordingly.
+- CLAUDE.md smoke loops now cover both fixtures and both composed decks;
+  deck-spec SPEC OPEN upgraded with concrete v1 evidence: `table`/`chart` box
+  kinds (meridian exhibit archetype, 2×) and missing right-`align`/`caps`/
+  `italic` style keys.
 
 ## [0.1.0] - 2026-07-11
 

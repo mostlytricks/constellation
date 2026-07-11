@@ -65,15 +65,21 @@ Skills are invoked from Claude Code sessions, not run standalone.
 ## Test
 
 ```bash
-# smoke loop 1: synthetic fixture → extractor → structural dump
+# smoke loop 1: synthetic fixtures → extractor → structural dumps
 .venv/Scripts/python fixtures/make_fixture.py
 .venv/Scripts/python .claude/skills/analyze/extract.py fixtures/orion-sample.pptx \
   -o library/analysis/orion-sample/structure.json
+.venv/Scripts/python fixtures/make_meridian_fixture.py
+.venv/Scripts/python .claude/skills/analyze/extract.py fixtures/meridian-pitch.pptx \
+  -o library/analysis/meridian-pitch/structure.json
 
-# smoke loop 2: deck-spec → rendered deck (round-read verified by the script)
+# smoke loop 2: deck-specs → rendered decks (round-read verified by the script)
 .venv/Scripts/python .claude/skills/compose/build.py \
   library/decks/constellation-intro/deck-spec.json \
   -o library/decks/constellation-intro/constellation-intro.pptx
+.venv/Scripts/python .claude/skills/compose/build.py \
+  library/decks/meridian-demo/deck-spec.json \
+  -o library/decks/meridian-demo/meridian-demo.pptx
 ```
 
 No test framework yet — the honest gate is the two smoke loops (loop 2 exits
