@@ -14,13 +14,15 @@ Agent skill set for presentation building — analyze existing decks into compon
 
 ## Doc Map (`.gravity/`)
 
-Docs are grouped by **subject domain**, not by doc-type. A domain folder holds whichever of three kinds it needs — `ARCHITECTURE.html` (human deep-dive), `SPEC.md` (agent contract), `PLAN.*.md` (what/next) — named by *kind* because the folder already names the subject. **Recognized only when present** — no MISSION/ARCHITECTURE/IMPLEMENTATION_PLAN exist yet; CONTEXT.md carries the arc until one earns its keep.
+Docs are grouped by **subject domain**, not by doc-type. A domain folder holds whichever of three kinds it needs — `ARCHITECTURE.html` (human deep-dive), `SPEC.md` (agent contract), `PLAN.*.md` (what/next) — named by *kind* because the folder already names the subject. **Recognized only when present** — no project ARCHITECTURE.html yet; the file map below is the how.
 
 ```
 .gravity/
-  GRAVITY.md          # the protocol card — how to work these docs (versioned copy, never hand-edit)
-  deck-spec/ SPEC.md     # the seam — deck-spec × template × theme JSON shapes (v1), enforced by compose/build.py
-  deck-spec/ PLAN.v1.md  # the v0→v1 slice (intent + verification record)
+  GRAVITY.md              # the protocol card — how to work these docs (versioned copy, never hand-edit)
+  MISSION.html            # why — north star, principles, non-goals (browser-read)
+  IMPLEMENTATION_PLAN.md  # what/next — domain status spine, slice queue, locked decisions, the gate
+  deck-spec/ SPEC.md      # the seam — deck-spec × template × theme JSON shapes (v1), enforced by compose/build.py
+  deck-spec/ PLAN.v1.md   # the v0→v1 slice (intent + verification record)
 ```
 
 ## What to read before a change (router)
@@ -36,7 +38,7 @@ A **domain** is a durable subject area an agent will repeatedly navigate and cha
 
 **Gate — is it a domain?** It earns a folder when it has its own *principle* and most of: rules an agent must respect (`SPEC.md`), a "how it's built" beyond a file map (`ARCHITECTURE.html`), a multi-step arc (`PLAN.*.md`). If not, it's a `PLAN.*.md` slice under an existing domain.
 
-**Wire the indexes** when minting: the Doc Map above + the router table row (once it has a SPEC). MISSION/IMPLEMENTATION_PLAN rows apply only when those docs exist.
+**Wire the indexes** when minting: the Doc Map above + the router table row (once it has a SPEC) + the why-row in `.gravity/MISSION.html` §04 + the status row in `.gravity/IMPLEMENTATION_PLAN.md`'s Domain status spine.
 
 ## The Pipeline (the shape of the project)
 

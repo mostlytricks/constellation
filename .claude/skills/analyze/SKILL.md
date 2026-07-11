@@ -26,6 +26,7 @@ Write `library/analysis/<deck-name>/PATTERNS.md` with these sections:
 
 - **Slide archetypes** — cluster slides by shape signature (layout + shape types + geometry). Name each archetype (e.g. "title-bar + 2-col body + footer"), list which slides instantiate it. An archetype recurring ≥2× is a **template candidate**.
 - **Visual grammar** — the font/size hierarchy (which size means heading vs body), color roles (which color is accent vs text vs background), from the censuses.
+- **Title grammar** — classify each content-bearing slide's headline: **label** (names a topic: "Q2 Financials") vs **claim** (verb + so-what, an action title: "Q2 beat plan by 12pts"). Report the census with slide numbers, wayfinding slides (cover/divider/closing) excluded. A deck whose content titles are all claims argues on its titles alone — the `storyline` skill's ghost-deck property; this section is its *detection* twin.
 - **Grid** — recurring x/y/w/h percentages across slides = the implicit layout grid. Report the values you actually see.
 - **Template candidates** — the archetypes worth generalizing, ranked by recurrence. These feed the `templatize` skill.
 

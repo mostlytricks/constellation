@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>constellation — Project mission</title>
+<style>
+  :root {
+    --bg:#0A0E1A; --panel:rgba(17,24,43,0.66); --panel-2:rgba(26,36,64,0.55); --line:rgba(255,255,255,0.09);
+    --text-hi:#F3F4F6; --text:#cdd3e0; --text-mid:#9CA3AF; --faint:#717a8c;
+    --accent:#34e3e6; --accent-d:#00E5E8; --blue:#4FACFE; --amber:#FBBF24; --red:#FF4D6D;
+    --mono:'Fira Code',ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:'Inter',ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:var(--sans); font-size:15px; line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap { max-width:920px; margin:0 auto; padding:56px 28px 120px; }
+  header.top { margin-bottom:14px; }
+  .logo { display:inline-flex; align-items:center; gap:10px; margin-bottom:10px; }
+  .logo .sq {
+    width:13px; height:13px; border-radius:3px; background:var(--accent);
+    box-shadow:0 0 12px rgba(98,168,159,.40);
+  }
+  .logo .k { font-family:var(--mono); font-size:12px; color:var(--faint); letter-spacing:.04em; }
+  h1 {
+    font-size:30px; line-height:1.2; margin:4px 0 6px;
+    color:var(--text-hi); font-weight:650; letter-spacing:-.01em;
+  }
+  .lede { color:var(--text-mid); font-size:16px; margin:0 0 8px; }
+  h2 {
+    font-size:20px; color:var(--text-hi); margin:52px 0 14px; font-weight:620;
+    padding-bottom:8px; border-bottom:1px solid var(--line);
+  }
+  h2 .n { color:var(--accent); font-family:var(--mono); font-size:14px; margin-right:10px; }
+  h3 { font-size:15px; color:var(--text-hi); margin:26px 0 8px; font-weight:620; }
+  p { margin:10px 0; }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  strong { color:var(--text-hi); font-weight:620; }
+  code {
+    font-family:var(--mono); font-size:.86em; color:var(--accent);
+    background:var(--panel-2); border:1px solid var(--line); padding:1px 6px; border-radius:5px;
+  }
+  pre {
+    background:var(--panel); border:1px solid var(--line); border-radius:10px;
+    padding:18px 20px; overflow-x:auto; margin:16px 0;
+    font-family:var(--mono); font-size:12.5px; line-height:1.55; color:var(--text-mid);
+  }
+  pre b { color:var(--accent); font-weight:600; }
+  pre .c { color:var(--faint); }
+  .toc {
+    background:var(--panel); border:1px solid var(--line); border-radius:10px;
+    padding:14px 20px; margin:22px 0 0;
+  }
+  .toc ol { margin:0; columns:2; column-gap:32px; font-size:13.5px; }
+  .toc a { color:var(--text-mid); }
+  .toc a:hover { color:var(--accent); }
+  .note {
+    border-left:3px solid var(--accent); background:var(--panel);
+    border-radius:0 8px 8px 0; padding:12px 16px; margin:18px 0; font-size:14px;
+  }
+  .note.warn { border-left-color:var(--amber); }
+  .note .lbl { font-weight:620; color:var(--text-hi); }
+  table { width:100%; border-collapse:collapse; margin:16px 0; font-size:13.5px; }
+  th, td { text-align:left; padding:9px 12px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { color:var(--faint); font-weight:600; font-size:11.5px; text-transform:uppercase; letter-spacing:.06em; }
+  tbody tr:hover { background:rgba(255,255,255,.014); }
+  ul, ol { margin:10px 0; padding-left:22px; }
+  li { margin:5px 0; }
+  footer {
+    margin-top:70px; padding-top:18px; border-top:1px solid var(--line);
+    color:var(--faint); font-size:12.5px;
+  }
+  @media (max-width:680px){ .toc ol { columns:1; } }
+
+  /* ===== aurora doc theme + 5-theme switcher (dashboard-matched) — appended; later rules win, custom CSS above preserved =====
+     Five palettes selected via <html data-theme>, ported from .claude/dashboard onto the doc token names.
+     Switching re-points every var(--token) already used above; the flourishes below are tokenized so they
+     adapt per theme. Custom diagram CSS above this block is left untouched. */
+  :root, html[data-theme="aurora"] {
+    --bg:#0A0E1A; --panel:rgba(17,24,43,0.70); --panel-2:rgba(26,36,64,0.80); --line:rgba(255,255,255,0.08);
+    --text-hi:#F3F4F6; --text:#CBD5E1; --text-mid:#9CA3AF; --faint:#717a8c;
+    --accent:#00E5E8; --accent-d:#4FACFE; --blue:#4FACFE; --amber:#FBBF24; --red:#FF4D6D;
+    --h1-grad:linear-gradient(135deg,#00F2FE 0%,#4FACFE 60%,#F093FB 130%);
+    --glow:rgba(0,229,232,.85); --hover-glow:rgba(0,242,254,.15); --shadow:0 8px 32px rgba(0,0,0,.22);
+    --body-bg:
+      radial-gradient(900px 520px at 10% -8%, rgba(0,242,254,.10), transparent 60%),
+      radial-gradient(820px 480px at 96% -2%, rgba(240,147,251,.08), transparent 55%),
+      radial-gradient(700px 600px at 50% 120%, rgba(0,229,232,.06), transparent 60%), #0A0E1A;
+  }
+  html[data-theme="daylight"] {
+    --bg:#F7F9FC; --panel:rgba(255,255,255,0.85); --panel-2:#eef2f8; --line:rgba(15,23,42,0.10);
+    --text-hi:#1E293B; --text:#334155; --text-mid:#64748B; --faint:#94A3B8;
+    --accent:#2563EB; --accent-d:#7C3AED; --blue:#2563EB; --amber:#B45309; --red:#DC2626;
+    --h1-grad:linear-gradient(135deg,#2563EB 0%,#4F46E5 60%,#7C3AED 130%);
+    --glow:rgba(37,99,235,.35); --hover-glow:rgba(37,99,235,.16); --shadow:0 8px 24px rgba(15,23,42,.08);
+    --body-bg:
+      radial-gradient(900px 520px at 10% -8%, rgba(37,99,235,.07), transparent 60%),
+      radial-gradient(820px 480px at 96% -2%, rgba(124,58,237,.06), transparent 55%),
+      radial-gradient(700px 600px at 50% 120%, rgba(37,99,235,.05), transparent 60%), #F7F9FC;
+  }
+  html[data-theme="sandstone"] {
+    --bg:#FBF6EF; --panel:rgba(255,252,247,0.88); --panel-2:#f3ebdf; --line:rgba(120,80,40,0.14);
+    --text-hi:#3D2E22; --text:#5C4A38; --text-mid:#8C7A66; --faint:#a8957f;
+    --accent:#C2410C; --accent-d:#D97706; --blue:#D97706; --amber:#B45309; --red:#DC2626;
+    --h1-grad:linear-gradient(135deg,#C2410C 0%,#D97706 60%,#B45309 130%);
+    --glow:rgba(217,119,6,.40); --hover-glow:rgba(194,65,12,.16); --shadow:0 8px 24px rgba(90,60,30,.10);
+    --body-bg:
+      radial-gradient(900px 520px at 10% -8%, rgba(217,119,6,.10), transparent 60%),
+      radial-gradient(820px 480px at 96% -2%, rgba(194,65,12,.07), transparent 55%),
+      radial-gradient(700px 600px at 50% 120%, rgba(180,83,9,.06), transparent 60%), #FBF6EF;
+  }
+  html[data-theme="forest"] {
+    --bg:#0C1A14; --panel:rgba(18,38,30,0.70); --panel-2:rgba(26,52,42,0.82); --line:rgba(255,255,255,0.07);
+    --text-hi:#E8F2EC; --text:#C5D8CE; --text-mid:#8BA89A; --faint:#6f897c;
+    --accent:#34D399; --accent-d:#A3E635; --blue:#10B981; --amber:#FBBF24; --red:#FB7185;
+    --h1-grad:linear-gradient(135deg,#34D399 0%,#10B981 60%,#A3E635 130%);
+    --glow:rgba(52,211,153,.70); --hover-glow:rgba(52,211,153,.16); --shadow:0 8px 32px rgba(0,0,0,.25);
+    --body-bg:
+      radial-gradient(900px 520px at 10% -8%, rgba(52,211,153,.09), transparent 60%),
+      radial-gradient(820px 480px at 96% -2%, rgba(163,230,53,.06), transparent 55%),
+      radial-gradient(700px 600px at 50% 120%, rgba(16,185,129,.06), transparent 60%), #0C1A14;
+  }
+  html[data-theme="slate"] {
+    --bg:#16181D; --panel:rgba(30,33,40,0.72); --panel-2:rgba(42,46,55,0.85); --line:rgba(255,255,255,0.08);
+    --text-hi:#E5E7EB; --text:#C4C9D2; --text-mid:#9499A3; --faint:#6e727b;
+    --accent:#94A3B8; --accent-d:#CBD5E1; --blue:#CBD5E1; --amber:#FBBF24; --red:#FB7185;
+    --h1-grad:linear-gradient(135deg,#CBD5E1 0%,#94A3B8 60%,#64748B 130%);
+    --glow:rgba(148,163,184,.60); --hover-glow:rgba(148,163,184,.16); --shadow:0 8px 32px rgba(0,0,0,.30);
+    --body-bg:
+      radial-gradient(900px 520px at 10% -8%, rgba(148,163,184,.06), transparent 60%),
+      radial-gradient(820px 480px at 96% -2%, rgba(203,213,225,.05), transparent 55%),
+      radial-gradient(700px 600px at 50% 120%, rgba(148,163,184,.04), transparent 60%), #16181D;
+  }
+  /* tokenized flourishes — adapt to whichever theme is active */
+  body { background:var(--body-bg); background-attachment:fixed; line-height:1.7; transition:background .4s ease, color .3s ease; }
+  h1 {
+    font-family:'Outfit',var(--sans); font-weight:700; letter-spacing:-.02em;
+    background:var(--h1-grad); -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .logo .sq { background:var(--h1-grad); box-shadow:0 0 14px -1px var(--glow); }
+  h2 .n, .toc a:hover, a:hover { color:var(--accent-d); }
+  pre, .toc, .note, .card, .phase {
+    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); box-shadow:var(--shadow);
+  }
+  .card { transition:transform .25s cubic-bezier(.4,0,.2,1), border-color .25s, box-shadow .25s; }
+  .card:hover { transform:translateY(-4px); border-color:var(--accent); box-shadow:0 12px 40px var(--hover-glow); }
+
+  /* theme switcher — fixed top-right pills, one swatch each (matches the dashboard) */
+  .themebar { position:fixed; top:14px; right:14px; z-index:60; display:flex; flex-wrap:wrap; gap:6px; }
+  .themebar button {
+    font:600 11px/1 var(--sans); letter-spacing:.3px; cursor:pointer; color:var(--text-mid);
+    background:var(--panel); border:1px solid var(--line); border-radius:999px;
+    padding:6px 11px 6px 8px; display:inline-flex; align-items:center; gap:6px;
+    backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+    transition:color .2s, border-color .2s, transform .2s, box-shadow .2s;
+  }
+  .themebar button:hover { color:var(--text-hi); transform:translateY(-1px); }
+  .themebar button.active { color:var(--text-hi); border-color:var(--accent); box-shadow:0 6px 20px var(--hover-glow); }
+  .themebar .sw { width:11px; height:11px; border-radius:50%; box-shadow:0 0 0 1px rgba(0,0,0,.18) inset; }
+  @media (max-width:760px){ .themebar { position:static; margin:0 0 18px; } }
+  @media (prefers-reduced-motion:reduce){ *{transition:none!important;} }
+</style>
+<script>/* no-FOUC theme init — shares the dashboard's 'dash-theme' key */(function(){var ok=['aurora','daylight','sandstone','forest','slate'];try{var t=localStorage.getItem('dash-theme');document.documentElement.setAttribute('data-theme',ok.indexOf(t)>=0?t:'aurora');}catch(e){document.documentElement.setAttribute('data-theme','aurora');}})();</script>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="logo"><span class="sq"></span><span class="k">constellation · cst</span></div>
+    <h1>Project mission</h1>
+    <p class="lede">Decks from earned patterns, not from scratch — five skills that turn what real presentations already do well into new ones that argue.</p>
+    <p style="color:var(--faint);font-size:13px;margin-top:4px">Read before <code>.gravity/IMPLEMENTATION_PLAN.md</code> (the roadmap), then hand work to the agent through <code>CLAUDE.md</code> and the rolling <code>CONTEXT.md</code>.</p>
+    <div class="toc"><ol>
+      <li><a href="#mission">Mission</a></li>
+      <li><a href="#staging">Why this first</a></li>
+      <li><a href="#principles">Product principles</a></li>
+      <li><a href="#architecture">Architecture principle</a></li>
+      <li><a href="#pipeline">Planning pipeline</a></li>
+      <li><a href="#non-goals">Current non-goals</a></li>
+    </ol></div>
+  </header>
+
+  <h2 id="mission"><span class="n">01</span>Mission</h2>
+  <p><strong>Make building a presentation a composition problem, not a blank-page problem.</strong> A deck is stars arranged into a picture: components are the stars, patterns the lines between them, the design theme the sky — and the storyline is the picture the constellation draws. The five skills decompose decks you admire into those parts and recombine them with a new idea into a finished <code>.pptx</code> that argues.</p>
+  <pre><b>north star</b>: a pitch you would actually give, composed in minutes from patterns your own decks earned
+<b>first wedge</b>: consultant-mood pitch decks (EN/KR) through the deck-spec seam
+<b>later shape</b>: a pattern library that compounds — every deck analyzed makes the next one cheaper</pre>
+
+  <div class="note">
+    <span class="lbl">Staged, not confused.</span> Synthetic fixtures staged the whole machine first so real-deck evidence lands on working rails — the fixtures are scaffolding, never the product.
+  </div>
+
+  <h2 id="staging"><span class="n">02</span>Why This First</h2>
+  <p>The hardest problems here are structural, not visual: an honest intermediate representation (the seam), a privacy wall a public repo can trust, and extraction that sees what PowerPoint actually stores (themes, inheritance, bullet XML). Consultant pitches force all three early — heavy theme inheritance, exhibits, and titles that must argue.</p>
+  <table>
+    <thead><tr><th>Stage</th><th>Purpose</th></tr></thead>
+    <tbody>
+      <tr><td><code>Now</code></td><td>Machine proven on synthetic evidence — five skills, seam v1, two theme families, gates green.</td></tr>
+      <tr><td><code>Next</code></td><td>Real-deck evidence: earned templates and themes; the seam revised to v2 by what decks actually contain.</td></tr>
+      <tr><td><code>Later</code></td><td>Dogfood: real pitches composed end-to-end; the library compounds across decks and languages.</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="principles"><span class="n">03</span>Product Principles</h2>
+  <ul>
+    <li><strong>Evidence over invention.</strong> Nothing enters the library that wasn't extracted from a deck; schema changes wait for the deck that demands them; unknowns stay visible <code>OPEN:</code> lines, never plausible filler.</li>
+    <li><strong>Facts by script, judgment by agent.</strong> <code>extract.py</code> and <code>build.py</code> are deterministic and never interpret; archetypes, briefs, storylines, and specs are agent judgment. The boundary is never blurred.</li>
+    <li><strong>The privacy wall.</strong> This repo is public: real decks and their text are never committed — only text-stripped generalizations graduate to the library.</li>
+    <li><strong>A deck argues before it decorates.</strong> Titles are claims the slide must prove; the title spine alone must carry the case (the storyline skill's ghost-deck test).</li>
+    <li><strong>Generate from template, never edit in place.</strong> <code>.pptx</code> round-tripping drops fidelity; composition is always forward from spec.</li>
+  </ul>
+
+  <h2 id="architecture"><span class="n">04</span>Architecture Principle</h2>
+  <p>Everything reduces to <strong>one seam: the deck-spec</strong> — the JSON contract between understanding decks (analyze/templatize) and producing them (compose). Skills may grow, templates may multiply, but they meet only at the seam; a capability that bypasses it (hand-drawn geometry, in-place edits) is off-mission. The system in one domain:</p>
+  <table>
+    <thead><tr><th>Domain</th><th>Principle (the why)</th></tr></thead>
+    <tbody>
+      <tr><td><code>deck-spec</code></td><td>One honest, versioned interface — <code>build.py</code> is its only validator, and it refuses what it cannot faithfully render.</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="pipeline"><span class="n">05</span>Planning Pipeline</h2>
+  <p>The project docs change at different rates — keep each one narrow so the agent can resume without re-deriving the mission every time. <strong>One concern, one home:</strong> each doc owns its column; if another doc needs a fact, it links here rather than restating it.</p>
+  <table>
+    <thead><tr><th>Document</th><th>Job (what it owns)</th><th>Changes</th></tr></thead>
+    <tbody>
+      <tr><td><code>.gravity/MISSION.html</code></td><td>Why: north star, principles, non-goals that survive refactors.</td><td>rarely</td></tr>
+      <tr><td><code>CLAUDE.md</code></td><td>How: repo identity, stack, constraints, entry points, the Doc Map router.</td><td>on refactors</td></tr>
+      <tr><td><code>.gravity/IMPLEMENTATION_PLAN.md</code></td><td>What/next: domain status spine, slice queue, locked decisions, the gate.</td><td>per slice</td></tr>
+      <tr><td><code>CONTEXT.md</code></td><td>Now: current state, last 1-2 sessions, the immediate next step.</td><td>per session</td></tr>
+      <tr><td><code>.gravity/deck-spec/SPEC.md</code></td><td>The seam contract an agent loads before changing shapes.</td><td>per spec_version</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="non-goals"><span class="n">06</span>Current Non-Goals</h2>
+  <ul>
+    <li><strong>No in-place deck editing.</strong> We generate from templates; a WYSIWYG round-trip editor is a different product and breaks the fidelity principle.</li>
+    <li><strong>No invented design.</strong> Themes come from analyzed evidence, not taste — the design guide is extracted, never imagined.</li>
+    <li><strong>No speculative schema.</strong> Pictures, numbered lists, multi-master support wait for the real deck that demands them (SPEC <code>OPEN</code> list).</li>
+    <li><strong>Not a service.</strong> This is a Claude Code skill set operated in-session — no server, no UI, no datastore beyond files in this repo.</li>
+  </ul>
+
+  <div class="note warn">
+    <span class="lbl">Maintenance rule.</span> Update this file only when the mission or a durable principle changes. Use <code>CONTEXT.md</code> for in-flight state and <code>.gravity/IMPLEMENTATION_PLAN.md</code> for slice-by-slice execution.
+  </div>
+
+  <footer>
+    constellation · project mission · stable source for purpose before roadmap, agent guidelines, and rolling context.
+  </footer>
+</div>
+<div class="themebar" id="themebar" role="group" aria-label="Theme"><button data-theme="aurora"><span class="sw" style="background:linear-gradient(135deg,#00F2FE,#F093FB)"></span>Aurora</button><button data-theme="daylight"><span class="sw" style="background:linear-gradient(135deg,#60A5FA,#A78BFA)"></span>Daylight</button><button data-theme="sandstone"><span class="sw" style="background:linear-gradient(135deg,#F59E0B,#C2410C)"></span>Sandstone</button><button data-theme="forest"><span class="sw" style="background:linear-gradient(135deg,#34D399,#A3E635)"></span>Forest</button><button data-theme="slate"><span class="sw" style="background:linear-gradient(135deg,#CBD5E1,#64748B)"></span>Slate</button></div>
+<script>(function(){var bar=document.getElementById('themebar');if(!bar)return;var ok=['aurora','daylight','sandstone','forest','slate'];function set(t){document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('dash-theme',t);}catch(e){}bar.querySelectorAll('button').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-theme')===t);});}bar.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){set(b.getAttribute('data-theme'));});});var saved='aurora';try{saved=localStorage.getItem('dash-theme')||'aurora';}catch(e){}if(ok.indexOf(saved)<0)saved='aurora';set(saved);})();</script>
+</body>
+</html>

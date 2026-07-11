@@ -33,6 +33,14 @@ From the deck-wide censuses:
 - **Two-font system:** Georgia = display (13 runs: headlines, divider numbers/titles, cover), Arial = everything else (43 runs). Matches the theme's font scheme exactly (major = Georgia, minor = Arial).
 - **Theme-inherited:** 2 runs `(inherit)` — the closing placeholders (slide 11). The `themes` section resolves the chain: title → `titleStyle` lvl1 = 44 pt, `+mj-lt` → **Georgia**, `scheme:tx1` → `dk1` `000000`.
 
+## Title grammar
+
+Content-bearing slides (2, 4, 5, 7, 8, 10): **6 claims, 0 labels** — every
+headline is a full-sentence action title ("Revenue triples by FY28 with EBITDA
+turning positive in FY27"), consultant grammar throughout. Wayfinding slides
+(1 cover, 3/6/9 dividers, 11 closing) are labels by design. Read in order, the
+six claims argue the pitch by themselves — the ghost-deck property holds.
+
 ## Bullets (first deck with real bullet XML)
 
 - `char:▪` — 11 paragraphs (slides 4, 5, 10): true `buChar` with hanging indent.

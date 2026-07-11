@@ -26,6 +26,13 @@ From the deck-wide censuses:
 - **Accent color role:** `2E5CFF` appears as heading text (3×) *and* as the footer bar fill (slides 3–5) — one color, two jobs: emphasis + wayfinding.
 - **Theme-inherited:** 8 runs `(inherit)` — all on the placeholder slides (1, 2, 6). The dump's `themes` section resolves them: titles inherit `titleStyle` lvl1 (44 pt, `scheme:tx1` → `dk1` `000000`, `+mj-lt` → Calibri), body placeholders inherit `bodyStyle` (32/28/24 pt by level, same color/font chain).
 
+## Title grammar
+
+Content-bearing slides (2–5): **0 claims, 4 labels** ("Agenda", "Pillar One:
+Extraction", …) — teaching-deck grammar: titles name topics, the bullets carry
+the content. Contrast with meridian-pitch (6/6 claims): the census separates
+lecture decks from pitch decks at a glance.
+
 ## Grid
 
 Recurring positions (archetype A, exact across slides 3–5):

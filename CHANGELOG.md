@@ -9,6 +9,18 @@ file are the source of truth, never this file.
 
 ## [Unreleased]
 
+### Added
+
+- **Four-doc pipeline adopted** — `.gravity/MISSION.html` (north star, five
+  principles, non-goals, the deck-spec why-row) and
+  `.gravity/IMPLEMENTATION_PLAN.md` (domain status spine + slice queue +
+  locked decisions + the gate). Clears the two standing `check.py` WARNs;
+  the roadmap now has a durable home.
+- **Title-grammar census** — `analyze` stage 2 gains a label-vs-claim
+  section (action-title detection, the read-side twin of `storyline`'s
+  coaching); both worked examples updated (meridian: 6/6 claims; orion:
+  0/4 — teaching-deck grammar).
+
 ## [0.2.0] - 2026-07-11
 
 The evidence-and-fidelity release: the extractor learns to see themes and

@@ -3,14 +3,14 @@
 Last touched: 2026-07-11
 
 ## Completed
-- **v0.2.0 cut** — the evidence-and-fidelity release: theme-sighted extraction, the meridian consultant fixture + template family, breaking deck-spec v1 (tables/charts/style keys/real bullets), and the `storyline` skill (fifth star: stakes → skeptic → action titles → mood curve → ghost-deck read-back). Gate green at cut. Release commit `f6416db` pushed on `claude/constellation-gravity-release-i64nqq`; see `CHANGELOG.md [0.2.0]`.
-- **Tag `v0.2.0` NOT on remote** — the remote session's token can only push `claude/*` branches (403 on tag refs). Recreate + push from the local machine: `git tag -a v0.2.0 -m "v0.2.0" f6416db && git push origin v0.2.0` (after fetching; ideally after the branch merges to `main`).
+- **v0.2.0 cut and merged** (PR #1 → `main`). ⚠ Tag `v0.2.0` still needs a local push — the remote session token can't push tag refs: `git tag -a v0.2.0 -m "v0.2.0" f6416db && git push origin v0.2.0`.
+- **Four-doc pipeline adopted** (this session): `.gravity/MISSION.html` + `.gravity/IMPLEMENTATION_PLAN.md` authored and wired (Doc Map, deck-spec why-row + spine row); checkers now 0 fails, 0 warnings. Plus the **title-grammar census** in `analyze` stage 2 (label vs claim), applied to both worked examples.
 
 ## Current State
-- **Five skills** (ideate · storyline · analyze · templatize · compose); seam at **v1** (provisional — synthetic evidence only). Three template families, two themes, machine green end-to-end. Branch unmerged into `main` — open the PR when ready.
-- Remaining OPENs (SPEC) all wait on real-deck evidence: numbered-list content kind, `picture` box kind, layout-level style walking, multi-master. Small shelf item: title-grammar census in `analyze` stage 2.
+- Five skills, seam v1, two theme families, machine green. The roadmap now lives in `.gravity/IMPLEMENTATION_PLAN.md` (slice queue + locked decisions) — read it, not this file, for what's next beyond the immediate step.
+- Branch restarted from merged `main`; new work rides `claude/constellation-gravity-release-i64nqq` again.
 
 ## Next Step
-- On the local machine: merge the branch, push the `v0.2.0` tag (command above), then drop a **real deck** into `fixtures/` and run `analyze` — that evidence decides v1→v2 and replaces synthetic templates with earned ones.
+- On the office machine: push the `v0.2.0` tag (command above), then take the `now` slice from the slice queue — drop a **real deck** into `fixtures/` and run `analyze`.
 
 ---
