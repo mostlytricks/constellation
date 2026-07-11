@@ -38,7 +38,14 @@ Skills are invoked from Claude Code sessions, not run standalone.
 
 ## Test
 
-No tests yet. Honest gate for now: a skill run on a sample deck produces the expected artifact (pattern report / template / final pptx).
+```bash
+# smoke loop: synthetic fixture → extractor → structural dump
+.venv/Scripts/python fixtures/make_fixture.py
+.venv/Scripts/python .claude/skills/analyze/extract.py fixtures/orion-sample.pptx \
+  -o library/analysis/orion-sample/structure.json
+```
+
+No test framework yet — the honest gate is the smoke loop above plus eyeballing the dump against `library/analysis/orion-sample/PATTERNS.md` (the worked example).
 
 ## Conventions
 
