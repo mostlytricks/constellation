@@ -23,6 +23,16 @@ file are the source of truth, never this file.
 
 ### Added
 
+- **`storyline` skill** — the fifth star: an interviewing skill that
+  pressure-tests one pitch's narrative before compose. Five strawman-first
+  moves (stakes → skeptic's seat → action-title pass → mood curve →
+  ghost-deck read-back) upgrading IDEA.md in place: messages become action
+  titles, the Arc line gains a `(mood: …)` curve, and a `## Flow` block
+  records stake/skeptic/verified spine. `ideate` gains the storyline handoff
+  + `summary`/`exhibit`/`ask` roles; `compose` gains the honor-the-mood-curve
+  rule (theme by mood, dividers at act boundaries, spine order is final).
+  Worked example: `library/ideas/meridian-pitch/IDEA.md` (synthetic,
+  reverse-briefed from the fixture).
 - **Theme/master extraction** — `extract.py` dumps a per-master `themes`
   section (theme color scheme, font scheme, the master's color map and
   title/body/other text-style defaults, lvl 1–3) parsed from raw OOXML, so

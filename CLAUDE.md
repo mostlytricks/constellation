@@ -40,12 +40,13 @@ A **domain** is a durable subject area an agent will repeatedly navigate and cha
 
 ## The Pipeline (the shape of the project)
 
-A deck is stars arranged into a picture: components are stars, patterns are the lines between them, the design theme is the sky. Four capabilities, each a Claude Code skill:
+A deck is stars arranged into a picture: components are stars, patterns are the lines between them, the design theme is the sky — and the storyline is the picture the constellation draws. Five capabilities, each a Claude Code skill:
 
 1. **ideate** — build/refine the presentation idea (narrative, audience, message arc).
-2. **analyze** — read an existing/given `.pptx`, extract its component patterns (layouts, recurring slide shapes, visual grammar).
-3. **templatize** — generalize extracted patterns into reusable templates + maintain the design guide (type, color tokens, spacing).
-4. **compose** — combine idea × pattern × theme → generate the final `.pptx`.
+2. **storyline** — pressure-test one pitch's narrative: action titles, stakes + skeptic, mood curve, ghost-deck flow check (interview; upgrades the brief in place).
+3. **analyze** — read an existing/given `.pptx`, extract its component patterns (layouts, recurring slide shapes, visual grammar).
+4. **templatize** — generalize extracted patterns into reusable templates + maintain the design guide (type, color tokens, spacing).
+5. **compose** — combine idea × pattern × theme → generate the final `.pptx`.
 
 ## Stack
 

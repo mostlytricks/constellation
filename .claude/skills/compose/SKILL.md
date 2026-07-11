@@ -35,6 +35,14 @@ Read `.gravity/deck-spec/SPEC.md` first — it is the contract; this file is the
    dropped, never plausibly filled.
 3. **Respect the brief's language** (KR briefs → KR decks; the dump/render
    path is UTF-8-safe end to end).
+4. **Honor the mood curve when present.** A storyline-upgraded brief carries
+   `(mood: …)` on its Arc line and a `## Flow` block. Mood steers judgment
+   calls the spec can't: pick the theme whose grammar matches the mood words
+   (and say the mapping you chose out loud — e.g. consultant-formal →
+   `meridian`, bright/playful → `orion`), place `section` dividers at the
+   act boundaries, and weight the ask/closing slides to the final mood word
+   (a `direct` ask earns a full template, not a footnote). Flow order is the
+   verified spine — don't reorder slides at compose time.
 
 ## Stage 2 — render
 
