@@ -1,0 +1,497 @@
+{
+  "deck": {
+    "file": "orion-sample.pptx",
+    "slide_w_emu": 9144000,
+    "slide_h_emu": 6858000,
+    "aspect": 1.333,
+    "slide_count": 6
+  },
+  "layouts": {
+    "master_1": [
+      "Title Slide",
+      "Title and Content",
+      "Section Header",
+      "Two Content",
+      "Comparison",
+      "Title Only",
+      "Blank",
+      "Content with Caption",
+      "Picture with Caption",
+      "Title and Vertical Text",
+      "Vertical Title and Text"
+    ]
+  },
+  "slides": [
+    {
+      "n": 1,
+      "layout": "Title Slide",
+      "shape_count": 2,
+      "shapes": [
+        {
+          "name": "Title 1",
+          "type": "PLACEHOLDER (14)",
+          "x_pct": 7.5,
+          "y_pct": 31.1,
+          "w_pct": 85.0,
+          "h_pct": 21.4,
+          "placeholder": {
+            "idx": 0,
+            "type": "CENTER_TITLE (3)"
+          },
+          "text_len": 13,
+          "text_preview": "Project Orion",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "(inherit)": 1
+            },
+            "sizes_pt": {
+              "(inherit)": 1
+            },
+            "colors": {
+              "(inherit)": 1
+            },
+            "bold_runs": 0
+          },
+          "fill": {
+            "type": "None"
+          }
+        },
+        {
+          "name": "Subtitle 2",
+          "type": "PLACEHOLDER (14)",
+          "x_pct": 15.0,
+          "y_pct": 56.7,
+          "w_pct": 70.0,
+          "h_pct": 25.6,
+          "placeholder": {
+            "idx": 1,
+            "type": "SUBTITLE (4)"
+          },
+          "text_len": 39,
+          "text_preview": "A synthetic deck for pattern extraction",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "(inherit)": 1
+            },
+            "sizes_pt": {
+              "(inherit)": 1
+            },
+            "colors": {
+              "(inherit)": 1
+            },
+            "bold_runs": 0
+          },
+          "fill": {
+            "type": "None"
+          }
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "layout": "Title and Content",
+      "shape_count": 2,
+      "shapes": [
+        {
+          "name": "Title 1",
+          "type": "PLACEHOLDER (14)",
+          "x_pct": 5.0,
+          "y_pct": 4.0,
+          "w_pct": 90.0,
+          "h_pct": 16.7,
+          "placeholder": {
+            "idx": 0,
+            "type": "TITLE (1)"
+          },
+          "text_len": 6,
+          "text_preview": "Agenda",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "(inherit)": 1
+            },
+            "sizes_pt": {
+              "(inherit)": 1
+            },
+            "colors": {
+              "(inherit)": 1
+            },
+            "bold_runs": 0
+          },
+          "fill": {
+            "type": "None"
+          }
+        },
+        {
+          "name": "Content Placeholder 2",
+          "type": "PLACEHOLDER (14)",
+          "x_pct": 5.0,
+          "y_pct": 23.3,
+          "w_pct": 90.0,
+          "h_pct": 66.0,
+          "placeholder": {
+            "idx": 1,
+            "type": "OBJECT (7)"
+          },
+          "text_len": 43,
+          "text_preview": "Why we're here\nThe three pillars\nNext steps",
+          "para_count": 3,
+          "font_census": {
+            "fonts": {
+              "(inherit)": 3
+            },
+            "sizes_pt": {
+              "(inherit)": 3
+            },
+            "colors": {
+              "(inherit)": 3
+            },
+            "bold_runs": 0
+          },
+          "fill": {
+            "type": "None"
+          }
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "layout": "Blank",
+      "shape_count": 3,
+      "shapes": [
+        {
+          "name": "TextBox 1",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 5.0,
+          "y_pct": 5.3,
+          "w_pct": 90.0,
+          "h_pct": 12.0,
+          "text_len": 22,
+          "text_preview": "Pillar One: Extraction",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Calibri": 1
+            },
+            "sizes_pt": {
+              "32": 1
+            },
+            "colors": {
+              "2E5CFF": 1
+            },
+            "bold_runs": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "TextBox 2",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 8.0,
+          "y_pct": 21.3,
+          "w_pct": 84.0,
+          "h_pct": 60.0,
+          "text_len": 73,
+          "text_preview": "• Deterministic script\n• Facts only, JSON out\n• No interpretation in code",
+          "para_count": 3,
+          "font_census": {
+            "fonts": {
+              "Calibri": 3
+            },
+            "sizes_pt": {
+              "18": 3
+            },
+            "colors": {
+              "333333": 3
+            },
+            "bold_runs": 0
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "Rectangle 3",
+          "type": "AUTO_SHAPE (1)",
+          "x_pct": 5.0,
+          "y_pct": 92.0,
+          "w_pct": 90.0,
+          "h_pct": 2.0,
+          "text_len": 0,
+          "text_preview": "",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {},
+            "sizes_pt": {},
+            "colors": {},
+            "bold_runs": 0
+          },
+          "fill": {
+            "type": "SOLID (1)",
+            "rgb": "2E5CFF"
+          }
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "layout": "Blank",
+      "shape_count": 3,
+      "shapes": [
+        {
+          "name": "TextBox 1",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 5.0,
+          "y_pct": 5.3,
+          "w_pct": 90.0,
+          "h_pct": 12.0,
+          "text_len": 26,
+          "text_preview": "Pillar Two: Interpretation",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Calibri": 1
+            },
+            "sizes_pt": {
+              "32": 1
+            },
+            "colors": {
+              "2E5CFF": 1
+            },
+            "bold_runs": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "TextBox 2",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 8.0,
+          "y_pct": 21.3,
+          "w_pct": 84.0,
+          "h_pct": 60.0,
+          "text_len": 81,
+          "text_preview": "• Agent reads the dump\n• Archetypes cite slide numbers\n• OPEN: lines over guesse",
+          "para_count": 3,
+          "font_census": {
+            "fonts": {
+              "Calibri": 3
+            },
+            "sizes_pt": {
+              "18": 3
+            },
+            "colors": {
+              "333333": 3
+            },
+            "bold_runs": 0
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "Rectangle 3",
+          "type": "AUTO_SHAPE (1)",
+          "x_pct": 5.0,
+          "y_pct": 92.0,
+          "w_pct": 90.0,
+          "h_pct": 2.0,
+          "text_len": 0,
+          "text_preview": "",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {},
+            "sizes_pt": {},
+            "colors": {},
+            "bold_runs": 0
+          },
+          "fill": {
+            "type": "SOLID (1)",
+            "rgb": "2E5CFF"
+          }
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "layout": "Blank",
+      "shape_count": 3,
+      "shapes": [
+        {
+          "name": "TextBox 1",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 5.0,
+          "y_pct": 5.3,
+          "w_pct": 90.0,
+          "h_pct": 12.0,
+          "text_len": 28,
+          "text_preview": "Pillar Three: Generalization",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "Calibri": 1
+            },
+            "sizes_pt": {
+              "32": 1
+            },
+            "colors": {
+              "2E5CFF": 1
+            },
+            "bold_runs": 1
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "TextBox 2",
+          "type": "TEXT_BOX (17)",
+          "x_pct": 8.0,
+          "y_pct": 21.3,
+          "w_pct": 84.0,
+          "h_pct": 60.0,
+          "text_len": 87,
+          "text_preview": "• Recurring archetypes become templates\n• Source text stripped\n• Design guide ex",
+          "para_count": 3,
+          "font_census": {
+            "fonts": {
+              "Calibri": 3
+            },
+            "sizes_pt": {
+              "18": 3
+            },
+            "colors": {
+              "333333": 3
+            },
+            "bold_runs": 0
+          },
+          "fill": {
+            "type": "BACKGROUND (5)"
+          }
+        },
+        {
+          "name": "Rectangle 3",
+          "type": "AUTO_SHAPE (1)",
+          "x_pct": 5.0,
+          "y_pct": 92.0,
+          "w_pct": 90.0,
+          "h_pct": 2.0,
+          "text_len": 0,
+          "text_preview": "",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {},
+            "sizes_pt": {},
+            "colors": {},
+            "bold_runs": 0
+          },
+          "fill": {
+            "type": "SOLID (1)",
+            "rgb": "2E5CFF"
+          }
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "layout": "Title Slide",
+      "shape_count": 2,
+      "shapes": [
+        {
+          "name": "Title 1",
+          "type": "PLACEHOLDER (14)",
+          "x_pct": 7.5,
+          "y_pct": 31.1,
+          "w_pct": 85.0,
+          "h_pct": 21.4,
+          "placeholder": {
+            "idx": 0,
+            "type": "CENTER_TITLE (3)"
+          },
+          "text_len": 5,
+          "text_preview": "감사합니다",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "(inherit)": 1
+            },
+            "sizes_pt": {
+              "(inherit)": 1
+            },
+            "colors": {
+              "(inherit)": 1
+            },
+            "bold_runs": 0
+          },
+          "fill": {
+            "type": "None"
+          }
+        },
+        {
+          "name": "Subtitle 2",
+          "type": "PLACEHOLDER (14)",
+          "x_pct": 15.0,
+          "y_pct": 56.7,
+          "w_pct": 70.0,
+          "h_pct": 25.6,
+          "placeholder": {
+            "idx": 1,
+            "type": "SUBTITLE (4)"
+          },
+          "text_len": 25,
+          "text_preview": "Questions → the night sky",
+          "para_count": 1,
+          "font_census": {
+            "fonts": {
+              "(inherit)": 1
+            },
+            "sizes_pt": {
+              "(inherit)": 1
+            },
+            "colors": {
+              "(inherit)": 1
+            },
+            "bold_runs": 0
+          },
+          "fill": {
+            "type": "None"
+          }
+        }
+      ]
+    }
+  ],
+  "aggregates": {
+    "layout_usage": {
+      "Title Slide": 2,
+      "Title and Content": 1,
+      "Blank": 3
+    },
+    "shape_type_census": {
+      "PLACEHOLDER (14)": 6,
+      "TEXT_BOX (17)": 6,
+      "AUTO_SHAPE (1)": 3
+    },
+    "font_census": {
+      "(inherit)": 8,
+      "Calibri": 12
+    },
+    "size_census_pt": {
+      "(inherit)": 8,
+      "32": 3,
+      "18": 9
+    },
+    "color_census": {
+      "(inherit)": 8,
+      "2E5CFF": 3,
+      "333333": 9
+    },
+    "shape_count_histogram": {
+      "2": 3,
+      "3": 3
+    }
+  }
+}
