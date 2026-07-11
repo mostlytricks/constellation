@@ -104,3 +104,13 @@ output** — geometry and censuses must match the templates/theme exactly.
 
 - Remote: `https://github.com/mostlytricks/constellation.git`
 - Default branch: `main`
+
+## Releasing
+
+- Version source of truth: the `VERSION` file + annotated git tag `vX.Y.Z`
+  (`CHANGELOG.md` records, never decides). Pre-1.0: breaking → minor,
+  feature/fix → patch.
+- Cut with `/cut-release constellation` (workspace command): it verifies
+  `[Unreleased]` has content, runs the smoke loops as the gate, renames the
+  block with the system date, bumps `VERSION`, commits, tags — and stops
+  before push.
