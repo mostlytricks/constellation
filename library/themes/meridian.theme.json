@@ -13,16 +13,78 @@
     },
     "bullet_char": "▪",
     "text_styles": {
-      "kicker":         { "size_pt": 11, "bold": true,  "color": "gold",  "font": "Arial", "caps": true },
-      "headline":       { "size_pt": 24, "bold": true,  "color": "navy",  "font": "Georgia" },
-      "body":           { "size_pt": 14, "bold": false, "color": "ink",   "font": "Arial" },
-      "source":         { "size_pt": 9,  "bold": false, "color": "mute",  "font": "Arial", "italic": true },
-      "footer":         { "size_pt": 8,  "bold": false, "color": "mute",  "font": "Arial" },
-      "divider-number": { "size_pt": 60, "bold": true,  "color": "gold",  "font": "Georgia" },
-      "divider-title":  { "size_pt": 32, "bold": false, "color": "paper", "font": "Georgia" },
-      "table-header":   { "size_pt": 12, "bold": true,  "color": "paper", "font": "Arial" },
-      "table-label":    { "size_pt": 12, "bold": true,  "color": "ink",   "font": "Arial" },
-      "table-body":     { "size_pt": 12, "bold": false, "color": "ink",   "font": "Arial" }
+      "kicker": {
+        "size_pt": 11,
+        "bold": true,
+        "color": "gold",
+        "font": "Arial",
+        "caps": true,
+        "font_ea": "Malgun Gothic"
+      },
+      "headline": {
+        "size_pt": 24,
+        "bold": true,
+        "color": "navy",
+        "font": "Georgia",
+        "font_ea": "Malgun Gothic"
+      },
+      "body": {
+        "size_pt": 14,
+        "bold": false,
+        "color": "ink",
+        "font": "Arial",
+        "font_ea": "Malgun Gothic"
+      },
+      "source": {
+        "size_pt": 9,
+        "bold": false,
+        "color": "mute",
+        "font": "Arial",
+        "italic": true,
+        "font_ea": "Malgun Gothic"
+      },
+      "footer": {
+        "size_pt": 8,
+        "bold": false,
+        "color": "mute",
+        "font": "Arial",
+        "font_ea": "Malgun Gothic"
+      },
+      "divider-number": {
+        "size_pt": 60,
+        "bold": true,
+        "color": "gold",
+        "font": "Georgia",
+        "font_ea": "Malgun Gothic"
+      },
+      "divider-title": {
+        "size_pt": 32,
+        "bold": false,
+        "color": "paper",
+        "font": "Georgia",
+        "font_ea": "Malgun Gothic"
+      },
+      "table-header": {
+        "size_pt": 12,
+        "bold": true,
+        "color": "paper",
+        "font": "Arial",
+        "font_ea": "Malgun Gothic"
+      },
+      "table-label": {
+        "size_pt": 12,
+        "bold": true,
+        "color": "ink",
+        "font": "Arial",
+        "font_ea": "Malgun Gothic"
+      },
+      "table-body": {
+        "size_pt": 12,
+        "bold": false,
+        "color": "ink",
+        "font": "Arial",
+        "font_ea": "Malgun Gothic"
+      }
     }
   },
   "open": []

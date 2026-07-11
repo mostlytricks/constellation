@@ -20,6 +20,13 @@ file are the source of truth, never this file.
   section (action-title detection, the read-side twin of `storyline`'s
   coaching); both worked examples updated (meridian: 6/6 claims; orion:
   0/4 — teaching-deck grammar).
+- **KR fidelity, write half** (slice: `.gravity/deck-spec/PLAN.kr.md`) —
+  optional `font_ea` style key (additive to seam v1): `build.py` writes the
+  `a:ea` typeface so CJK runs get specified typography instead of fallback;
+  `extract.py` gains the matching `fonts_ea` census; meridian theme carries
+  `Malgun Gothic`. Korean worked example `library/decks/byeoljari-demo/`
+  proves Hangul round-trips the whole pipeline intact. cp949 legacy files
+  remain open pending a real legacy deck.
 
 ## [0.2.0] - 2026-07-11
 

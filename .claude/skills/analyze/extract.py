@@ -157,13 +157,19 @@ def bullet_census(text_frame):
 
 
 def font_census(text_frame):
-    """Count fonts/sizes/colors across runs. '(inherit)' = theme-resolved."""
-    fonts, sizes, colors = Counter(), Counter(), Counter()
+    """Count fonts/sizes/colors across runs. '(inherit)' = theme-resolved.
+    fonts = latin typeface; fonts_ea = East-Asian typeface (a:ea) — CJK runs
+    without one render on fallback, so the two censuses diverging is a fact."""
+    fonts, fonts_ea, sizes, colors = Counter(), Counter(), Counter(), Counter()
     bold_runs = 0
     for para in text_frame.paragraphs:
         for run in para.runs:
             f = run.font
             fonts[f.name or "(inherit)"] += 1
+            rPr = run._r.rPr
+            ea = rPr.find(qn("a:ea")) if rPr is not None else None
+            fonts_ea[(ea.get("typeface") if ea is not None else None)
+                     or "(inherit)"] += 1
             sizes[f"{f.size.pt:g}" if f.size else "(inherit)"] += 1
             try:
                 if f.color and f.color.type is not None:
@@ -176,6 +182,7 @@ def font_census(text_frame):
                 bold_runs += 1
     return {
         "fonts": dict(fonts),
+        "fonts_ea": dict(fonts_ea),
         "sizes_pt": dict(sizes),
         "colors": dict(colors),
         "bold_runs": bold_runs,
@@ -236,7 +243,8 @@ def extract(pptx_path):
     slides = []
     layout_usage = Counter()
     type_census = Counter()
-    all_fonts, all_sizes, all_colors = Counter(), Counter(), Counter()
+    all_fonts, all_fonts_ea = Counter(), Counter()
+    all_sizes, all_colors = Counter(), Counter()
     all_bullets = Counter()
     shape_counts = Counter()
 
@@ -249,6 +257,7 @@ def extract(pptx_path):
             fc = s.get("font_census")
             if fc:
                 all_fonts.update(fc["fonts"])
+                all_fonts_ea.update(fc["fonts_ea"])
                 all_sizes.update(fc["sizes_pt"])
                 all_colors.update(fc["colors"])
             bc = s.get("bullet_census")
@@ -282,6 +291,7 @@ def extract(pptx_path):
             "layout_usage": dict(layout_usage),
             "shape_type_census": dict(type_census),
             "font_census": dict(all_fonts),
+            "font_ea_census": dict(all_fonts_ea),
             "size_census_pt": dict(all_sizes),
             "color_census": dict(all_colors),
             "bullet_census": dict(all_bullets),

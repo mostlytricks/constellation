@@ -162,6 +162,15 @@ def apply_style(run, style, colors):
     run.font.color.rgb = RGBColor.from_string(colors[style["color"]])
     if "font" in style:
         run.font.name = style["font"]
+    if "font_ea" in style:
+        # python-pptx's font.name is latin-only; CJK runs need a:ea or they
+        # render on fallback. Appended after font.name so a:latin exists first.
+        rPr = run._r.get_or_add_rPr()
+        ea = rPr.find(qn("a:ea"))
+        if ea is None:
+            ea = rPr.makeelement(qn("a:ea"), {})
+            rPr.append(ea)
+        ea.set("typeface", style["font_ea"])
 
 
 def styled_text(value, style):

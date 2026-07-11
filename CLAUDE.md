@@ -23,6 +23,7 @@ Docs are grouped by **subject domain**, not by doc-type. A domain folder holds w
   IMPLEMENTATION_PLAN.md  # what/next — domain status spine, slice queue, locked decisions, the gate
   deck-spec/ SPEC.md      # the seam — deck-spec × template × theme JSON shapes (v1), enforced by compose/build.py
   deck-spec/ PLAN.v1.md   # the v0→v1 slice (intent + verification record)
+  deck-spec/ PLAN.kr.md   # the KR fidelity slice — font_ea channel + Korean worked example
 ```
 
 ## What to read before a change (router)

@@ -33,7 +33,7 @@ earned a folder (root CLAUDE.md, *Adding a domain*).
 | now | **Real-deck evidence intake** — drop real decks into `fixtures/` (office machine), run `analyze`, earn templates/themes; **blocked: decks are on the office machine** | mints `.gravity/deck-spec/PLAN.v2.md` | ○ |
 | next | deck-spec v2 — decided by that evidence: `picture` box kind, numbered lists (`buAutoNum`), layout-level style walking, multi-master (SPEC OPEN list) | `.gravity/deck-spec/PLAN.v2.md` (future) | ○ |
 | next | Dogfood — first real pitch end-to-end: `ideate` + `storyline` → compose from earned templates | — | ○ |
-| later | KR fidelity — cp949 legacy files, Korean font fallback (CLAUDE.md gotcha, untested) | — | ○ |
+| later | KR fidelity, legacy half — cp949 files need a real legacy deck (write half shipped: `PLAN.kr.md` ✓ — `font_ea` key + `fonts_ea` census + `byeoljari-demo` KR worked example) | `.gravity/deck-spec/PLAN.kr.md` | ◑ |
 | later | Title-grammar wall — graduate the analyze census from `[review]` judgment to a checkable rule, if it proves useful | — | ○ |
 
 ## Locked decisions

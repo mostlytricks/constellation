@@ -131,8 +131,11 @@ The design guide as tokens. One per visual identity.
 ```
 
 - `colors` are 6-hex strings, no `#`. `text_styles[].color` names a color token.
-- Optional per-style: `"font": "<name>"` (omit to inherit the renderer
-  default), `"italic": true`, `"caps": true` (uppercases the fill at render).
+- Optional per-style: `"font": "<name>"` (latin typeface; omit to inherit the
+  renderer default), `"font_ea": "<name>"` (East-Asian typeface, written as
+  `a:ea` — CJK runs without one render on fallback fonts; additive, v1 specs
+  without it are unchanged), `"italic": true`, `"caps": true` (uppercases the
+  fill at render).
 - Optional `tokens.bullet_char` (default `•`) — the `buChar` for bullet boxes.
 
 ## Enforcement

@@ -127,6 +127,7 @@
           "para_count": 1,
           "font_census": {
             "fonts": {},
+            "fonts_ea": {},
             "sizes_pt": {},
             "colors": {},
             "bold_runs": 0
@@ -151,6 +152,7 @@
           "para_count": 1,
           "font_census": {
             "fonts": {},
+            "fonts_ea": {},
             "sizes_pt": {},
             "colors": {},
             "bold_runs": 0
@@ -176,6 +178,9 @@
           "font_census": {
             "fonts": {
               "Georgia": 1
+            },
+            "fonts_ea": {
+              "(inherit)": 1
             },
             "sizes_pt": {
               "40": 1
@@ -206,6 +211,9 @@
             "fonts": {
               "Arial": 1
             },
+            "fonts_ea": {
+              "(inherit)": 1
+            },
             "sizes_pt": {
               "16": 1
             },
@@ -234,6 +242,9 @@
           "font_census": {
             "fonts": {
               "Arial": 1
+            },
+            "fonts_ea": {
+              "(inherit)": 1
             },
             "sizes_pt": {
               "10": 1
@@ -271,6 +282,9 @@
             "fonts": {
               "Arial": 1
             },
+            "fonts_ea": {
+              "(inherit)": 1
+            },
             "sizes_pt": {
               "11": 1
             },
@@ -300,6 +314,9 @@
             "fonts": {
               "Georgia": 1
             },
+            "fonts_ea": {
+              "(inherit)": 1
+            },
             "sizes_pt": {
               "24": 1
             },
@@ -327,6 +344,7 @@
           "para_count": 1,
           "font_census": {
             "fonts": {},
+            "fonts_ea": {},
             "sizes_pt": {},
             "colors": {},
             "bold_runs": 0
@@ -352,6 +370,9 @@
           "font_census": {
             "fonts": {
               "Arial": 1
+            },
+            "fonts_ea": {
+              "(inherit)": 1
             },
             "sizes_pt": {
               "9": 1
@@ -382,6 +403,9 @@
             "fonts": {
               "Arial": 4
             },
+            "fonts_ea": {
+              "(inherit)": 4
+            },
             "sizes_pt": {
               "15": 4
             },
@@ -411,6 +435,9 @@
             "fonts": {
               "Arial": 1
             },
+            "fonts_ea": {
+              "(inherit)": 1
+            },
             "sizes_pt": {
               "8": 1
             },
@@ -439,6 +466,9 @@
           "font_census": {
             "fonts": {
               "Arial": 1
+            },
+            "fonts_ea": {
+              "(inherit)": 1
             },
             "sizes_pt": {
               "8": 1
@@ -474,6 +504,7 @@
           "para_count": 1,
           "font_census": {
             "fonts": {},
+            "fonts_ea": {},
             "sizes_pt": {},
             "colors": {},
             "bold_runs": 0
@@ -499,6 +530,9 @@
           "font_census": {
             "fonts": {
               "Georgia": 1
+            },
+            "fonts_ea": {
+              "(inherit)": 1
             },
             "sizes_pt": {
               "60": 1
@@ -527,6 +561,7 @@
           "para_count": 1,
           "font_census": {
             "fonts": {},
+            "fonts_ea": {},
             "sizes_pt": {},
             "colors": {},
             "bold_runs": 0
@@ -552,6 +587,9 @@
           "font_census": {
             "fonts": {
               "Georgia": 1
+            },
+            "fonts_ea": {
+              "(inherit)": 1
             },
             "sizes_pt": {
               "32": 1
@@ -589,6 +627,9 @@
             "fonts": {
               "Arial": 1
             },
+            "fonts_ea": {
+              "(inherit)": 1
+            },
             "sizes_pt": {
               "11": 1
             },
@@ -618,6 +659,9 @@
             "fonts": {
               "Georgia": 1
             },
+            "fonts_ea": {
+              "(inherit)": 1
+            },
             "sizes_pt": {
               "24": 1
             },
@@ -645,6 +689,7 @@
           "para_count": 1,
           "font_census": {
             "fonts": {},
+            "fonts_ea": {},
             "sizes_pt": {},
             "colors": {},
             "bold_runs": 0
@@ -670,6 +715,9 @@
           "font_census": {
             "fonts": {
               "Arial": 1
+            },
+            "fonts_ea": {
+              "(inherit)": 1
             },
             "sizes_pt": {
               "9": 1
@@ -700,6 +748,9 @@
             "fonts": {
               "Arial": 4
             },
+            "fonts_ea": {
+              "(inherit)": 4
+            },
             "sizes_pt": {
               "14": 4
             },
@@ -729,6 +780,9 @@
             "fonts": {
               "Arial": 1
             },
+            "fonts_ea": {
+              "(inherit)": 1
+            },
             "sizes_pt": {
               "8": 1
             },
@@ -757,6 +811,9 @@
           "font_census": {
             "fonts": {
               "Arial": 1
+            },
+            "fonts_ea": {
+              "(inherit)": 1
             },
             "sizes_pt": {
               "8": 1
@@ -794,6 +851,9 @@
             "fonts": {
               "Arial": 1
             },
+            "fonts_ea": {
+              "(inherit)": 1
+            },
             "sizes_pt": {
               "11": 1
             },
@@ -823,6 +883,9 @@
             "fonts": {
               "Georgia": 1
             },
+            "fonts_ea": {
+              "(inherit)": 1
+            },
             "sizes_pt": {
               "24": 1
             },
@@ -850,6 +913,7 @@
           "para_count": 1,
           "font_census": {
             "fonts": {},
+            "fonts_ea": {},
             "sizes_pt": {},
             "colors": {},
             "bold_runs": 0
@@ -875,6 +939,9 @@
           "font_census": {
             "fonts": {
               "Arial": 1
+            },
+            "fonts_ea": {
+              "(inherit)": 1
             },
             "sizes_pt": {
               "9": 1
@@ -905,6 +972,9 @@
             "fonts": {
               "Arial": 4
             },
+            "fonts_ea": {
+              "(inherit)": 4
+            },
             "sizes_pt": {
               "14": 4
             },
@@ -934,6 +1004,9 @@
             "fonts": {
               "Arial": 1
             },
+            "fonts_ea": {
+              "(inherit)": 1
+            },
             "sizes_pt": {
               "8": 1
             },
@@ -962,6 +1035,9 @@
           "font_census": {
             "fonts": {
               "Arial": 1
+            },
+            "fonts_ea": {
+              "(inherit)": 1
             },
             "sizes_pt": {
               "8": 1
@@ -997,6 +1073,7 @@
           "para_count": 1,
           "font_census": {
             "fonts": {},
+            "fonts_ea": {},
             "sizes_pt": {},
             "colors": {},
             "bold_runs": 0
@@ -1022,6 +1099,9 @@
           "font_census": {
             "fonts": {
               "Georgia": 1
+            },
+            "fonts_ea": {
+              "(inherit)": 1
             },
             "sizes_pt": {
               "60": 1
@@ -1050,6 +1130,7 @@
           "para_count": 1,
           "font_census": {
             "fonts": {},
+            "fonts_ea": {},
             "sizes_pt": {},
             "colors": {},
             "bold_runs": 0
@@ -1075,6 +1156,9 @@
           "font_census": {
             "fonts": {
               "Georgia": 1
+            },
+            "fonts_ea": {
+              "(inherit)": 1
             },
             "sizes_pt": {
               "32": 1
@@ -1112,6 +1196,9 @@
             "fonts": {
               "Arial": 1
             },
+            "fonts_ea": {
+              "(inherit)": 1
+            },
             "sizes_pt": {
               "11": 1
             },
@@ -1141,6 +1228,9 @@
             "fonts": {
               "Georgia": 1
             },
+            "fonts_ea": {
+              "(inherit)": 1
+            },
             "sizes_pt": {
               "24": 1
             },
@@ -1168,6 +1258,7 @@
           "para_count": 1,
           "font_census": {
             "fonts": {},
+            "fonts_ea": {},
             "sizes_pt": {},
             "colors": {},
             "bold_runs": 0
@@ -1193,6 +1284,9 @@
           "font_census": {
             "fonts": {
               "Arial": 1
+            },
+            "fonts_ea": {
+              "(inherit)": 1
             },
             "sizes_pt": {
               "9": 1
@@ -1235,6 +1329,9 @@
             "fonts": {
               "Arial": 1
             },
+            "fonts_ea": {
+              "(inherit)": 1
+            },
             "sizes_pt": {
               "8": 1
             },
@@ -1263,6 +1360,9 @@
           "font_census": {
             "fonts": {
               "Arial": 1
+            },
+            "fonts_ea": {
+              "(inherit)": 1
             },
             "sizes_pt": {
               "8": 1
@@ -1300,6 +1400,9 @@
             "fonts": {
               "Arial": 1
             },
+            "fonts_ea": {
+              "(inherit)": 1
+            },
             "sizes_pt": {
               "11": 1
             },
@@ -1329,6 +1432,9 @@
             "fonts": {
               "Georgia": 1
             },
+            "fonts_ea": {
+              "(inherit)": 1
+            },
             "sizes_pt": {
               "24": 1
             },
@@ -1356,6 +1462,7 @@
           "para_count": 1,
           "font_census": {
             "fonts": {},
+            "fonts_ea": {},
             "sizes_pt": {},
             "colors": {},
             "bold_runs": 0
@@ -1381,6 +1488,9 @@
           "font_census": {
             "fonts": {
               "Arial": 1
+            },
+            "fonts_ea": {
+              "(inherit)": 1
             },
             "sizes_pt": {
               "9": 1
@@ -1422,6 +1532,9 @@
             "fonts": {
               "Arial": 1
             },
+            "fonts_ea": {
+              "(inherit)": 1
+            },
             "sizes_pt": {
               "8": 1
             },
@@ -1450,6 +1563,9 @@
           "font_census": {
             "fonts": {
               "Arial": 1
+            },
+            "fonts_ea": {
+              "(inherit)": 1
             },
             "sizes_pt": {
               "8": 1
@@ -1485,6 +1601,7 @@
           "para_count": 1,
           "font_census": {
             "fonts": {},
+            "fonts_ea": {},
             "sizes_pt": {},
             "colors": {},
             "bold_runs": 0
@@ -1510,6 +1627,9 @@
           "font_census": {
             "fonts": {
               "Georgia": 1
+            },
+            "fonts_ea": {
+              "(inherit)": 1
             },
             "sizes_pt": {
               "60": 1
@@ -1538,6 +1658,7 @@
           "para_count": 1,
           "font_census": {
             "fonts": {},
+            "fonts_ea": {},
             "sizes_pt": {},
             "colors": {},
             "bold_runs": 0
@@ -1563,6 +1684,9 @@
           "font_census": {
             "fonts": {
               "Georgia": 1
+            },
+            "fonts_ea": {
+              "(inherit)": 1
             },
             "sizes_pt": {
               "32": 1
@@ -1600,6 +1724,9 @@
             "fonts": {
               "Arial": 1
             },
+            "fonts_ea": {
+              "(inherit)": 1
+            },
             "sizes_pt": {
               "11": 1
             },
@@ -1629,6 +1756,9 @@
             "fonts": {
               "Georgia": 1
             },
+            "fonts_ea": {
+              "(inherit)": 1
+            },
             "sizes_pt": {
               "24": 1
             },
@@ -1656,6 +1786,7 @@
           "para_count": 1,
           "font_census": {
             "fonts": {},
+            "fonts_ea": {},
             "sizes_pt": {},
             "colors": {},
             "bold_runs": 0
@@ -1681,6 +1812,9 @@
           "font_census": {
             "fonts": {
               "Arial": 1
+            },
+            "fonts_ea": {
+              "(inherit)": 1
             },
             "sizes_pt": {
               "9": 1
@@ -1711,6 +1845,9 @@
             "fonts": {
               "Arial": 3
             },
+            "fonts_ea": {
+              "(inherit)": 3
+            },
             "sizes_pt": {
               "14": 3
             },
@@ -1739,6 +1876,9 @@
           "font_census": {
             "fonts": {
               "Arial": 1
+            },
+            "fonts_ea": {
+              "(inherit)": 1
             },
             "sizes_pt": {
               "13": 1
@@ -1770,6 +1910,9 @@
             "fonts": {
               "Arial": 1
             },
+            "fonts_ea": {
+              "(inherit)": 1
+            },
             "sizes_pt": {
               "8": 1
             },
@@ -1798,6 +1941,9 @@
           "font_census": {
             "fonts": {
               "Arial": 1
+            },
+            "fonts_ea": {
+              "(inherit)": 1
             },
             "sizes_pt": {
               "8": 1
@@ -1839,6 +1985,9 @@
             "fonts": {
               "(inherit)": 1
             },
+            "fonts_ea": {
+              "(inherit)": 1
+            },
             "sizes_pt": {
               "(inherit)": 1
             },
@@ -1872,6 +2021,9 @@
             "fonts": {
               "(inherit)": 1
             },
+            "fonts_ea": {
+              "(inherit)": 1
+            },
             "sizes_pt": {
               "(inherit)": 1
             },
@@ -1900,6 +2052,9 @@
           "font_census": {
             "fonts": {
               "Arial": 1
+            },
+            "fonts_ea": {
+              "(inherit)": 1
             },
             "sizes_pt": {
               "7.5": 1
@@ -1935,6 +2090,9 @@
       "Georgia": 13,
       "Arial": 43,
       "(inherit)": 2
+    },
+    "font_ea_census": {
+      "(inherit)": 58
     },
     "size_census_pt": {
       "40": 1,
