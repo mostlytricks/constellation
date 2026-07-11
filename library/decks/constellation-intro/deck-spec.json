@@ -1,0 +1,118 @@
+{
+  "spec_version": 0,
+  "deck": {
+    "title": "Constellation — decks from patterns, not from scratch",
+    "aspect": 1.333,
+    "theme": "orion",
+    "language": "en"
+  },
+  "slides": [
+    {
+      "n": 1,
+      "role": "title",
+      "template": "title-bookend",
+      "fill": {
+        "title": "Constellation — decks from patterns, not from scratch",
+        "subtitle": "Your past decks already contain your future ones — extract the patterns once, compose forever."
+      }
+    },
+    {
+      "n": 2,
+      "role": "content",
+      "template": "accent-headline-content",
+      "fill": {
+        "title": "Before: every deck starts at slide zero, again",
+        "body": [
+          "It's 11pm, the demo is tomorrow, and the deck is still slide zero",
+          "Every new deck redraws layouts you have already drawn before",
+          "The labor isn't the content — it's rebuilding the same visual grammar by hand"
+        ]
+      }
+    },
+    {
+      "n": 3,
+      "role": "content",
+      "template": "accent-headline-content",
+      "fill": {
+        "title": "Your old decks are a pattern library nobody reads",
+        "body": [
+          "orion-sample: 6 slides, 2 archetypes — the workhorse slide recurs 3×",
+          "Same hard grid every time: title band y 5.3%, body y 21.3%, accent bar y 92%",
+          "One accent color doing two jobs: heading emphasis + footer wayfinding"
+        ]
+      }
+    },
+    {
+      "n": 4,
+      "role": "section",
+      "template": "title-bookend",
+      "stretch": true,
+      "fill": {
+        "title": "After: the pipeline",
+        "subtitle": "ideate → analyze → templatize → compose"
+      }
+    },
+    {
+      "n": 5,
+      "role": "content",
+      "template": "accent-headline-content",
+      "fill": {
+        "title": "analyze — a script extracts facts, an agent finds the archetypes",
+        "body": [
+          "extract.py dumps geometry, layouts, and font/color censuses to JSON — deterministic, never interprets",
+          "The agent clusters slides into named archetypes; every claim cites slide numbers",
+          "An archetype recurring ≥2× becomes a template candidate"
+        ]
+      }
+    },
+    {
+      "n": 6,
+      "role": "content",
+      "template": "accent-headline-content",
+      "fill": {
+        "title": "templatize — archetypes become reusable templates + a design guide",
+        "body": [
+          "Geometry survives, source text is stripped — the privacy wall that keeps real decks private",
+          "Appearance binds to theme tokens, never literal values — the theme is the design guide",
+          "This very deck's templates were generalized from the 6-slide synthetic sample"
+        ]
+      }
+    },
+    {
+      "n": 7,
+      "role": "content",
+      "template": "accent-headline-content",
+      "fill": {
+        "title": "compose — idea × pattern × theme → final .pptx",
+        "body": [
+          "The brief's per-slide roles match template roles — stretches are marked, never silent",
+          "build.py validates every cross-reference, then draws — no improvisation in the renderer",
+          "Unresolved material renders as a visible OPEN line, never plausible filler"
+        ]
+      }
+    },
+    {
+      "n": 8,
+      "role": "demo",
+      "template": "accent-headline-content",
+      "stretch": true,
+      "fill": {
+        "title": "Watch a deck assemble itself",
+        "body": [
+          "This deck is the demo: composed from its own brief with the orion templates",
+          "library/decks/constellation-intro/deck-spec.json → build.py → the file you are watching",
+          "OPEN: patterns from a real deck will make this prettier — the sample deck is synthetic"
+        ]
+      }
+    },
+    {
+      "n": 9,
+      "role": "closing",
+      "template": "title-bookend",
+      "fill": {
+        "title": "Stop drawing stars one by one — name the constellation",
+        "subtitle": "github.com/mostlytricks/constellation"
+      }
+    }
+  ]
+}

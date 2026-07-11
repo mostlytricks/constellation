@@ -12,3 +12,7 @@ library/analysis/*
 # Note the `*` above: excluding the dir itself would stop git descending,
 # making this re-include dead (gitignore parent-dir rule).
 !library/analysis/orion-sample/
+
+# Rendered decks are regenerable binaries — the committed deck-spec.json is
+# the source. (A deck from a *private* brief keeps spec AND pptx out of git.)
+library/decks/*/*.pptx
