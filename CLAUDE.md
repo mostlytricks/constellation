@@ -24,7 +24,7 @@ A deck is stars arranged into a picture: components are stars, patterns are the 
 
 - **Skills:** Claude Code skills (`.claude/skills/<name>/SKILL.md`) — markdown instructions + helper scripts.
 - **Language / runtime:** Python 3.12 for pptx read/write helpers.
-- **Key dependency:** `python-pptx` (read + generate `.pptx`). OPEN: confirm it covers pattern extraction needs, or whether raw OOXML (zip + lxml) is needed for deep analysis.
+- **Key dependency:** `python-pptx` — confirmed for v0 generation (`compose/build.py`) and structural extraction. OPEN: master/theme XML (inherited fonts/colors) and real bullet formatting still need raw OOXML (zip + lxml) at some point.
 - **Datastore:** none — templates and design guides are files in this repo.
 
 ## Run
@@ -39,13 +39,22 @@ Skills are invoked from Claude Code sessions, not run standalone.
 ## Test
 
 ```bash
-# smoke loop: synthetic fixture → extractor → structural dump
+# smoke loop 1: synthetic fixture → extractor → structural dump
 .venv/Scripts/python fixtures/make_fixture.py
 .venv/Scripts/python .claude/skills/analyze/extract.py fixtures/orion-sample.pptx \
   -o library/analysis/orion-sample/structure.json
+
+# smoke loop 2: deck-spec → rendered deck (round-read verified by the script)
+.venv/Scripts/python .claude/skills/compose/build.py \
+  library/decks/constellation-intro/deck-spec.json \
+  -o library/decks/constellation-intro/constellation-intro.pptx
 ```
 
-No test framework yet — the honest gate is the smoke loop above plus eyeballing the dump against `library/analysis/orion-sample/PATTERNS.md` (the worked example).
+No test framework yet — the honest gate is the two smoke loops (loop 2 exits
+non-zero on any broken spec reference or a slide that round-reads empty) plus
+eyeballing loop 1's dump against `library/analysis/orion-sample/PATTERNS.md`
+(the worked example). Full-circle check: run loop 1's extractor **on loop 2's
+output** — geometry and censuses must match the templates/theme exactly.
 
 ## Conventions
 
@@ -62,8 +71,8 @@ No test framework yet — the honest gate is the smoke loop above plus eyeballin
 ## Entry Points
 
 - `.claude/skills/` — the four skills (the product).
-- `library/` — extracted patterns, templates, design guides (the output shelf).
-- Seam: the **deck-spec** — the intermediate representation between analyze/templatize and compose. OPEN: define its schema before compose exists.
+- `library/` — extracted patterns, templates, design guides, composed decks (the output shelf).
+- Seam: the **deck-spec** — the intermediate representation between analyze/templatize and compose. Defined at `.claude/skills/DECK-SPEC.md` (**v0, provisional** — schema fixed from synthetic evidence only; real-deck analysis is expected to revise it, bumping `spec_version`). Enforced by `compose/build.py`, which refuses unresolvable specs.
 
 ## Git
 

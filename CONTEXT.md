@@ -3,16 +3,15 @@
 Last touched: 2026-07-11
 
 ## Completed
-- **`analyze` skill built end-to-end:** `extract.py` (deterministic facts → JSON) + SKILL.md (agent interprets → PATTERNS.md); smoke loop green on the synthetic orion-sample fixture (3× archetype found, Korean UTF-8 verified); worked example committed.
-- **`ideate` skill built:** pure elicitation skill (strawman-first, five themes, named arcs, per-slide **roles** — the upstream half of the deck-spec seam); worked example `library/ideas/constellation-intro/IDEA.md` (doubles as the future demo deck's brief).
+- **`ideate` skill built** (earlier today): pure elicitation, strawman-first, per-slide roles; worked example `library/ideas/constellation-intro/IDEA.md`.
+- **Pipeline completed — all 4 skills exist.** `templatize` (patterns → text-free template JSONs + theme tokens; orion worked example) and `compose` (agent writes deck-spec, `build.py` renders + verifies) shipped. The **deck-spec seam is defined v0** at `.claude/skills/DECK-SPEC.md`, enforced by `build.py` (refuses unmarked stretches, unfilled text boxes, dead references — negative-tested). Worked example: **constellation-intro composes itself** from its own brief (9 slides, round-read green; full circle proven by re-running `extract.py` on the output — geometry/censuses match the templates exactly).
 
 ## Current State
-- 2 of 4 skills exist (`analyze`, `ideate`); `templatize` + `compose` unbuilt. Deck-spec seam half-defined: idea-side roles named in ideate's SKILL.md; pattern-side archetype schema waits on real-deck evidence.
-- Smoke loop in CLAUDE.md **Test** passes. Privacy wall: real decks + their analysis git-ignored; only synthetic orion-sample output whitelisted.
-- Extractor gap: theme-inherited fonts/colors show as `(inherit)` — master/theme XML unread (OPEN in orion-sample PATTERNS.md).
-- No real `.pptx` on this machine (checked fixtures/Downloads/Desktop/Documents) — real decks presumably live on the work machine.
+- Machine complete, evidence synthetic. All templates/theme derive from the orion-sample fixture; deck-spec v0 is explicitly provisional (`spec_version` bumps when real evidence revises it). Both smoke loops in CLAUDE.md **Test** green.
+- Known fidelity gaps (OPEN in DECK-SPEC/theme): theme-inherited fonts/colors unread (master XML), bullets are literal `• ` prefixes, no picture/table/chart box kinds yet.
+- Privacy wall extended: rendered `.pptx` under `library/decks/` git-ignored; deck-spec.json committed as source.
 
 ## Next Step
-- Run `analyze` on a **real deck** the user supplies (drop into `fixtures/` — git-ignored). That evidence fixes the archetype schema and unblocks `templatize`.
+- Run `analyze` on a **real deck** (drop into `fixtures/` — git-ignored; they live on the work machine). Real evidence fixes the archetype schema, revises deck-spec v0→v1, and replaces the synthetic templates with earned ones.
 
 ---
