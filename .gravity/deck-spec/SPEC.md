@@ -1,10 +1,15 @@
-# DECK-SPEC — the seam (v0, provisional)
+# DECK-SPEC — the seam (v1, provisional)
 
 The intermediate representation between the four skills. `ideate` produces the
 brief above it, `templatize` produces the parts it references, `compose` writes
-one and `build.py` renders it. **v0 is fixed by synthetic evidence only**
-(orion-sample) — real-deck analysis may revise every shape here; that's expected,
-bump `spec_version` when it happens.
+one and `build.py` renders it. **v1 is still fixed by synthetic evidence only**
+(orion-sample + meridian-pitch) — real-deck analysis may revise every shape
+here; that's expected, bump `spec_version` when it happens.
+
+v0→v1 (evidence: `library/analysis/meridian-pitch/PATTERNS.md`): `table` and
+`chart` box kinds, `right` align, `caps`/`italic` style keys, theme
+`bullet_char`, real `buChar` bullet rendering. Change intent:
+`PLAN.v1.md` alongside this file.
 
 Three JSON shapes, one directory convention each:
 
@@ -18,26 +23,30 @@ Three JSON shapes, one directory convention each:
 
 ```json
 {
-  "spec_version": 0,
+  "spec_version": 1,
   "deck": {
     "title": "<deck title>",
-    "aspect": 1.333,
-    "theme": "orion",
+    "aspect": 1.778,
+    "theme": "meridian",
     "language": "en"
   },
   "slides": [
     {
       "n": 1,
-      "role": "title",
-      "template": "title-bookend",
-      "fill": { "title": "…", "subtitle": "…" }
+      "role": "content",
+      "template": "kicker-headline-content",
+      "stretch": false,
+      "fill": { "kicker": "…", "headline": "…", "body": ["bullet 1", "bullet 2"],
+                "source": "…", "footer": "…", "page-no": "1" }
     },
     {
       "n": 2,
-      "role": "content",
-      "template": "accent-headline-content",
-      "stretch": false,
-      "fill": { "title": "…", "body": ["bullet 1", "bullet 2"] }
+      "role": "exhibit",
+      "template": "exhibit-table",
+      "fill": {
+        "kicker": "…", "headline": "…", "source": "…", "footer": "…", "page-no": "2",
+        "exhibit": [["$M", "FY24"], ["Revenue", "18.2"]]
+      }
     }
   ]
 }
@@ -47,10 +56,15 @@ Three JSON shapes, one directory convention each:
 - `template` names a file in `library/templates/` (without `.template.json`).
 - `stretch: true` marks a slide whose role is **not** in the template's `roles`
   list — an honest stretch the composing agent chose, never silent.
-- `fill` keys must be box names in the template that accept text. A string for
-  single-line boxes, an array of strings for `"content": "bullets"` boxes.
-- Unresolved material renders as a literal visible `OPEN: …` line on the slide —
-  never silently dropped, never plausibly filled.
+- `fill` keys must be fillable boxes in the template. By box kind:
+  a **string** for single-line text boxes; an **array of strings** for
+  `"content": "bullets"`; an **array of equal-length string rows** (first row =
+  header) for `"content": "table"`; a
+  `{"categories": [...], "series": [{"name": …, "values": [...]}]}` object
+  (values matching categories) for `"content": "chart"`.
+- Every fillable box must have a fill entry. Unresolved material renders as a
+  literal visible `OPEN: …` line on the slide — never silently dropped, never
+  plausibly filled.
 
 ## template
 
@@ -59,18 +73,20 @@ stripped** (the privacy wall — templates are committable, analysis is not).
 
 ```json
 {
-  "template": "accent-headline-content",
-  "version": 0,
-  "source": "orion-sample, archetype A (slides 3-5)",
-  "roles": ["content"],
-  "aspect": 1.333,
+  "template": "exhibit-table",
+  "version": 1,
+  "source": "meridian-pitch, archetype B (slide 7)",
+  "roles": ["exhibit"],
+  "aspect": 1.778,
   "boxes": [
-    { "box": "title", "x_pct": 5.0, "y_pct": 5.3, "w_pct": 90.0, "h_pct": 12.0,
-      "text_style": "heading" },
-    { "box": "body", "x_pct": 8.0, "y_pct": 21.3, "w_pct": 84.0, "h_pct": 60.0,
-      "text_style": "body", "content": "bullets" },
-    { "box": "accent-bar", "x_pct": 5.0, "y_pct": 92.0, "w_pct": 90.0, "h_pct": 2.0,
-      "fill": "accent" }
+    { "box": "kicker", "x_pct": 4.5, "y_pct": 6.0, "w_pct": 90.8, "h_pct": 4.0,
+      "text_style": "kicker" },
+    { "box": "exhibit", "x_pct": 4.5, "y_pct": 29.3, "w_pct": 90.8, "h_pct": 32.0,
+      "content": "table", "text_style": "table-body", "label_style": "table-label",
+      "header": { "text_style": "table-header", "fill": "navy" },
+      "banding": ["paper", "panel"] },
+    { "box": "rule", "x_pct": 4.5, "y_pct": 23.3, "w_pct": 9.0, "h_pct": 0.4,
+      "fill": "gold" }
   ],
   "open": []
 }
@@ -78,12 +94,19 @@ stripped** (the privacy wall — templates are committable, analysis is not).
 
 - Geometry is `%` of slide (extract.py's convention) — templates survive
   aspect/size changes.
-- A box with `text_style` accepts text; add `"content": "bullets"` when it takes
-  an array. `"align": "center"` optional (default left).
+- Box kinds: a box with `text_style` accepts **text** (add
+  `"content": "bullets"` when it takes an array — rendered as real `buChar`
+  bullets with hanging indent, char from the theme's `bullet_char`);
+  `"content": "table"` adds `header` (style + fill token for row 0), optional
+  `banding` (color tokens cycled over body rows) and `label_style` (column 0);
+  `"content": "chart"` takes `"chart": "column" | "bar" | "line"` and an
+  optional `series_fill` color token; a box with only `fill` is a solid
+  rectangle. `"align": "center" | "right"` optional on text boxes (default left).
+  Tables render column 0 left, other columns right (the evidence's convention).
 - Style and fill values are **theme token names, never literals** — the
   template owns geometry, the theme owns appearance.
 - `roles` lists only roles the *evidence* showed this archetype serving.
-- `open` carries unresolved facts (e.g. theme-inherited styling).
+- `open` carries unresolved facts (e.g. an untemplated variant).
 
 ## theme
 
@@ -91,14 +114,16 @@ The design guide as tokens. One per visual identity.
 
 ```json
 {
-  "theme": "orion",
-  "version": 0,
-  "source": "orion-sample visual grammar",
+  "theme": "meridian",
+  "version": 1,
+  "source": "meridian-pitch visual grammar",
   "tokens": {
-    "colors": { "accent": "2E5CFF", "text": "333333" },
+    "colors": { "navy": "0B2340", "ink": "3B4652", "gold": "C9A227" },
+    "bullet_char": "▪",
     "text_styles": {
-      "heading": { "size_pt": 32, "bold": true, "color": "accent" },
-      "body":    { "size_pt": 18, "bold": false, "color": "text" }
+      "kicker":   { "size_pt": 11, "bold": true, "color": "gold", "font": "Arial", "caps": true },
+      "headline": { "size_pt": 24, "bold": true, "color": "navy", "font": "Georgia" },
+      "source":   { "size_pt": 9, "bold": false, "color": "mute", "font": "Arial", "italic": true }
     }
   },
   "open": []
@@ -106,31 +131,29 @@ The design guide as tokens. One per visual identity.
 ```
 
 - `colors` are 6-hex strings, no `#`. `text_styles[].color` names a color token.
-- Optional per-style `"font": "<name>"`; omit to inherit the renderer default.
+- Optional per-style: `"font": "<name>"` (omit to inherit the renderer
+  default), `"italic": true`, `"caps": true` (uppercases the fill at render).
+- Optional `tokens.bullet_char` (default `•`) — the `buChar` for bullet boxes.
 
 ## Enforcement
 
-**Gate:** `.venv/Scripts/python .claude/skills/compose/build.py library/decks/constellation-intro/deck-spec.json` — exits non-zero on any violation.
+**Gate:** `.venv/Scripts/python .claude/skills/compose/build.py library/decks/constellation-intro/deck-spec.json` — exits non-zero on any violation. `library/decks/meridian-demo/deck-spec.json` exercises the v1-only kinds (table, chart, right-align).
 
 `build.py` (the compose skill's renderer) is the validator: it refuses a spec
-whose template/theme/box/token references don't resolve, an unmarked role
-stretch, and a text-accepting box with no fill — every error listed at once.
-There is no separate schema checker — if `build.py` builds it, it's a valid
-v0 spec. (The wall here is the Gate itself — no lint/test-tag walls exist
-yet, there is no test framework; see root CLAUDE.md **Test**.)
+whose template/theme/box/token references don't resolve, a non-1
+`spec_version`, an unmarked role stretch, a fillable box with no fill, ragged
+table rows, and chart series that don't match their categories — every error
+listed at once. Round-read verify additionally proves each promised
+table/chart came back as a real graphic frame. There is no separate schema
+checker — if `build.py` builds it, it's a valid v1 spec. (The wall here is
+the Gate itself — no lint/test-tag walls exist yet, there is no test
+framework; see root CLAUDE.md **Test**.)
 
 ## OPEN
 
-- OPEN: v0 schema derives from synthetic decks; real-deck evidence
-  (multi-master decks, pictures) may force further box kinds. **Concrete
-  evidence exists for `table` and `chart`:** the meridian-pitch fixture's
-  exhibit archetype (slides 7–8, `library/analysis/meridian-pitch/PATTERNS.md`)
-  recurs 2× but cannot be templated — v1's first candidates.
-- OPEN: v0 style/box keys can't carry three observed facts (meridian-pitch):
-  right `align` (page numbers), `caps` (kickers), `italic` (source lines) —
-  composers approximate (center / uppercase by hand / drop italics).
-- OPEN: bullets **render** as literal `• ` prefixes (python-pptx has no direct
-  bullet API) — writing real `buChar`/`buAutoNum` XML in `build.py` is a later
-  fidelity pass. The **read** side is closed: `extract.py` dumps per-paragraph
-  bullet facts and per-master theme facts, so real-deck analysis can now state
-  what bullets/inherited styles a template should reproduce.
+- OPEN: numbered lists (`buAutoNum`, evidenced by meridian-pitch slide 2) have
+  no content kind — bullets-only; a `"content": "numbered"` kind awaits more
+  evidence.
+- OPEN: no `picture` box kind — no evidence yet (real decks will supply it).
+- OPEN: v1 still derives from synthetic decks; real-deck evidence
+  (multi-master decks, pictures, complex tables) may revise every shape here.

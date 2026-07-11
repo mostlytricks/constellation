@@ -9,6 +9,18 @@ file are the source of truth, never this file.
 
 ## [Unreleased]
 
+### Changed
+
+- **deck-spec v0→v1** (breaking; slice: `.gravity/deck-spec/PLAN.v1.md`) —
+  `build.py` refuses v0 specs and renders four box kinds: text (now with real
+  `buChar` bullets from `tokens.bullet_char`, default `•`), solid fill,
+  `table` (header style/fill token + `banding` cycle + optional `label_style`)
+  and `chart` (`column`/`bar`/`line`, `series_fill` token). Style keys gain
+  `italic`/`caps`; `align` gains `right`. Round-read verify also proves each
+  promised graphic frame. Committed specs/templates/themes bumped; the
+  meridian exhibit archetype is now templated (`exhibit-table`,
+  `exhibit-chart`) and exercised by two new meridian-demo slides.
+
 ### Added
 
 - **Theme/master extraction** — `extract.py` dumps a per-master `themes`

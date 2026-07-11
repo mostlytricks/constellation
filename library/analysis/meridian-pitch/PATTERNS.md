@@ -58,7 +58,6 @@ The A/B scaffold (exact across slides 2, 4, 5, 7, 8, 10):
 
 ## OPEN
 
-- OPEN: archetype B (exhibit) is a real template candidate blocked on deck-spec v1 box kinds (`table`, `chart`) — cited to slides 7–8; `build.py` would need to render graphic frames.
-- OPEN: page numbers are right-aligned (slides 2–10); v0 `align` supports only `center` — a template can approximate, not reproduce.
-- OPEN: kicker ALL-CAPS and source italics are style facts v0 `text_styles` cannot carry (no `caps`/`italic` keys) — composer must uppercase kicker fills by hand.
+- ~~OPEN: archetype B blocked on v1 box kinds; right-align/caps/italic inexpressible~~ — closed by **deck-spec v1** (`.gravity/deck-spec/PLAN.v1.md`): `exhibit-table` + `exhibit-chart` templates now exist, and `right` align / `caps` / `italic` / `bullet_char` are theme/template facts.
+- OPEN: the numbered exec summary (slide 2, `buAutoNum`) still has no deck-spec content kind — bullets-only in v1.
 - OPEN: slide 11's subtitle placeholder chain stops at the master (`bodyStyle` lvl1 = 32 pt) — the `Title Slide` *layout* may override it, and the dump doesn't walk layout-level styles.

@@ -1,5 +1,5 @@
 {
-  "spec_version": 0,
+  "spec_version": 1,
   "deck": {
     "title": "Meridian family — template verification",
     "aspect": 1.778,
@@ -26,8 +26,8 @@
         "body": [
           "kicker-headline-content: the workhorse — kicker, action headline, gold rule, bullet body, source, footer pair.",
           "numbered-divider: full-bleed navy, oversized gold number, rule, section title.",
-          "Every box binds to meridian theme tokens — geometry from the template, appearance from the theme.",
-          "OPEN: the exhibit archetype (table/chart) awaits deck-spec v1 box kinds."
+          "exhibit-table and exhibit-chart: the archetype v0 could not express — rendered on the next two content slides via v1 box kinds.",
+          "Every box binds to meridian theme tokens — geometry from the template, appearance from the theme."
         ],
         "source": "Source: library/analysis/meridian-pitch/PATTERNS.md (synthetic evidence).",
         "footer": "Meridian Advisory Partners — Strictly Private & Confidential",
@@ -36,6 +36,42 @@
     },
     {
       "n": 3,
+      "role": "exhibit",
+      "template": "exhibit-table",
+      "fill": {
+        "kicker": "V1 BOX KIND — TABLE",
+        "headline": "The financial-summary archetype renders from tokens: header, banding, label column",
+        "exhibit": [
+          ["$M", "FY24A", "FY25A", "FY26E", "FY27E", "FY28E"],
+          ["Revenue", "18.2", "27.4", "41.0", "61.5", "86.3"],
+          ["Gross margin", "58%", "61%", "64%", "66%", "68%"],
+          ["EBITDA", "(6.1)", "(4.8)", "(1.9)", "3.2", "9.7"]
+        ],
+        "source": "Source: meridian-pitch fixture, slide 7 (synthetic data).",
+        "footer": "Meridian Advisory Partners — Strictly Private & Confidential",
+        "page-no": "3"
+      }
+    },
+    {
+      "n": 4,
+      "role": "exhibit",
+      "template": "exhibit-chart",
+      "fill": {
+        "kicker": "V1 BOX KIND — CHART",
+        "headline": "A category chart drawn from the spec, series colored by theme token",
+        "exhibit": {
+          "categories": ["FY24A", "FY25A", "FY26E", "FY27E", "FY28E"],
+          "series": [
+            { "name": "Revenue ($M)", "values": [18.2, 27.4, 41.0, 61.5, 86.3] }
+          ]
+        },
+        "source": "Source: meridian-pitch fixture, slide 8 (synthetic data).",
+        "footer": "Meridian Advisory Partners — Strictly Private & Confidential",
+        "page-no": "4"
+      }
+    },
+    {
+      "n": 5,
       "role": "section",
       "template": "numbered-divider",
       "fill": {
@@ -44,20 +80,20 @@
       }
     },
     {
-      "n": 4,
+      "n": 6,
       "role": "summary",
       "template": "kicker-headline-content",
       "fill": {
         "kicker": "SUMMARY",
         "headline": "The family composes without a single stretch",
         "body": [
-          "Roles content, summary, and ask were all observed in the source deck — no stretch flags needed here.",
-          "The gate (build.py) validated every template, theme token, and fill reference in this spec.",
-          "Full circle: extract.py re-run on this output must match both templates' geometry exactly."
+          "Roles content, summary, exhibit, and section were all observed in the source deck — no stretch flags needed here.",
+          "The gate (build.py) validated every template, theme token, table row, and chart series in this spec.",
+          "Full circle: extract.py re-run on this output must match all four templates' geometry exactly."
         ],
         "source": "Source: this deck-spec — the templatize skill's step-5 verification.",
         "footer": "Meridian Advisory Partners — Strictly Private & Confidential",
-        "page-no": "4"
+        "page-no": "6"
       }
     }
   ]

@@ -19,7 +19,8 @@ Docs are grouped by **subject domain**, not by doc-type. A domain folder holds w
 ```
 .gravity/
   GRAVITY.md          # the protocol card — how to work these docs (versioned copy, never hand-edit)
-  deck-spec/ SPEC.md  # the seam — deck-spec × template × theme JSON shapes (v0), enforced by compose/build.py
+  deck-spec/ SPEC.md     # the seam — deck-spec × template × theme JSON shapes (v1), enforced by compose/build.py
+  deck-spec/ PLAN.v1.md  # the v0→v1 slice (intent + verification record)
 ```
 
 ## What to read before a change (router)
@@ -50,7 +51,7 @@ A deck is stars arranged into a picture: components are stars, patterns are the 
 
 - **Skills:** Claude Code skills (`.claude/skills/<name>/SKILL.md`) — markdown instructions + helper scripts.
 - **Language / runtime:** Python 3.12 for pptx read/write helpers.
-- **Key dependency:** `python-pptx` — confirmed for v0 generation (`compose/build.py`) and structural extraction; `extract.py` additionally parses raw OOXML (via python-pptx's bundled `lxml`) for theme/master facts and bullet facts. OPEN: *writing* real bullet/numbering XML in `build.py` is still a later fidelity pass (see `.gravity/deck-spec/SPEC.md` OPEN).
+- **Key dependency:** `python-pptx` — confirmed for generation (`compose/build.py`: text, fills, tables, charts, real `buChar` bullets) and structural extraction; `extract.py` additionally parses raw OOXML (via python-pptx's bundled `lxml`) for theme/master facts and bullet facts. Remaining fidelity OPENs live in `.gravity/deck-spec/SPEC.md` (numbered lists, pictures).
 - **Datastore:** none — templates and design guides are files in this repo.
 
 ## Run
@@ -104,7 +105,7 @@ output** — geometry and censuses must match the templates/theme exactly.
 
 - `.claude/skills/` — the four skills (the product).
 - `library/` — extracted patterns, templates, design guides, composed decks (the output shelf).
-- Seam: the **deck-spec** — the intermediate representation between analyze/templatize and compose. Defined at `.gravity/deck-spec/SPEC.md` (**v0, provisional** — schema fixed from synthetic evidence only; real-deck analysis is expected to revise it, bumping `spec_version`). Enforced by `compose/build.py`, which refuses unresolvable specs.
+- Seam: the **deck-spec** — the intermediate representation between analyze/templatize and compose. Defined at `.gravity/deck-spec/SPEC.md` (**v1, provisional** — schema fixed from synthetic evidence only; real-deck analysis is expected to revise it, bumping `spec_version`). Enforced by `compose/build.py`, which refuses unresolvable specs.
 
 ## Git
 

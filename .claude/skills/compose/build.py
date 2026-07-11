@@ -7,7 +7,9 @@ before this script runs -- the script only validates and draws. It is
 also the seam's enforcement: a spec whose template/theme/box/token
 references don't resolve is refused with every error listed.
 
-Shapes are defined in .gravity/deck-spec/SPEC.md (spec_version 0).
+Shapes are defined in .gravity/deck-spec/SPEC.md (spec_version 1):
+text boxes (string / bullet-array fills, real buChar bullets), solid
+fills, tables (header + banding tokens), and category charts.
 
 Usage:
     python build.py <deck-spec.json> [-o out.pptx]
@@ -18,15 +20,23 @@ import sys
 from pathlib import Path
 
 from pptx import Presentation
+from pptx.chart.data import CategoryChartData
 from pptx.dml.color import RGBColor
+from pptx.enum.chart import XL_CHART_TYPE
 from pptx.enum.shapes import MSO_SHAPE
 from pptx.enum.text import PP_ALIGN
+from pptx.oxml.ns import qn
 from pptx.util import Emu, Pt
 
 ROOT = Path(__file__).resolve().parents[3]
 TEMPLATES = ROOT / "library" / "templates"
 THEMES = ROOT / "library" / "themes"
 SLIDE_H_EMU = 6858000  # fixed height; width follows the spec's aspect
+
+ALIGNS = {"center": PP_ALIGN.CENTER, "right": PP_ALIGN.RIGHT}
+CHART_TYPES = {"column": XL_CHART_TYPE.COLUMN_CLUSTERED,
+               "bar": XL_CHART_TYPE.BAR_CLUSTERED,
+               "line": XL_CHART_TYPE.LINE}
 
 
 def load_json(path, what, errors):
@@ -39,10 +49,47 @@ def load_json(path, what, errors):
     return None
 
 
+def box_kind(box):
+    """text | bullets | table | chart | fill-only."""
+    kind = box.get("content", "text" if "text_style" in box else "fill-only")
+    return kind
+
+
+def check_fill_value(where, key, box, value, errors):
+    kind = box_kind(box)
+    if kind == "bullets" and not isinstance(value, list):
+        errors.append(f"{where}: box '{key}' takes a bullet array, got "
+                      f"{type(value).__name__}")
+    elif kind == "text" and not isinstance(value, str):
+        errors.append(f"{where}: box '{key}' takes a string, got "
+                      f"{type(value).__name__}")
+    elif kind == "table":
+        rows = value if isinstance(value, list) else []
+        if not rows or not all(isinstance(r, list)
+                               and all(isinstance(c, str) for c in r)
+                               and len(r) == len(rows[0]) for r in rows):
+            errors.append(f"{where}: box '{key}' takes an array of equal-length "
+                          f"string rows (first row = header)")
+    elif kind == "chart":
+        cats = value.get("categories") if isinstance(value, dict) else None
+        series = value.get("series") if isinstance(value, dict) else None
+        if not (isinstance(cats, list) and cats and isinstance(series, list)
+                and series
+                and all(isinstance(s, dict) and isinstance(s.get("name"), str)
+                        and isinstance(s.get("values"), list)
+                        and len(s["values"]) == len(cats)
+                        and all(isinstance(v, (int, float)) for v in s["values"])
+                        for s in series)):
+            errors.append(f"{where}: box '{key}' takes "
+                          f'{{"categories": [...], "series": [{{"name", "values"}}]}} '
+                          f"with values matching categories")
+
+
 def validate(spec, templates, theme, errors):
     """Every cross-reference in the spec must resolve. Collects, never raises."""
-    if spec.get("spec_version") != 0:
-        errors.append(f"spec_version must be 0, got {spec.get('spec_version')!r}")
+    if spec.get("spec_version") != 1:
+        errors.append(f"spec_version must be 1, got {spec.get('spec_version')!r} "
+                      f"-- v0 specs need the v1 bump (.gravity/deck-spec/SPEC.md)")
         return
     colors = theme["tokens"]["colors"]
     styles = theme["tokens"]["text_styles"]
@@ -50,6 +97,32 @@ def validate(spec, templates, theme, errors):
         if style["color"] not in colors:
             errors.append(f"theme style '{style_name}' names unknown color token "
                           f"'{style['color']}'")
+
+    for tpl in templates.values():
+        for box in tpl["boxes"]:
+            where = f"template '{tpl['template']}' box '{box['box']}'"
+            for key in ("text_style", "label_style"):
+                if key in box and box[key] not in styles:
+                    errors.append(f"{where}: unknown {key} '{box[key]}'")
+            if "fill" in box and box["fill"] not in colors:
+                errors.append(f"{where}: unknown color token '{box['fill']}'")
+            if "align" in box and box["align"] not in ALIGNS:
+                errors.append(f"{where}: align must be one of {sorted(ALIGNS)}")
+            if box_kind(box) == "table":
+                header = box.get("header", {})
+                if header.get("text_style") not in styles:
+                    errors.append(f"{where}: table header needs a known text_style")
+                if header.get("fill") not in colors:
+                    errors.append(f"{where}: table header needs a known fill token")
+                for token in box.get("banding", []):
+                    if token not in colors:
+                        errors.append(f"{where}: unknown banding token '{token}'")
+            if box_kind(box) == "chart":
+                if box.get("chart", "column") not in CHART_TYPES:
+                    errors.append(f"{where}: chart must be one of {sorted(CHART_TYPES)}")
+                if "series_fill" in box and box["series_fill"] not in colors:
+                    errors.append(f"{where}: unknown series_fill token "
+                                  f"'{box['series_fill']}'")
 
     for i, slide in enumerate(spec["slides"], start=1):
         where = f"slide {slide.get('n', '?')}"
@@ -66,31 +139,42 @@ def validate(spec, templates, theme, errors):
         fill = slide.get("fill", {})
         for key, value in fill.items():
             box = boxes.get(key)
-            if box is None or "text_style" not in box:
-                errors.append(f"{where}: fill key '{key}' is not a text box of "
-                              f"template '{tpl['template']}'")
-            elif box.get("content") == "bullets" and not isinstance(value, list):
-                errors.append(f"{where}: box '{key}' takes a bullet array, got "
-                              f"{type(value).__name__}")
-            elif box.get("content") != "bullets" and not isinstance(value, str):
-                errors.append(f"{where}: box '{key}' takes a string, got "
-                              f"{type(value).__name__}")
+            if box is None or box_kind(box) == "fill-only":
+                errors.append(f"{where}: fill key '{key}' is not a fillable box "
+                              f"of template '{tpl['template']}'")
+            else:
+                check_fill_value(where, key, box, value, errors)
         for box in tpl["boxes"]:
-            if "text_style" in box:
-                if box["text_style"] not in styles:
-                    errors.append(f"template '{tpl['template']}' box '{box['box']}': "
-                                  f"unknown text_style '{box['text_style']}'")
-                if box["box"] not in fill:
-                    errors.append(f"{where}: text box '{box['box']}' has no fill "
-                                  f"entry -- fill it or write a visible 'OPEN: ...' line")
-            if "fill" in box and box["fill"] not in colors:
-                errors.append(f"template '{tpl['template']}' box '{box['box']}': "
-                              f"unknown color token '{box['fill']}'")
+            if box_kind(box) != "fill-only" and box["box"] not in fill:
+                errors.append(f"{where}: box '{box['box']}' has no fill entry "
+                              f"-- fill it or write a visible 'OPEN: ...' line")
 
 
 def emu_box(box, sw, sh):
     return (Emu(int(sw * box["x_pct"] / 100)), Emu(int(sh * box["y_pct"] / 100)),
             Emu(int(sw * box["w_pct"] / 100)), Emu(int(sh * box["h_pct"] / 100)))
+
+
+def apply_style(run, style, colors):
+    run.font.size = Pt(style["size_pt"])
+    run.font.bold = style["bold"]
+    run.font.italic = style.get("italic", False)
+    run.font.color.rgb = RGBColor.from_string(colors[style["color"]])
+    if "font" in style:
+        run.font.name = style["font"]
+
+
+def styled_text(value, style):
+    return value.upper() if style.get("caps") else value
+
+
+def set_bullet(para, char):
+    """Real buChar with hanging indent -- not a literal prefix."""
+    pPr = para._p.get_or_add_pPr()
+    pPr.set("marL", "228600")
+    pPr.set("indent", "-228600")
+    pPr.append(pPr.makeelement(qn("a:buFont"), {"typeface": "Arial"}))
+    pPr.append(pPr.makeelement(qn("a:buChar"), {"char": char}))
 
 
 def draw_fill(slide_obj, box, hex_color, sw, sh):
@@ -101,27 +185,71 @@ def draw_fill(slide_obj, box, hex_color, sw, sh):
     shape.line.fill.background()
 
 
-def draw_text(slide_obj, box, text, style, colors, sw, sh):
+def draw_text(slide_obj, box, value, style, colors, bullet_char, sw, sh):
     x, y, w, h = emu_box(box, sw, sh)
     tf = slide_obj.shapes.add_textbox(x, y, w, h).text_frame
     tf.word_wrap = True
-    lines = [f"• {item}" for item in text] if isinstance(text, list) else [text]
-    for j, line in enumerate(lines):
+    items = value if isinstance(value, list) else [value]
+    for j, item in enumerate(items):
         para = tf.paragraphs[0] if j == 0 else tf.add_paragraph()
-        if box.get("align") == "center":
-            para.alignment = PP_ALIGN.CENTER
+        if box.get("align") in ALIGNS:
+            para.alignment = ALIGNS[box["align"]]
+        if isinstance(value, list):
+            set_bullet(para, bullet_char)
         run = para.add_run()
-        run.text = line
-        run.font.size = Pt(style["size_pt"])
-        run.font.bold = style["bold"]
-        run.font.color.rgb = RGBColor.from_string(colors[style["color"]])
-        if "font" in style:
-            run.font.name = style["font"]
+        run.text = styled_text(item, style)
+        apply_style(run, style, colors)
+
+
+def draw_table(slide_obj, box, rows, styles, colors, sw, sh):
+    x, y, w, h = emu_box(box, sw, sh)
+    tbl = slide_obj.shapes.add_table(len(rows), len(rows[0]), x, y, w, h).table
+    header = box["header"]
+    banding = box.get("banding")
+    for r, row in enumerate(rows):
+        for c, value in enumerate(row):
+            cell = tbl.cell(r, c)
+            para = cell.text_frame.paragraphs[0]
+            para.alignment = PP_ALIGN.LEFT if c == 0 else PP_ALIGN.RIGHT
+            if r == 0:
+                style = styles[header["text_style"]]
+            elif c == 0 and "label_style" in box:
+                style = styles[box["label_style"]]
+            else:
+                style = styles[box["text_style"]]
+            run = para.add_run()
+            run.text = styled_text(value, style)
+            apply_style(run, style, colors)
+            if r == 0:
+                cell.fill.solid()
+                cell.fill.fore_color.rgb = RGBColor.from_string(
+                    colors[header["fill"]])
+            elif banding:
+                cell.fill.solid()
+                cell.fill.fore_color.rgb = RGBColor.from_string(
+                    colors[banding[(r - 1) % len(banding)]])
+
+
+def draw_chart(slide_obj, box, data, colors, sw, sh):
+    x, y, w, h = emu_box(box, sw, sh)
+    chart_data = CategoryChartData()
+    chart_data.categories = data["categories"]
+    for series in data["series"]:
+        chart_data.add_series(series["name"], tuple(series["values"]))
+    chart = slide_obj.shapes.add_chart(
+        CHART_TYPES[box.get("chart", "column")], x, y, w, h, chart_data).chart
+    chart.has_legend = len(data["series"]) > 1
+    if "series_fill" in box:
+        for plot_series in chart.plots[0].series:
+            plot_series.format.fill.solid()
+            plot_series.format.fill.fore_color.rgb = RGBColor.from_string(
+                colors[box["series_fill"]])
 
 
 def build(spec, templates, theme, out_path):
     colors = theme["tokens"]["colors"]
     styles = theme["tokens"]["text_styles"]
+    bullet_char = theme["tokens"].get("bullet_char", "•")
     prs = Presentation()
     prs.slide_height = Emu(SLIDE_H_EMU)
     prs.slide_width = Emu(int(SLIDE_H_EMU * spec["deck"]["aspect"]))
@@ -135,25 +263,44 @@ def build(spec, templates, theme, out_path):
         for box in tpl["boxes"]:
             if "fill" in box:
                 draw_fill(slide_obj, box, colors[box["fill"]], sw, sh)
-            if "text_style" in box:
-                draw_text(slide_obj, box, slide["fill"][box["box"]],
-                          styles[box["text_style"]], colors, sw, sh)
+            kind = box_kind(box)
+            if kind == "fill-only":
+                continue
+            value = slide["fill"][box["box"]]
+            if kind == "table":
+                draw_table(slide_obj, box, value, styles, colors, sw, sh)
+            elif kind == "chart":
+                draw_chart(slide_obj, box, value, colors, sw, sh)
+            else:
+                draw_text(slide_obj, box, value, styles[box["text_style"]],
+                          colors, bullet_char, sw, sh)
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     prs.save(out_path)
 
 
-def verify(spec, out_path):
-    """Round-read the built file: slide count matches, every slide has text."""
+def verify(spec, templates, out_path):
+    """Round-read the built file: slide count matches, every slide has text,
+    every table/chart box came back as a real graphic frame."""
     prs = Presentation(out_path)
     slides = list(prs.slides)
     if len(slides) != len(spec["slides"]):
         sys.exit(f"VERIFY FAILED: built {len(slides)} slides, "
                  f"spec has {len(spec['slides'])}")
-    for i, slide_obj in enumerate(slides, start=1):
+    for i, (slide_obj, srow) in enumerate(zip(slides, spec["slides"]), start=1):
         texts = [s.text_frame.text for s in slide_obj.shapes if s.has_text_frame]
         if not any(t.strip() for t in texts):
             sys.exit(f"VERIFY FAILED: slide {i} round-read with no text")
+        boxes = templates[srow["template"]]["boxes"]
+        want = {"table": sum(1 for b in boxes if box_kind(b) == "table"),
+                "chart": sum(1 for b in boxes if box_kind(b) == "chart")}
+        got = {"table": sum(1 for s in slide_obj.shapes
+                            if getattr(s, "has_table", False)),
+               "chart": sum(1 for s in slide_obj.shapes
+                            if getattr(s, "has_chart", False))}
+        if got != want:
+            sys.exit(f"VERIFY FAILED: slide {i} graphic frames {got}, "
+                     f"template promises {want}")
     return len(slides)
 
 
@@ -182,7 +329,7 @@ def main():
 
     out = Path(args.out) if args.out else Path(args.spec).parent / "deck.pptx"
     build(spec, templates, theme, out)
-    n = verify(spec, out)
+    n = verify(spec, templates, out)
     stretches = [s["n"] for s in spec["slides"] if s.get("stretch")]
     note = f"  (stretched slides: {stretches})" if stretches else ""
     print(f"wrote {out}  ({n} slides, verified round-read){note}")
