@@ -123,5 +123,8 @@ yet, there is no test framework; see root CLAUDE.md **Test**.)
 
 - OPEN: v0 schema derives from one synthetic deck; real-deck evidence
   (multi-master decks, pictures, tables, charts) will force new box kinds.
-- OPEN: bullets render as literal `• ` prefixes (python-pptx has no direct
-  bullet API) — real bullet/numbering XML is a later fidelity pass.
+- OPEN: bullets **render** as literal `• ` prefixes (python-pptx has no direct
+  bullet API) — writing real `buChar`/`buAutoNum` XML in `build.py` is a later
+  fidelity pass. The **read** side is closed: `extract.py` dumps per-paragraph
+  bullet facts and per-master theme facts, so real-deck analysis can now state
+  what bullets/inherited styles a template should reproduce.

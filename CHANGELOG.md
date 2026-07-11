@@ -9,6 +9,24 @@ file are the source of truth, never this file.
 
 ## [Unreleased]
 
+### Added
+
+- **Theme/master extraction** — `extract.py` dumps a per-master `themes`
+  section (theme color scheme, font scheme, the master's color map and
+  title/body/other text-style defaults, lvl 1–3) parsed from raw OOXML, so
+  `(inherit)` font/size/color censuses resolve from the dump instead of
+  staying invisible. Closes the read side of the master-XML OPEN.
+- **Bullet extraction** — per-paragraph `bullet_census`
+  (`char:`/`autonum:`/`none`/`(inherit)`) per text shape plus a deck-wide
+  aggregate. The write side (real `buChar` in `build.py`) stays OPEN.
+
+### Changed
+
+- `analyze` SKILL stage-2 rule: `(inherit)` values are now resolved against
+  the dump's `themes` section, citing the chain; only an incomplete chain
+  stays `OPEN:`. Worked example (`orion-sample` structure + PATTERNS)
+  regenerated accordingly.
+
 ## [0.1.0] - 2026-07-11
 
 First tagged release. The complete four-skill pipeline, built in one arc from a

@@ -50,7 +50,7 @@ A deck is stars arranged into a picture: components are stars, patterns are the 
 
 - **Skills:** Claude Code skills (`.claude/skills/<name>/SKILL.md`) — markdown instructions + helper scripts.
 - **Language / runtime:** Python 3.12 for pptx read/write helpers.
-- **Key dependency:** `python-pptx` — confirmed for v0 generation (`compose/build.py`) and structural extraction. OPEN: master/theme XML (inherited fonts/colors) and real bullet formatting still need raw OOXML (zip + lxml) at some point.
+- **Key dependency:** `python-pptx` — confirmed for v0 generation (`compose/build.py`) and structural extraction; `extract.py` additionally parses raw OOXML (via python-pptx's bundled `lxml`) for theme/master facts and bullet facts. OPEN: *writing* real bullet/numbering XML in `build.py` is still a later fidelity pass (see `.gravity/deck-spec/SPEC.md` OPEN).
 - **Datastore:** none — templates and design guides are files in this repo.
 
 ## Run

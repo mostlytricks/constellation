@@ -11,12 +11,16 @@ Usage:
 Output (UTF-8 JSON):
     deck        -- file name, slide size, aspect ratio
     layouts     -- every layout available per master (the deck's vocabulary)
+    themes      -- per master: theme color scheme + font scheme, the master's
+                   color map and title/body/other text-style defaults -- what
+                   every "(inherit)" below resolves to
     slides[]    -- per slide: layout used + every shape with geometry (% of
                    slide, so decks of different sizes compare), placeholder
-                   role, text stats, per-run font/size/color census
-    aggregates  -- layout usage, shape-type census, global font/size/color
-                   census, shape-count histogram (the raw material for
-                   clustering slides into archetypes)
+                   role, text stats, per-run font/size/color census, per-
+                   paragraph bullet census
+    aggregates  -- layout usage, shape-type census, global font/size/color/
+                   bullet census, shape-count histogram (the raw material
+                   for clustering slides into archetypes)
 """
 import argparse
 import json
@@ -24,8 +28,11 @@ import sys
 from collections import Counter
 from pathlib import Path
 
+from lxml import etree
 from pptx import Presentation
 from pptx.enum.shapes import MSO_SHAPE_TYPE
+from pptx.opc.constants import RELATIONSHIP_TYPE as RT
+from pptx.oxml.ns import qn
 
 
 def pct(value, total):
@@ -33,6 +40,120 @@ def pct(value, total):
     if value is None or not total:
         return None
     return round(value / total * 100, 1)
+
+
+def _color_val(elem):
+    """First color child of an a: element -> hex string or 'scheme:<name>'."""
+    if elem is None:
+        return None
+    for child in elem:
+        tag = etree.QName(child).localname
+        if tag == "srgbClr":
+            return child.get("val")
+        if tag == "sysClr":
+            return child.get("lastClr") or child.get("val")
+        if tag == "schemeClr":
+            return f"scheme:{child.get('val')}"
+    return None
+
+
+def _def_rpr_facts(lvl_el):
+    """size/bold/color/font defaults from one a:lvlNpPr, only what's stated."""
+    rpr = lvl_el.find(qn("a:defRPr"))
+    if rpr is None:
+        return {}
+    facts = {}
+    if rpr.get("sz"):
+        facts["size_pt"] = int(rpr.get("sz")) / 100
+    if rpr.get("b") == "1":
+        facts["bold"] = True
+    color = _color_val(rpr.find(qn("a:solidFill")))
+    if color:
+        facts["color"] = color
+    latin = rpr.find(qn("a:latin"))
+    if latin is not None and latin.get("typeface"):
+        facts["font"] = latin.get("typeface")
+    return facts
+
+
+def theme_facts(master):
+    """What '(inherit)' resolves to: the master's theme scheme colors/fonts,
+    its color map, and its title/body/other text-style defaults (lvl 1-3).
+    Facts only, straight from the OOXML -- absent parts are simply omitted."""
+    facts = {}
+    try:
+        theme_root = etree.fromstring(master.part.part_related_by(RT.THEME).blob)
+    except KeyError:
+        theme_root = None
+    if theme_root is not None:
+        facts["theme_name"] = theme_root.get("name")
+        clr = theme_root.find(f"{qn('a:themeElements')}/{qn('a:clrScheme')}")
+        if clr is not None:
+            facts["color_scheme"] = {
+                "name": clr.get("name"),
+                "colors": {
+                    etree.QName(c).localname: _color_val(c) for c in clr
+                },
+            }
+        fonts = theme_root.find(f"{qn('a:themeElements')}/{qn('a:fontScheme')}")
+        if fonts is not None:
+            def typefaces(tag):
+                el = fonts.find(qn(tag))
+                if el is None:
+                    return {}
+                return {
+                    script: el.find(qn(f"a:{script}")).get("typeface")
+                    for script in ("latin", "ea", "cs")
+                    if el.find(qn(f"a:{script}")) is not None
+                    and el.find(qn(f"a:{script}")).get("typeface")
+                }
+            facts["font_scheme"] = {
+                "name": fonts.get("name"),
+                "major": typefaces("a:majorFont"),
+                "minor": typefaces("a:minorFont"),
+            }
+    clr_map = master.element.find(qn("p:clrMap"))
+    if clr_map is not None:
+        facts["color_map"] = dict(clr_map.attrib)
+    tx_styles = master.element.find(qn("p:txStyles"))
+    if tx_styles is not None:
+        styles = {}
+        for style_tag in ("p:titleStyle", "p:bodyStyle", "p:otherStyle"):
+            style_el = tx_styles.find(qn(style_tag))
+            if style_el is None:
+                continue
+            levels = {}
+            for n in (1, 2, 3):
+                lvl = style_el.find(qn(f"a:lvl{n}pPr"))
+                if lvl is not None:
+                    lvl_facts = _def_rpr_facts(lvl)
+                    if lvl_facts:
+                        levels[f"lvl{n}"] = lvl_facts
+            if levels:
+                styles[style_tag.split(":")[1]] = levels
+        if styles:
+            facts["master_text_styles"] = styles
+    return facts
+
+
+def bullet_census(text_frame):
+    """Per-paragraph bullet facts: explicit char/autonum/none vs '(inherit)'
+    (bullet unstated in the paragraph -- resolved by layout/master/defaults)."""
+    kinds = Counter()
+    for para in text_frame.paragraphs:
+        pPr = para._p.pPr
+        kind = "(inherit)"
+        if pPr is not None:
+            for child in pPr:
+                tag = etree.QName(child).localname
+                if tag == "buNone":
+                    kind = "none"
+                elif tag == "buChar":
+                    kind = f"char:{child.get('char')}"
+                elif tag == "buAutoNum":
+                    kind = f"autonum:{child.get('type')}"
+        kinds[kind] += 1
+    return dict(kinds)
 
 
 def font_census(text_frame):
@@ -94,6 +215,7 @@ def shape_info(shape, sw, sh):
         info["text_preview"] = text[:80]
         info["para_count"] = len(shape.text_frame.paragraphs)
         info["font_census"] = font_census(shape.text_frame)
+        info["bullet_census"] = bullet_census(shape.text_frame)
     fill = fill_facts(shape)
     if fill:
         info["fill"] = fill
@@ -115,6 +237,7 @@ def extract(pptx_path):
     layout_usage = Counter()
     type_census = Counter()
     all_fonts, all_sizes, all_colors = Counter(), Counter(), Counter()
+    all_bullets = Counter()
     shape_counts = Counter()
 
     for i, slide in enumerate(prs.slides, start=1):
@@ -128,6 +251,9 @@ def extract(pptx_path):
                 all_fonts.update(fc["fonts"])
                 all_sizes.update(fc["sizes_pt"])
                 all_colors.update(fc["colors"])
+            bc = s.get("bullet_census")
+            if bc:
+                all_bullets.update(bc)
         slides.append({
             "n": i,
             "layout": slide.slide_layout.name,
@@ -147,6 +273,10 @@ def extract(pptx_path):
             f"master_{m}": [layout.name for layout in master.slide_layouts]
             for m, master in enumerate(prs.slide_masters, start=1)
         },
+        "themes": {
+            f"master_{m}": theme_facts(master)
+            for m, master in enumerate(prs.slide_masters, start=1)
+        },
         "slides": slides,
         "aggregates": {
             "layout_usage": dict(layout_usage),
@@ -154,6 +284,7 @@ def extract(pptx_path):
             "font_census": dict(all_fonts),
             "size_census_pt": dict(all_sizes),
             "color_census": dict(all_colors),
+            "bullet_census": dict(all_bullets),
             "shape_count_histogram": {str(k): v for k, v in sorted(shape_counts.items())},
         },
     }
