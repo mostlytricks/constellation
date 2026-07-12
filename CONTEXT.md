@@ -3,6 +3,7 @@
 Last touched: 2026-07-12
 
 ## Completed
+- **cp949 console crash fixed** (this session; `.gravity/deck-spec/PLAN.cp949.md` ✓): the bug you hit on the other machine — Python inherits the Korean-Windows console codepage, and printed deck data (`—`, `▪`, Hangul) crashed the scripts. All five scripts now reconfigure stdout/stderr to UTF-8 at entry; repro proven red→green; cp949 regression line added to the gate. Optional machine belt: `setx PYTHONUTF8 1`.
 - **`v0.2.1` cut and pushed.** Consolidated the two parallel work streams onto `main` (github v0.2.0 line — five skills, seam v1, KR write-half, `storyline`, title-grammar census — plus the local codex four-doc/Studio work), resolved the four-doc-pipeline doc collision, and released it as `v0.2.1`. Also backfilled the missing `v0.2.0` tag at `f6416db`. `main` + tags `v0.2.0`/`v0.2.1` pushed to origin; safety branch `codex-local-wip` deleted.
 - **Studio adopted as a *planned* future domain.** constellation stays a Claude Code skill set now, with a professional local Studio as a later shape behind the evidence gate. `.gravity/studio/PLAN.mvp.md` + `.gravity/DESIGN.md` in place, `studio ○` wired into MISSION §04 / the IMPLEMENTATION_PLAN spine / the Doc Map; deck-spec real-deck-evidence intake plan and the full-circle `fixtures/verify_roundtrip.py` added to the gate.
 

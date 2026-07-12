@@ -35,7 +35,7 @@ The skills are the machine, not domains. Two subjects have earned a folder
 | now | **Real-deck evidence intake** — drop real decks into `fixtures/` (office machine), run `analyze`, earn templates/themes; **blocked: decks are on the office machine** | mints `.gravity/deck-spec/PLAN.v2.md` | ○ |
 | next | deck-spec v2 — decided by that evidence: `picture` box kind, numbered lists (`buAutoNum`), layout-level style walking, multi-master (SPEC OPEN list) | `.gravity/deck-spec/PLAN.v2.md` (future) | ○ |
 | next | Dogfood — first real pitch end-to-end: `ideate` + `storyline` → compose from earned templates | — | ○ |
-| later | KR fidelity, legacy half — cp949 files need a real legacy deck (write half shipped: `PLAN.kr.md` ✓ — `font_ea` key + `fonts_ea` census + `byeoljari-demo` KR worked example) | `.gravity/deck-spec/PLAN.kr.md` | ◑ |
+| later | KR fidelity, legacy half — cp949 *files* need a real legacy deck (write half `PLAN.kr.md` ✓; cp949 *console* crash fixed with a gate wall, `PLAN.cp949.md` ✓) | `.gravity/deck-spec/PLAN.kr.md` | ◑ |
 | later | Title-grammar wall — graduate the analyze census from `[review]` judgment to a checkable rule, if it proves useful | — | ○ |
 | later | **Studio MVP** — local Guided + Developer workbench over the resolved scene; **gated: needs the typed v1 core first**, then mint `integration` as a third domain before the browser/Python boundary | `.gravity/studio/PLAN.mvp.md` | ○ |
 
@@ -68,6 +68,8 @@ The skills are the machine, not domains. Two subjects have earned a folder
 # full-circle: re-extract a generated deck and refuse geometry/theme-token drift
 .venv/Scripts/python .claude/skills/analyze/extract.py library/decks/constellation-intro/constellation-intro.pptx -o library/analysis/constellation-intro-roundtrip/structure.json
 .venv/Scripts/python fixtures/verify_roundtrip.py
+# cp949 regression (PLAN.cp949.md): a Korean-Windows console must never crash the scripts
+PYTHONIOENCODING=cp949 .venv/Scripts/python .claude/skills/analyze/extract.py fixtures/meridian-pitch.pptx > /dev/null
 # gravity index + spec honesty
 python ../../.claude/scenarios/check.py consistency --project .
 python ../../.claude/scenarios/check.py spec --project .

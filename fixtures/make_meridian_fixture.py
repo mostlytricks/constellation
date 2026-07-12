@@ -28,6 +28,16 @@ from pptx.opc.constants import RELATIONSHIP_TYPE as RT
 from pptx.oxml.ns import qn
 from pptx.util import Inches, Pt
 
+import sys
+
+# Consoles on Korean Windows default to cp949; printed deck data (em-dashes,
+# Hangul, census symbols) must never crash on the console's codepage.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
+
 NAVY = RGBColor(0x0B, 0x23, 0x40)    # primary brand
 INK = RGBColor(0x3B, 0x46, 0x52)     # body text
 GOLD = RGBColor(0xC9, 0xA2, 0x27)    # the one accent

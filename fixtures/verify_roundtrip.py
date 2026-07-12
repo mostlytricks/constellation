@@ -10,6 +10,14 @@ import json
 import sys
 from pathlib import Path
 
+# Consoles on Korean Windows default to cp949; printed deck data (em-dashes,
+# Hangul, census symbols) must never crash on the console's codepage.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
+
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SPEC = ROOT / "library" / "decks" / "constellation-intro" / "deck-spec.json"

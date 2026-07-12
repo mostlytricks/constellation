@@ -28,6 +28,14 @@ from pptx.enum.text import PP_ALIGN
 from pptx.oxml.ns import qn
 from pptx.util import Emu, Pt
 
+# Consoles on Korean Windows default to cp949; printed deck data (em-dashes,
+# Hangul, census symbols) must never crash on the console's codepage.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
+
 ROOT = Path(__file__).resolve().parents[3]
 TEMPLATES = ROOT / "library" / "templates"
 THEMES = ROOT / "library" / "themes"

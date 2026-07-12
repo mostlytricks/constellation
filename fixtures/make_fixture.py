@@ -13,6 +13,16 @@ from pptx import Presentation
 from pptx.dml.color import RGBColor
 from pptx.util import Inches, Pt
 
+import sys
+
+# Consoles on Korean Windows default to cp949; printed deck data (em-dashes,
+# Hangul, census symbols) must never crash on the console's codepage.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
+
 ACCENT = RGBColor(0x2E, 0x5C, 0xFF)   # the deck's one accent color
 BODY = RGBColor(0x33, 0x33, 0x33)
 

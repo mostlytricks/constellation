@@ -34,6 +34,14 @@ from pptx.enum.shapes import MSO_SHAPE_TYPE
 from pptx.opc.constants import RELATIONSHIP_TYPE as RT
 from pptx.oxml.ns import qn
 
+# Consoles on Korean Windows default to cp949; printed deck data (em-dashes,
+# Hangul, census symbols) must never crash on the console's codepage.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
+
 
 def pct(value, total):
     """EMU offset -> % of slide dimension (None-safe: inherited positions)."""

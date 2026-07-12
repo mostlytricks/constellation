@@ -9,6 +9,16 @@ file are the source of truth, never this file.
 
 ## [Unreleased]
 
+### Fixed
+
+- **Scripts crashed on cp949 (Korean Windows) consoles** (bug slice:
+  `.gravity/deck-spec/PLAN.cp949.md`) — printed deck data (em-dashes, Hangul,
+  `▪` census keys) died in the console's legacy codepage; all five scripts
+  (`extract.py`, `build.py`, `verify_roundtrip.py`, both fixture generators)
+  now reconfigure stdout/stderr to UTF-8 at entry (the workspace `check.py`
+  pattern). Regression wall added to the gate
+  (`PYTHONIOENCODING=cp949` extract run). File IO was already UTF-8 throughout.
+
 ## [0.2.1] - 2026-07-12
 
 ### Added
