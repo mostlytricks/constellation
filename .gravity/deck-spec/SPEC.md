@@ -101,7 +101,9 @@ stripped** (the privacy wall — templates are committable, analysis is not).
   `banding` (color tokens cycled over body rows) and `label_style` (column 0);
   `"content": "chart"` takes `"chart": "column" | "bar" | "line"` and an
   optional `series_fill` color token; a box with only `fill` is a solid
-  rectangle. `"align": "center" | "right"` optional on text boxes (default left).
+  rectangle. `"align": "left" | "center" | "right"` optional on text boxes
+  (default left). Any box whose content carries text (`text`, `bullets`,
+  `table`) must name a `text_style`.
   Tables render column 0 left, other columns right (the evidence's convention).
 - Style and fill values are **theme token names, never literals** — the
   template owns geometry, the theme owns appearance.

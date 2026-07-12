@@ -41,7 +41,8 @@ TEMPLATES = ROOT / "library" / "templates"
 THEMES = ROOT / "library" / "themes"
 SLIDE_H_EMU = 6858000  # fixed height; width follows the spec's aspect
 
-ALIGNS = {"center": PP_ALIGN.CENTER, "right": PP_ALIGN.RIGHT}
+ALIGNS = {"left": PP_ALIGN.LEFT, "center": PP_ALIGN.CENTER,
+          "right": PP_ALIGN.RIGHT}
 CHART_TYPES = {"column": XL_CHART_TYPE.COLUMN_CLUSTERED,
                "bar": XL_CHART_TYPE.BAR_CLUSTERED,
                "line": XL_CHART_TYPE.LINE}
@@ -73,11 +74,12 @@ def check_fill_value(where, key, box, value, errors):
                       f"{type(value).__name__}")
     elif kind == "table":
         rows = value if isinstance(value, list) else []
-        if not rows or not all(isinstance(r, list)
-                               and all(isinstance(c, str) for c in r)
-                               and len(r) == len(rows[0]) for r in rows):
+        if not rows or not rows[0] or not all(
+                isinstance(r, list)
+                and all(isinstance(c, str) for c in r)
+                and len(r) == len(rows[0]) for r in rows):
             errors.append(f"{where}: box '{key}' takes an array of equal-length "
-                          f"string rows (first row = header)")
+                          f"non-empty string rows (first row = header)")
     elif kind == "chart":
         cats = value.get("categories") if isinstance(value, dict) else None
         series = value.get("series") if isinstance(value, dict) else None
@@ -86,7 +88,8 @@ def check_fill_value(where, key, box, value, errors):
                 and all(isinstance(s, dict) and isinstance(s.get("name"), str)
                         and isinstance(s.get("values"), list)
                         and len(s["values"]) == len(cats)
-                        and all(isinstance(v, (int, float)) for v in s["values"])
+                        and all(isinstance(v, (int, float))
+                                and not isinstance(v, bool) for v in s["values"])
                         for s in series)):
             errors.append(f"{where}: box '{key}' takes "
                           f'{{"categories": [...], "series": [{{"name", "values"}}]}} '
@@ -112,6 +115,10 @@ def validate(spec, templates, theme, errors):
             for key in ("text_style", "label_style"):
                 if key in box and box[key] not in styles:
                     errors.append(f"{where}: unknown {key} '{box[key]}'")
+            if box_kind(box) in ("text", "bullets", "table") \
+                    and "text_style" not in box:
+                errors.append(f"{where}: '{box_kind(box)}' content needs a "
+                              f"text_style")
             if "fill" in box and box["fill"] not in colors:
                 errors.append(f"{where}: unknown color token '{box['fill']}'")
             if "align" in box and box["align"] not in ALIGNS:
@@ -185,12 +192,12 @@ def styled_text(value, style):
     return value.upper() if style.get("caps") else value
 
 
-def set_bullet(para, char):
+def set_bullet(para, char, typeface):
     """Real buChar with hanging indent -- not a literal prefix."""
     pPr = para._p.get_or_add_pPr()
     pPr.set("marL", "228600")
     pPr.set("indent", "-228600")
-    pPr.append(pPr.makeelement(qn("a:buFont"), {"typeface": "Arial"}))
+    pPr.append(pPr.makeelement(qn("a:buFont"), {"typeface": typeface}))
     pPr.append(pPr.makeelement(qn("a:buChar"), {"char": char}))
 
 
@@ -212,7 +219,7 @@ def draw_text(slide_obj, box, value, style, colors, bullet_char, sw, sh):
         if box.get("align") in ALIGNS:
             para.alignment = ALIGNS[box["align"]]
         if isinstance(value, list):
-            set_bullet(para, bullet_char)
+            set_bullet(para, bullet_char, style.get("font", "Arial"))
         run = para.add_run()
         run.text = styled_text(item, style)
         apply_style(run, style, colors)
