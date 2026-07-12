@@ -9,6 +9,8 @@ file are the source of truth, never this file.
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-07-12
+
 ### Added
 
 - **Four-doc pipeline adopted** — `.gravity/MISSION.html` (north star, five
