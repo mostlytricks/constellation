@@ -21,9 +21,12 @@ Docs are grouped by **subject domain**, not by doc-type. A domain folder holds w
   GRAVITY.md              # the protocol card — how to work these docs (versioned copy, never hand-edit)
   MISSION.html            # why — north star, principles, non-goals (browser-read)
   IMPLEMENTATION_PLAN.md  # what/next — domain status spine, slice queue, locked decisions, the gate
+  DESIGN.md               # the planned Studio application design contract (future domain — see studio/)
   deck-spec/ SPEC.md      # the seam — deck-spec × template × theme JSON shapes (v1), enforced by compose/build.py
   deck-spec/ PLAN.v1.md   # the v0→v1 slice (intent + verification record)
   deck-spec/ PLAN.kr.md   # the KR fidelity slice — font_ea channel + Korean worked example
+  deck-spec/ PLAN.real-deck-evidence.md  # the active real-deck intake slice (the next gate)
+  studio/ PLAN.mvp.md     # planned domain (○) — local Guided + Developer workbench; waits for the typed v1 core
 ```
 
 ## What to read before a change (router)
@@ -31,7 +34,8 @@ Docs are grouped by **subject domain**, not by doc-type. A domain folder holds w
 | If you're changing… | Read first | Human reference |
 |---|---|---|
 | deck-spec / template / theme JSON shapes, fill semantics, role→template matching, build.py validation rules | `.gravity/deck-spec/SPEC.md` | — |
-| a skill's procedure (ideate / analyze / templatize / compose) | `.claude/skills/<skill>/SKILL.md` (+ the seam SPEC if it touches the shapes) | — |
+| Studio product/UI behavior, workflow, layout, or visual system (planned — no runtime yet) | `.gravity/studio/PLAN.mvp.md` (intent; no SPEC yet) | `.gravity/DESIGN.md` |
+| a skill's procedure (ideate / storyline / analyze / templatize / compose) | `.claude/skills/<skill>/SKILL.md` (+ the seam SPEC if it touches the shapes) | — |
 
 ## Adding a domain (start here for a new feature)
 
@@ -54,7 +58,7 @@ A deck is stars arranged into a picture: components are stars, patterns are the 
 ## Stack
 
 - **Skills:** Claude Code skills (`.claude/skills/<name>/SKILL.md`) — markdown instructions + helper scripts.
-- **Language / runtime:** Python 3.12 for pptx read/write helpers.
+- **Language / runtime:** Python 3.13 for pptx read/write helpers (the repo venv is built on 3.13).
 - **Key dependency:** `python-pptx` — confirmed for generation (`compose/build.py`: text, fills, tables, charts, real `buChar` bullets) and structural extraction; `extract.py` additionally parses raw OOXML (via python-pptx's bundled `lxml`) for theme/master facts and bullet facts. Remaining fidelity OPENs live in `.gravity/deck-spec/SPEC.md` (numbered lists, pictures).
 - **Datastore:** none — templates and design guides are files in this repo.
 
@@ -107,7 +111,7 @@ output** — geometry and censuses must match the templates/theme exactly.
 
 ## Entry Points
 
-- `.claude/skills/` — the four skills (the product).
+- `.claude/skills/` — the five skills (the product).
 - `library/` — extracted patterns, templates, design guides, composed decks (the output shelf).
 - Seam: the **deck-spec** — the intermediate representation between analyze/templatize and compose. Defined at `.gravity/deck-spec/SPEC.md` (**v1, provisional** — schema fixed from synthetic evidence only; real-deck analysis is expected to revise it, bumping `spec_version`). Enforced by `compose/build.py`, which refuses unresolvable specs.
 

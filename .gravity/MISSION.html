@@ -189,7 +189,7 @@
   <p><strong>Make building a presentation a composition problem, not a blank-page problem.</strong> A deck is stars arranged into a picture: components are the stars, patterns the lines between them, the design theme the sky — and the storyline is the picture the constellation draws. The five skills decompose decks you admire into those parts and recombine them with a new idea into a finished <code>.pptx</code> that argues.</p>
   <pre><b>north star</b>: a pitch you would actually give, composed in minutes from patterns your own decks earned
 <b>first wedge</b>: consultant-mood pitch decks (EN/KR) through the deck-spec seam
-<b>later shape</b>: a pattern library that compounds — every deck analyzed makes the next one cheaper</pre>
+<b>later shape</b>: a pattern library that compounds — and a professional local Studio over the same seam (planned, behind real-deck evidence)</pre>
 
   <div class="note">
     <span class="lbl">Staged, not confused.</span> Synthetic fixtures staged the whole machine first so real-deck evidence lands on working rails — the fixtures are scaffolding, never the product.
@@ -216,11 +216,12 @@
   </ul>
 
   <h2 id="architecture"><span class="n">04</span>Architecture Principle</h2>
-  <p>Everything reduces to <strong>one seam: the deck-spec</strong> — the JSON contract between understanding decks (analyze/templatize) and producing them (compose). Skills may grow, templates may multiply, but they meet only at the seam; a capability that bypasses it (hand-drawn geometry, in-place edits) is off-mission. The system in one domain:</p>
+  <p>Everything reduces to <strong>one seam: the deck-spec</strong> — the JSON contract between understanding decks (analyze/templatize) and producing them (compose). Skills may grow, templates may multiply, but they meet only at the seam; a capability that bypasses it (hand-drawn geometry, in-place edits) is off-mission. The planned Studio is a <em>consumer</em> of this seam, never a second source of truth — which is what lets it be a domain without weakening the principle. The system in two domains (one shipped, one planned):</p>
   <table>
-    <thead><tr><th>Domain</th><th>Principle (the why)</th></tr></thead>
+    <thead><tr><th>Domain</th><th>Status</th><th>Principle (the why)</th></tr></thead>
     <tbody>
-      <tr><td><code>deck-spec</code></td><td>One honest, versioned interface — <code>build.py</code> is its only validator, and it refuses what it cannot faithfully render.</td></tr>
+      <tr><td><code>deck-spec</code></td><td>shipped</td><td>One honest, versioned interface — <code>build.py</code> is its only validator, and it refuses what it cannot faithfully render.</td></tr>
+      <tr><td><code>studio</code></td><td>planned ○</td><td>A professional local review surface over the same resolved scene — Guided authoring for flow, a Developer view for specs, diffs, provenance, and diagnostics. Consumes the seam; never duplicates composition or validation. Waits behind real-deck evidence and the typed v1 core (<code>IMPLEMENTATION_PLAN.md</code>).</td></tr>
     </tbody>
   </table>
 
@@ -242,7 +243,7 @@
     <li><strong>No in-place deck editing.</strong> We generate from templates; a WYSIWYG round-trip editor is a different product and breaks the fidelity principle.</li>
     <li><strong>No invented design.</strong> Themes come from analyzed evidence, not taste — the design guide is extracted, never imagined.</li>
     <li><strong>No speculative schema.</strong> Pictures, numbered lists, multi-master support wait for the real deck that demands them (SPEC <code>OPEN</code> list).</li>
-    <li><strong>Not a service.</strong> This is a Claude Code skill set operated in-session — no server, no UI, no datastore beyond files in this repo.</li>
+    <li><strong>No service or UI <em>yet</em>.</strong> Constellation runs as an in-session Claude Code skill set today. A professional local Studio is a planned later shape (see the <code>studio</code> domain and <code>IMPLEMENTATION_PLAN.md</code>), explicitly gated behind real-deck evidence and the typed v1 core — and even then it stays local and file-native: no cloud account, no collaboration server, and no datastore beyond files in this repo are prerequisites for the core workflow.</li>
   </ul>
 
   <div class="note warn">

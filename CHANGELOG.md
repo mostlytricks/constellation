@@ -12,10 +12,21 @@ file are the source of truth, never this file.
 ### Added
 
 - **Four-doc pipeline adopted** — `.gravity/MISSION.html` (north star, five
-  principles, non-goals, the deck-spec why-row) and
+  principles, non-goals, the `deck-spec` + planned `studio` why-rows) and
   `.gravity/IMPLEMENTATION_PLAN.md` (domain status spine + slice queue +
   locked decisions + the gate). Clears the two standing `check.py` WARNs;
   the roadmap now has a durable home.
+- **`studio` planned as a future domain** — `.gravity/studio/PLAN.mvp.md`
+  (the local Guided + Developer workbench slice) and `.gravity/DESIGN.md`
+  (the Studio application design contract). Wired `studio ○` into MISSION
+  §04, the IMPLEMENTATION_PLAN spine, and the Doc Map. It is a *consumer*
+  of the seam, gated behind real-deck evidence and the typed v1 core — no
+  runtime code yet, only intent.
+- **Real-deck evidence plan** — `.gravity/deck-spec/PLAN.real-deck-evidence.md`
+  makes the active real-deck intake slice (the next gate) explicit.
+- **Full-circle verifier** — `fixtures/verify_roundtrip.py` re-extracts a
+  generated deck and refuses geometry or theme-token drift from the
+  referenced templates/theme; added to the gate.
 - **Title-grammar census** — `analyze` stage 2 gains a label-vs-claim
   section (action-title detection, the read-side twin of `storyline`'s
   coaching); both worked examples updated (meridian: 6/6 claims; orion:
@@ -27,6 +38,11 @@ file are the source of truth, never this file.
   `Malgun Gothic`. Korean worked example `library/decks/byeoljari-demo/`
   proves Hangul round-trips the whole pipeline intact. cp949 legacy files
   remain open pending a real legacy deck.
+
+### Changed
+
+- **Reconciled the documented Python runtime with the repo venv** — `CLAUDE.md`
+  now states Python 3.13 (the venv is built on 3.13), correcting the stale 3.12.
 
 ## [0.2.0] - 2026-07-11
 

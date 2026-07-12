@@ -1,7 +1,7 @@
 # constellation — Implementation plan & resume sheet
 
-> Working scenario: real-deck evidence turns the synthetic machine into an earned pattern library.
-> Branch `claude/constellation-gravity-release-i64nqq` (dev) → `main` · last updated 2026-07-11.
+> Working scenario: real-deck evidence turns the synthetic machine into an earned pattern library — and, later, a professional local Studio over the same seam.
+> Branch `main` · last updated 2026-07-12.
 
 ## Status right now
 
@@ -19,12 +19,14 @@ tag `v0.2.0` still needs a local push (see CONTEXT.md).
 
 ## Domain status spine
 
-The skills are the machine, not domains; `deck-spec` is the one subject that has
-earned a folder (root CLAUDE.md, *Adding a domain*).
+The skills are the machine, not domains. Two subjects have earned a folder
+(root CLAUDE.md, *Adding a domain*): `deck-spec` (shipped) and `studio`
+(planned — intent fixed, no runtime yet). `○ planned · ◑ building · ✓ shipped`.
 
 | Domain | Status | Where it stands |
 |---|---|---|
 | `deck-spec` | ✓ v1 shipped | `.gravity/deck-spec/SPEC.md` (v1, provisional — synthetic evidence); last slice `.gravity/deck-spec/PLAN.v1.md` ✓; v2 awaits real-deck evidence |
+| `studio` | ○ planned | product + design intent fixed (`.gravity/studio/PLAN.mvp.md`, `.gravity/DESIGN.md`); a *consumer* of the seam — implementation waits behind real-deck evidence and the typed v1 core |
 
 ## Slice queue
 
@@ -35,6 +37,7 @@ earned a folder (root CLAUDE.md, *Adding a domain*).
 | next | Dogfood — first real pitch end-to-end: `ideate` + `storyline` → compose from earned templates | — | ○ |
 | later | KR fidelity, legacy half — cp949 files need a real legacy deck (write half shipped: `PLAN.kr.md` ✓ — `font_ea` key + `fonts_ea` census + `byeoljari-demo` KR worked example) | `.gravity/deck-spec/PLAN.kr.md` | ◑ |
 | later | Title-grammar wall — graduate the analyze census from `[review]` judgment to a checkable rule, if it proves useful | — | ○ |
+| later | **Studio MVP** — local Guided + Developer workbench over the resolved scene; **gated: needs the typed v1 core first**, then mint `integration` as a third domain before the browser/Python boundary | `.gravity/studio/PLAN.mvp.md` | ○ |
 
 ## Locked decisions
 
@@ -43,6 +46,9 @@ earned a folder (root CLAUDE.md, *Adding a domain*).
 - **Breaking seam changes bump `spec_version` and old specs are refused by name** — never silent compat (v1 precedent).
 - **Templates prove by building** — a template that can't pass the gate isn't minted (templatize step 5).
 - **Skills ≠ domains** — `.claude/skills/` is the product; `.gravity/` folders are minted only by the is-it-a-domain gate.
+- **One authoritative engine** — the planned Studio never duplicates composition or validation; it consumes the same resolved scene and defers to `build.py` (MISSION §04).
+- **Studio waits for evidence** — no Studio runtime code before real-deck evidence and the typed v1 core; product/design intent may be authored now (`studio/PLAN.mvp.md`, `DESIGN.md`), implementation may not.
+- **Human-reviewed consequences** — promotion, writes, and exports stay explicit; no silent autopilot in either the skills or the future Studio.
 
 ## Open questions
 
@@ -59,6 +65,12 @@ earned a folder (root CLAUDE.md, *Adding a domain*).
 .venv/Scripts/python .claude/skills/analyze/extract.py fixtures/meridian-pitch.pptx -o library/analysis/meridian-pitch/structure.json
 .venv/Scripts/python .claude/skills/compose/build.py library/decks/constellation-intro/deck-spec.json -o library/decks/constellation-intro/constellation-intro.pptx
 .venv/Scripts/python .claude/skills/compose/build.py library/decks/meridian-demo/deck-spec.json -o library/decks/meridian-demo/meridian-demo.pptx
+# full-circle: re-extract a generated deck and refuse geometry/theme-token drift
+.venv/Scripts/python .claude/skills/analyze/extract.py library/decks/constellation-intro/constellation-intro.pptx -o library/analysis/constellation-intro-roundtrip/structure.json
+.venv/Scripts/python fixtures/verify_roundtrip.py
+# gravity index + spec honesty
+python ../../.claude/scenarios/check.py consistency --project .
+python ../../.claude/scenarios/check.py spec --project .
 ```
 
-Last green: 2026-07-11 (v0.2.0 cut — all four loops + `check.py consistency`/`spec` 0 fails).
+Last green: 2026-07-12 (consolidation — all loops + full-circle verifier + `check.py consistency`/`spec` 0 fails).
