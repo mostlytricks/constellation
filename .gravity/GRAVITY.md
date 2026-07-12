@@ -1,4 +1,4 @@
-> **gravity protocol · v1.8** — copied from `ai-workspace/templates/GRAVITY-PROTOCOL.template.md`; never hand-edit. On a gravity upgrade, re-copy from the workspace (`/triage` flags a stale card).
+> **gravity protocol · v2.4** — copied from `ai-workspace/templates/GRAVITY-PROTOCOL.template.md`; never hand-edit. On a gravity upgrade, re-copy from the workspace (`/triage` flags a stale card).
 
 # The gravity protocol (project-side)
 
