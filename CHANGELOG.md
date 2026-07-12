@@ -11,6 +11,15 @@ file are the source of truth, never this file.
 
 ### Fixed
 
+- **Validator review pass — three crash-after-green-validate holes closed**
+  (`build.py`): a `bullets`/`table` box with no `text_style` is now refused
+  with a listed error (was: raw `KeyError` at build); an empty table row set
+  (`[[]]`) is refused (was: `add_table` crash); JSON booleans are refused as
+  chart values (was: silently rendered as 1/0 — `bool` is an `int` in
+  Python). Also: explicit `"align": "left"` is now accepted (writing the
+  default was an error), and the bullet glyph font (`a:buFont`) follows the
+  box style's font instead of hardcoded Arial. SPEC wording updated.
+
 - **Scripts crashed on cp949 (Korean Windows) consoles** (bug slice:
   `.gravity/deck-spec/PLAN.cp949.md`) — printed deck data (em-dashes, Hangul,
   `▪` census keys) died in the console's legacy codepage; all five scripts
