@@ -6,7 +6,7 @@ Agent skill set for presentation building — analyze existing decks into compon
 
 ---
 
-> **gravity: v2.4** · _the version of the workspace gravity system this project adopted (root `VERSION` / `CHANGELOG.md`). Bump when you re-sync to a newer skeleton; `/triage` flags drift._
+> **gravity: v2.10** · _the version of the workspace gravity system this project adopted (root `VERSION` / `CHANGELOG.md`). Bump when you re-sync to a newer skeleton; `/triage` flags drift._
 
 > **Docs live in `.gravity/`.** This `CLAUDE.md` (identity, *how*) and `CONTEXT.md` (*now*) stay at the project root and auto-load. Everything else — contracts and any future *why* / *what-next* docs — is organized **by subject domain** under `.gravity/`. See the **Doc Map** below. One concern, one home — link, don't restate.
 
