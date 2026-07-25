@@ -12,8 +12,6 @@ Agent skill set for presentation building — analyze existing decks into compon
 > what to read before changing what). Session ritual: read `CONTEXT.md` first; update it before stopping.
 <!-- /gravity:router -->
 
-> **Protocol card: read `.gravity/GRAVITY.md` before touching `.gravity/` docs.** It embeds the project-side gravity protocol so this repo is self-describing even when opened without the workspace. It's a versioned copy — never hand-edit; re-copy from the workspace on a gravity upgrade.
-
 ## The Pipeline (the shape of the project)
 
 A deck is stars arranged into a picture: components are stars, patterns are the lines between them, the design theme is the sky — and the storyline is the picture the constellation draws. Five capabilities, each a Claude Code skill:
