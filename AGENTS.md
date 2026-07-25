@@ -1,5 +1,11 @@
 # Agent Instructions
 
+<!-- gravity:router v3.2 — managed by /adopt-gravity + /sync-gravity; do not hand-edit inside the fences -->
+> **gravity: v3.2** — docs live in `.gravity/`. Before working here, read `.gravity/GRAVITY.md`
+> (the protocol: doc kinds + rates, navigation discipline) and `.gravity/ROUTER.md` (the Doc Map +
+> what to read before changing what). Session ritual: read `CONTEXT.md` first; update it before stopping.
+<!-- /gravity:router -->
+
 **`CLAUDE.md` is the canonical operating manual for this project.** Everything in this file is *routing*, not rules — do not duplicate project rules here; when stable instructions change, change `CLAUDE.md`.
 
 ## Required reading protocol — do this, in this order

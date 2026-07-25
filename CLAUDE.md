@@ -6,44 +6,13 @@ Agent skill set for presentation building — analyze existing decks into compon
 
 ---
 
-> **gravity: v2.10** · _the version of the workspace gravity system this project adopted (root `VERSION` / `CHANGELOG.md`). Bump when you re-sync to a newer skeleton; `/triage` flags drift._
-
-> **Docs live in `.gravity/`.** This `CLAUDE.md` (identity, *how*) and `CONTEXT.md` (*now*) stay at the project root and auto-load. Everything else — contracts and any future *why* / *what-next* docs — is organized **by subject domain** under `.gravity/`. See the **Doc Map** below. One concern, one home — link, don't restate.
+<!-- gravity:router v3.2 — managed by /adopt-gravity + /sync-gravity; do not hand-edit inside the fences -->
+> **gravity: v3.2** — docs live in `.gravity/`. Before working here, read `.gravity/GRAVITY.md`
+> (the protocol: doc kinds + rates, navigation discipline) and `.gravity/ROUTER.md` (the Doc Map +
+> what to read before changing what). Session ritual: read `CONTEXT.md` first; update it before stopping.
+<!-- /gravity:router -->
 
 > **Protocol card: read `.gravity/GRAVITY.md` before touching `.gravity/` docs.** It embeds the project-side gravity protocol so this repo is self-describing even when opened without the workspace. It's a versioned copy — never hand-edit; re-copy from the workspace on a gravity upgrade.
-
-## Doc Map (`.gravity/`)
-
-Docs are grouped by **subject domain**, not by doc-type. A domain folder holds whichever of three kinds it needs — `ARCHITECTURE.html` (human deep-dive), `SPEC.md` (agent contract), `PLAN.*.md` (what/next) — named by *kind* because the folder already names the subject. **Recognized only when present** — no project ARCHITECTURE.html yet; the file map below is the how.
-
-```
-.gravity/
-  GRAVITY.md              # the protocol card — how to work these docs (versioned copy, never hand-edit)
-  MISSION.html            # why — north star, principles, non-goals (browser-read)
-  IMPLEMENTATION_PLAN.md  # what/next — domain status spine, slice queue, locked decisions, the gate
-  DESIGN.md               # the planned Studio application design contract (future domain — see studio/)
-  deck-spec/ SPEC.md      # the seam — deck-spec × template × theme JSON shapes (v1), enforced by compose/build.py
-  deck-spec/ PLAN.v1.md   # the v0→v1 slice (intent + verification record)
-  deck-spec/ PLAN.kr.md   # the KR fidelity slice — font_ea channel + Korean worked example
-  deck-spec/ PLAN.real-deck-evidence.md  # the active real-deck intake slice (the next gate)
-  studio/ PLAN.mvp.md     # planned domain (○) — local Guided + Developer workbench; waits for the typed v1 core
-```
-
-## What to read before a change (router)
-
-| If you're changing… | Read first | Human reference |
-|---|---|---|
-| deck-spec / template / theme JSON shapes, fill semantics, role→template matching, build.py validation rules | `.gravity/deck-spec/SPEC.md` | — |
-| Studio product/UI behavior, workflow, layout, or visual system (planned — no runtime yet) | `.gravity/studio/PLAN.mvp.md` (intent; no SPEC yet) | `.gravity/DESIGN.md` |
-| a skill's procedure (ideate / storyline / analyze / templatize / compose) | `.claude/skills/<skill>/SKILL.md` (+ the seam SPEC if it touches the shapes) | — |
-
-## Adding a domain (start here for a new feature)
-
-A **domain** is a durable subject area an agent will repeatedly navigate and change — not every feature is one. Mint a `.gravity/<domain>/` folder only when the feature has its own *gravity*; otherwise it's a slice under an existing domain. (`/new-domain constellation <domain>` does the wiring.)
-
-**Gate — is it a domain?** It earns a folder when it has its own *principle* and most of: rules an agent must respect (`SPEC.md`), a "how it's built" beyond a file map (`ARCHITECTURE.html`), a multi-step arc (`PLAN.*.md`). If not, it's a `PLAN.*.md` slice under an existing domain.
-
-**Wire the indexes** when minting: the Doc Map above + the router table row (once it has a SPEC) + the why-row in `.gravity/MISSION.html` §04 + the status row in `.gravity/IMPLEMENTATION_PLAN.md`'s Domain status spine.
 
 ## The Pipeline (the shape of the project)
 
